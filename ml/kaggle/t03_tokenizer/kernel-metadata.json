@@ -1,0 +1,17 @@
+{
+  "id": "fragilov/safepay-t03-tokenizer-bench",
+  "title": "SafePay T03 Tokenizer Bench",
+  "code_file": "train_eval_tokenizer.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_tpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "daddychillonkaggle/vietnamese-financial-corpus",
+    "guutran/vietnamese-sentiment-analysis-food-reviews"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

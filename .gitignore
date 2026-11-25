@@ -1,0 +1,7 @@
+# Project plan spreadsheet (local tracking)
+MoMo Contest - SafePay Agent Project Plan (24_11 - 03_12).xlsx
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/

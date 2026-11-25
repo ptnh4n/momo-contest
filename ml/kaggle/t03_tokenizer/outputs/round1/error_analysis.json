@@ -1,0 +1,5084 @@
+{
+  "spm_unigram_12000": {
+    "model_name": "spm_unigram_12000",
+    "atomicity_failures": [
+      {
+        "token": "[PAD]",
+        "pieces_alone": [
+          "▁",
+          "[",
+          "P",
+          "AD",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[UNK]",
+        "pieces_alone": [
+          "▁",
+          "[",
+          "U",
+          "N",
+          "K",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[CLS]",
+        "pieces_alone": [
+          "▁",
+          "[CLS]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[SEP]",
+        "pieces_alone": [
+          "▁",
+          "[SEP]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[MASK]",
+        "pieces_alone": [
+          "▁",
+          "[MASK]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_1>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_2>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_3>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_4>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_5>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_1>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_2>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_3>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_4>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_5>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_1>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_2>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_3>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_4>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_5>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_CONTACT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_CONTACT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_RAW_ACCT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_RAW_ACCT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "OCR_RECEIPT",
+        "pieces_alone": [
+          "▁",
+          "OCR_RECEIPT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "lookup_contact",
+        "pieces_alone": [
+          "▁",
+          "lookup_contact"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "get_recent_transactions",
+        "pieces_alone": [
+          "▁",
+          "get_recent_transactions"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "check_scam_database",
+        "pieces_alone": [
+          "▁",
+          "check_scam_database"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "parse_receipt_image",
+        "pieces_alone": [
+          "▁",
+          "parse_receipt_image"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "create_draft_transfer",
+        "pieces_alone": [
+          "▁",
+          "create_draft_transfer"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "upsert_contact_alias",
+        "pieces_alone": [
+          "▁",
+          "upsert_contact_alias"
+        ],
+        "in_ctx": true
+      }
+    ],
+    "keywords_gt_2_tokens_count": 9,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "bản nháp",
+        "num_tokens": 3,
+        "pieces": [
+          "▁bản",
+          "▁nhá",
+          "p"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "tòa án",
+        "num_tokens": 3,
+        "pieces": [
+          "▁tò",
+          "a",
+          "▁án"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 4,
+        "pieces": [
+          "▁pass",
+          "w",
+          "or",
+          "d"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 4,
+        "pieces": [
+          "▁",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 10,
+        "pieces": [
+          "▁R",
+          "E",
+          "Q",
+          "U",
+          "I",
+          "R",
+          "E",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 11,
+        "pieces": [
+          "▁B",
+          "L",
+          "OC",
+          "K",
+          "_",
+          "A",
+          "N",
+          "O",
+          "M",
+          "AL",
+          "Y"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 11,
+        "pieces": [
+          "▁",
+          "OC",
+          "R",
+          "_",
+          "AL",
+          "WA",
+          "Y",
+          "S",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "wi",
+          "th",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 10,
+        "pieces": [
+          "▁R",
+          "E",
+          "Q",
+          "U",
+          "I",
+          "R",
+          "E",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "[",
+          "D",
+          "E",
+          "V",
+          "E",
+          "L",
+          "O",
+          "PE",
+          "R"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "ris",
+          "k",
+          "_",
+          "s",
+          "co",
+          "re",
+          "=",
+          "0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "s",
+          "y",
+          "ste",
+          "m",
+          ">"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 8,
+        "pieces": [
+          "▁de",
+          "c",
+          "is",
+          "ion",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "<",
+          "s",
+          "y",
+          "ste",
+          "m",
+          ">"
+        ]
+      },
+      {
+        "word": "COMPLETED",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "COM",
+          "P",
+          "LE",
+          "T",
+          "E",
+          "D"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 7,
+        "pieces": [
+          "▁G",
+          "R",
+          "AB",
+          "F",
+          "O",
+          "O",
+          "D"
+        ]
+      },
+      {
+        "word": "TRUSTED",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "TR",
+          "U",
+          "S",
+          "T",
+          "E",
+          "D"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "acc",
+          "ount",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "assistant,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "ass",
+          "is",
+          "t",
+          "an",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "risk_score",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "ris",
+          "k",
+          "_",
+          "s",
+          "co",
+          "re"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 7,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "9",
+          "99"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "li",
+          "m",
+          "ite",
+          "d",
+          ","
+        ]
+      },
+      {
+        "word": "unrestricted",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "re",
+          "st",
+          "ric",
+          "t",
+          "ed"
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 6,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ư",
+          "ời"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "INTERNET",
+        "num_tokens": 6,
+        "pieces": [
+          "▁I",
+          "NT",
+          "ER",
+          "N",
+          "E",
+          "T"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 6,
+        "pieces": [
+          "▁K",
+          "AR",
+          "A",
+          "O",
+          "K",
+          "E"
+        ]
+      },
+      {
+        "word": "RECEIPT",
+        "num_tokens": 6,
+        "pieces": [
+          "▁R",
+          "E",
+          "C",
+          "E",
+          "I",
+          "PT"
+        ]
+      },
+      {
+        "word": "anti-scam",
+        "num_tokens": 6,
+        "pieces": [
+          "▁an",
+          "ti",
+          "-",
+          "s",
+          "c",
+          "am"
+        ]
+      },
+      {
+        "word": "classify",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "c",
+          "l",
+          "ass",
+          "if",
+          "y"
+        ]
+      },
+      {
+        "word": "constraints",
+        "num_tokens": 6,
+        "pieces": [
+          "▁con",
+          "st",
+          "ra",
+          "in",
+          "t",
+          "s"
+        ]
+      },
+      {
+        "word": "policy:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "po",
+          "li",
+          "c",
+          "y",
+          ":"
+        ]
+      },
+      {
+        "word": "receipt:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁re",
+          "ce",
+          "i",
+          "p",
+          "t",
+          ":"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁xa",
+          "i",
+          "_",
+          "rea",
+          "son",
+          "s"
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "s",
+          "ế",
+          "p",
+          "'"
+        ]
+      },
+      {
+        "word": "Agent,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁A",
+          "g",
+          "en",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "FT",
+          "2",
+          "63",
+          "29"
+        ]
+      },
+      {
+        "word": "NGUYEN",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "NG",
+          "U",
+          "Y",
+          "EN"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ri",
+          "de",
+          ":"
+        ]
+      }
+    ],
+    "byte_fallback_examples": [
+      {
+        "domain": "ocr_receipts",
+        "text": "PHIẾU ĐẶT CỌC THUÊ PHÒNG | Tiền cọc: 3.500.000đ | Chủ nhà: Lê Văn B | STK <ACCT_2> Sacombank",
+        "pieces": [
+          "▁PHIẾU",
+          "▁Đ",
+          "<0xE1>",
+          "<0xBA>",
+          "<0xB6>",
+          "T",
+          "▁CỌC",
+          "▁THU",
+          "Ê",
+          "▁PH",
+          "<0xC3>",
+          "<0x92>",
+          "NG",
+          "▁|",
+          "▁Tiền",
+          "▁cọc",
+          ":",
+          "▁3.500",
+          ".000",
+          "đ",
+          "▁|",
+          "▁Chủ",
+          "▁nhà",
+          ":",
+          "▁Lê",
+          "▁Văn",
+          "▁B",
+          "▁|",
+          "▁STK",
+          "▁",
+          "<ACCT_2>",
+          "▁Sacombank"
+        ]
+      }
+    ]
+  },
+  "spm_unigram_14000": {
+    "model_name": "spm_unigram_14000",
+    "atomicity_failures": [
+      {
+        "token": "[PAD]",
+        "pieces_alone": [
+          "▁",
+          "[",
+          "P",
+          "AD",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[UNK]",
+        "pieces_alone": [
+          "▁",
+          "[",
+          "U",
+          "N",
+          "K",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[CLS]",
+        "pieces_alone": [
+          "▁",
+          "[CLS]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[SEP]",
+        "pieces_alone": [
+          "▁",
+          "[SEP]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[MASK]",
+        "pieces_alone": [
+          "▁",
+          "[MASK]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_1>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_2>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_3>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_4>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_5>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_1>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_2>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_3>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_4>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_5>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_1>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_2>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_3>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_4>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_5>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_CONTACT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_CONTACT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_RAW_ACCT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_RAW_ACCT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "OCR_RECEIPT",
+        "pieces_alone": [
+          "▁",
+          "OCR_RECEIPT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "lookup_contact",
+        "pieces_alone": [
+          "▁",
+          "lookup_contact"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "get_recent_transactions",
+        "pieces_alone": [
+          "▁",
+          "get_recent_transactions"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "check_scam_database",
+        "pieces_alone": [
+          "▁",
+          "check_scam_database"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "parse_receipt_image",
+        "pieces_alone": [
+          "▁",
+          "parse_receipt_image"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "create_draft_transfer",
+        "pieces_alone": [
+          "▁",
+          "create_draft_transfer"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "upsert_contact_alias",
+        "pieces_alone": [
+          "▁",
+          "upsert_contact_alias"
+        ],
+        "in_ctx": true
+      }
+    ],
+    "keywords_gt_2_tokens_count": 9,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "bản nháp",
+        "num_tokens": 3,
+        "pieces": [
+          "▁bản",
+          "▁nhá",
+          "p"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "tòa án",
+        "num_tokens": 3,
+        "pieces": [
+          "▁tò",
+          "a",
+          "▁án"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 4,
+        "pieces": [
+          "▁pass",
+          "w",
+          "or",
+          "d"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 4,
+        "pieces": [
+          "▁",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 9,
+        "pieces": [
+          "▁RE",
+          "Q",
+          "U",
+          "I",
+          "R",
+          "E",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 11,
+        "pieces": [
+          "▁B",
+          "L",
+          "OC",
+          "K",
+          "_",
+          "A",
+          "N",
+          "O",
+          "M",
+          "AL",
+          "Y"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 11,
+        "pieces": [
+          "▁",
+          "OC",
+          "R",
+          "_",
+          "AL",
+          "WA",
+          "Y",
+          "S",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "wi",
+          "th",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "[",
+          "D",
+          "E",
+          "V",
+          "E",
+          "L",
+          "O",
+          "PE",
+          "R"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "ris",
+          "k",
+          "_",
+          "s",
+          "co",
+          "re",
+          "=",
+          "0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 9,
+        "pieces": [
+          "▁RE",
+          "Q",
+          "U",
+          "I",
+          "R",
+          "E",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "s",
+          "y",
+          "ste",
+          "m",
+          ">"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 8,
+        "pieces": [
+          "▁de",
+          "c",
+          "is",
+          "ion",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "<",
+          "s",
+          "y",
+          "ste",
+          "m",
+          ">"
+        ]
+      },
+      {
+        "word": "COMPLETED",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "COM",
+          "P",
+          "LE",
+          "T",
+          "E",
+          "D"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 7,
+        "pieces": [
+          "▁G",
+          "R",
+          "AB",
+          "F",
+          "O",
+          "O",
+          "D"
+        ]
+      },
+      {
+        "word": "TRUSTED",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "TR",
+          "U",
+          "S",
+          "T",
+          "E",
+          "D"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "acc",
+          "ount",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "assistant,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "ass",
+          "is",
+          "t",
+          "an",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "risk_score",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "ris",
+          "k",
+          "_",
+          "s",
+          "co",
+          "re"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 7,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "9",
+          "99"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "li",
+          "m",
+          "ite",
+          "d",
+          ","
+        ]
+      },
+      {
+        "word": "unrestricted",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "re",
+          "st",
+          "ric",
+          "t",
+          "ed"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "INTERNET",
+        "num_tokens": 6,
+        "pieces": [
+          "▁I",
+          "NT",
+          "ER",
+          "N",
+          "E",
+          "T"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 6,
+        "pieces": [
+          "▁K",
+          "AR",
+          "A",
+          "O",
+          "K",
+          "E"
+        ]
+      },
+      {
+        "word": "anti-scam",
+        "num_tokens": 6,
+        "pieces": [
+          "▁an",
+          "ti",
+          "-",
+          "s",
+          "c",
+          "am"
+        ]
+      },
+      {
+        "word": "classify",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "c",
+          "l",
+          "ass",
+          "if",
+          "y"
+        ]
+      },
+      {
+        "word": "constraints",
+        "num_tokens": 6,
+        "pieces": [
+          "▁con",
+          "st",
+          "ra",
+          "in",
+          "t",
+          "s"
+        ]
+      },
+      {
+        "word": "policy:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "po",
+          "li",
+          "c",
+          "y",
+          ":"
+        ]
+      },
+      {
+        "word": "receipt:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁re",
+          "ce",
+          "i",
+          "p",
+          "t",
+          ":"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁xa",
+          "i",
+          "_",
+          "rea",
+          "son",
+          "s"
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "s",
+          "ế",
+          "p",
+          "'"
+        ]
+      },
+      {
+        "word": "Agent,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁A",
+          "g",
+          "en",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "FT",
+          "2",
+          "63",
+          "29"
+        ]
+      },
+      {
+        "word": "NGUYEN",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "NG",
+          "U",
+          "Y",
+          "EN"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ri",
+          "de",
+          ":"
+        ]
+      },
+      {
+        "word": "RECEIPT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁RE",
+          "C",
+          "E",
+          "I",
+          "PT"
+        ]
+      },
+      {
+        "word": "agent.",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "age",
+          "n",
+          "t",
+          "."
+        ]
+      }
+    ],
+    "byte_fallback_examples": [
+      {
+        "domain": "ocr_receipts",
+        "text": "PHIẾU ĐẶT CỌC THUÊ PHÒNG | Tiền cọc: 3.500.000đ | Chủ nhà: Lê Văn B | STK <ACCT_2> Sacombank",
+        "pieces": [
+          "▁PHIẾU",
+          "▁Đ",
+          "<0xE1>",
+          "<0xBA>",
+          "<0xB6>",
+          "T",
+          "▁CỌC",
+          "▁THU",
+          "Ê",
+          "▁PH",
+          "<0xC3>",
+          "<0x92>",
+          "NG",
+          "▁|",
+          "▁Tiền",
+          "▁cọc",
+          ":",
+          "▁3.500",
+          ".000",
+          "đ",
+          "▁|",
+          "▁Chủ",
+          "▁nhà",
+          ":",
+          "▁Lê",
+          "▁Văn",
+          "▁B",
+          "▁|",
+          "▁STK",
+          "▁",
+          "<ACCT_2>",
+          "▁Sacombank"
+        ]
+      }
+    ]
+  },
+  "spm_unigram_16000": {
+    "model_name": "spm_unigram_16000",
+    "atomicity_failures": [
+      {
+        "token": "[PAD]",
+        "pieces_alone": [
+          "▁",
+          "[",
+          "P",
+          "AD",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[UNK]",
+        "pieces_alone": [
+          "▁",
+          "[",
+          "U",
+          "N",
+          "K",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[CLS]",
+        "pieces_alone": [
+          "▁",
+          "[CLS]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[SEP]",
+        "pieces_alone": [
+          "▁",
+          "[SEP]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[MASK]",
+        "pieces_alone": [
+          "▁",
+          "[MASK]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_1>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_2>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_3>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_4>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_5>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_1>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_2>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_3>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_4>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_5>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_1>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_2>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_3>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_4>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_5>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_CONTACT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_CONTACT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_RAW_ACCT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_RAW_ACCT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "OCR_RECEIPT",
+        "pieces_alone": [
+          "▁",
+          "OCR_RECEIPT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "lookup_contact",
+        "pieces_alone": [
+          "▁",
+          "lookup_contact"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "get_recent_transactions",
+        "pieces_alone": [
+          "▁",
+          "get_recent_transactions"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "check_scam_database",
+        "pieces_alone": [
+          "▁",
+          "check_scam_database"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "parse_receipt_image",
+        "pieces_alone": [
+          "▁",
+          "parse_receipt_image"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "create_draft_transfer",
+        "pieces_alone": [
+          "▁",
+          "create_draft_transfer"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "upsert_contact_alias",
+        "pieces_alone": [
+          "▁",
+          "upsert_contact_alias"
+        ],
+        "in_ctx": true
+      }
+    ],
+    "keywords_gt_2_tokens_count": 8,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "bản nháp",
+        "num_tokens": 3,
+        "pieces": [
+          "▁bản",
+          "▁nhá",
+          "p"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "tòa án",
+        "num_tokens": 3,
+        "pieces": [
+          "▁tò",
+          "a",
+          "▁án"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 4,
+        "pieces": [
+          "▁",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 9,
+        "pieces": [
+          "▁RE",
+          "Q",
+          "U",
+          "I",
+          "R",
+          "E",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 11,
+        "pieces": [
+          "▁B",
+          "L",
+          "OC",
+          "K",
+          "_",
+          "A",
+          "N",
+          "O",
+          "M",
+          "AL",
+          "Y"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 11,
+        "pieces": [
+          "▁",
+          "OC",
+          "R",
+          "_",
+          "AL",
+          "WA",
+          "Y",
+          "S",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "wi",
+          "th",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "[",
+          "D",
+          "E",
+          "V",
+          "E",
+          "L",
+          "O",
+          "PE",
+          "R"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "ris",
+          "k",
+          "_",
+          "s",
+          "co",
+          "re",
+          "=",
+          "0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 9,
+        "pieces": [
+          "▁RE",
+          "Q",
+          "U",
+          "I",
+          "R",
+          "E",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "s",
+          "y",
+          "ste",
+          "m",
+          ">"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 8,
+        "pieces": [
+          "▁de",
+          "c",
+          "is",
+          "ion",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "<",
+          "s",
+          "y",
+          "ste",
+          "m",
+          ">"
+        ]
+      },
+      {
+        "word": "COMPLETED",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "COM",
+          "P",
+          "LE",
+          "T",
+          "E",
+          "D"
+        ]
+      },
+      {
+        "word": "TRUSTED",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "TR",
+          "U",
+          "S",
+          "T",
+          "E",
+          "D"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "acc",
+          "ount",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "assistant,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "ass",
+          "is",
+          "t",
+          "an",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "risk_score",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "ris",
+          "k",
+          "_",
+          "s",
+          "co",
+          "re"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 7,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "9",
+          "99"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "li",
+          "m",
+          "ite",
+          "d",
+          ","
+        ]
+      },
+      {
+        "word": "unrestricted",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "re",
+          "st",
+          "ric",
+          "t",
+          "ed"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 6,
+        "pieces": [
+          "▁G",
+          "RA",
+          "BF",
+          "O",
+          "O",
+          "D"
+        ]
+      },
+      {
+        "word": "INTERNET",
+        "num_tokens": 6,
+        "pieces": [
+          "▁I",
+          "NT",
+          "ER",
+          "N",
+          "E",
+          "T"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 6,
+        "pieces": [
+          "▁K",
+          "AR",
+          "A",
+          "O",
+          "K",
+          "E"
+        ]
+      },
+      {
+        "word": "anti-scam",
+        "num_tokens": 6,
+        "pieces": [
+          "▁an",
+          "ti",
+          "-",
+          "s",
+          "c",
+          "am"
+        ]
+      },
+      {
+        "word": "classify",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "c",
+          "l",
+          "ass",
+          "if",
+          "y"
+        ]
+      },
+      {
+        "word": "constraints",
+        "num_tokens": 6,
+        "pieces": [
+          "▁con",
+          "st",
+          "ra",
+          "in",
+          "t",
+          "s"
+        ]
+      },
+      {
+        "word": "policy:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "po",
+          "li",
+          "c",
+          "y",
+          ":"
+        ]
+      },
+      {
+        "word": "receipt:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁re",
+          "ce",
+          "i",
+          "p",
+          "t",
+          ":"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁xa",
+          "i",
+          "_",
+          "rea",
+          "son",
+          "s"
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "s",
+          "ế",
+          "p",
+          "'"
+        ]
+      },
+      {
+        "word": "Agent,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁A",
+          "g",
+          "en",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "FT",
+          "2",
+          "63",
+          "29"
+        ]
+      },
+      {
+        "word": "NGUYEN",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "NG",
+          "U",
+          "Y",
+          "EN"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ri",
+          "de",
+          ":"
+        ]
+      },
+      {
+        "word": "RECEIPT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁RE",
+          "C",
+          "E",
+          "I",
+          "PT"
+        ]
+      },
+      {
+        "word": "agent.",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "age",
+          "n",
+          "t",
+          "."
+        ]
+      }
+    ],
+    "byte_fallback_examples": [
+      {
+        "domain": "ocr_receipts",
+        "text": "PHIẾU ĐẶT CỌC THUÊ PHÒNG | Tiền cọc: 3.500.000đ | Chủ nhà: Lê Văn B | STK <ACCT_2> Sacombank",
+        "pieces": [
+          "▁PHIẾU",
+          "▁Đ",
+          "<0xE1>",
+          "<0xBA>",
+          "<0xB6>",
+          "T",
+          "▁CỌC",
+          "▁THU",
+          "Ê",
+          "▁PH",
+          "<0xC3>",
+          "<0x92>",
+          "NG",
+          "▁|",
+          "▁Tiền",
+          "▁cọc",
+          ":",
+          "▁3.500",
+          ".000",
+          "đ",
+          "▁|",
+          "▁Chủ",
+          "▁nhà",
+          ":",
+          "▁Lê",
+          "▁Văn",
+          "▁B",
+          "▁|",
+          "▁STK",
+          "▁",
+          "<ACCT_2>",
+          "▁Sacombank"
+        ]
+      }
+    ]
+  },
+  "spm_bpe_12000": {
+    "model_name": "spm_bpe_12000",
+    "atomicity_failures": [
+      {
+        "token": "[PAD]",
+        "pieces_alone": [
+          "▁[",
+          "P",
+          "AD",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[UNK]",
+        "pieces_alone": [
+          "▁[",
+          "U",
+          "NK",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[CLS]",
+        "pieces_alone": [
+          "▁",
+          "[CLS]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[SEP]",
+        "pieces_alone": [
+          "▁",
+          "[SEP]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[MASK]",
+        "pieces_alone": [
+          "▁",
+          "[MASK]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_1>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_2>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_3>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_4>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_5>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_1>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_2>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_3>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_4>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_5>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_1>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_2>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_3>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_4>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_5>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_CONTACT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_CONTACT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_RAW_ACCT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_RAW_ACCT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "OCR_RECEIPT",
+        "pieces_alone": [
+          "▁",
+          "OCR_RECEIPT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "lookup_contact",
+        "pieces_alone": [
+          "▁",
+          "lookup_contact"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "get_recent_transactions",
+        "pieces_alone": [
+          "▁",
+          "get_recent_transactions"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "check_scam_database",
+        "pieces_alone": [
+          "▁",
+          "check_scam_database"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "parse_receipt_image",
+        "pieces_alone": [
+          "▁",
+          "parse_receipt_image"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "create_draft_transfer",
+        "pieces_alone": [
+          "▁",
+          "create_draft_transfer"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "upsert_contact_alias",
+        "pieces_alone": [
+          "▁",
+          "upsert_contact_alias"
+        ],
+        "in_ctx": true
+      }
+    ],
+    "keywords_gt_2_tokens_count": 10,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "bản nháp",
+        "num_tokens": 3,
+        "pieces": [
+          "▁bản",
+          "▁nh",
+          "áp"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "tòa án",
+        "num_tokens": 4,
+        "pieces": [
+          "▁t",
+          "ò",
+          "a",
+          "▁án"
+        ]
+      },
+      {
+        "keyword": "admin",
+        "num_tokens": 3,
+        "pieces": [
+          "▁a",
+          "d",
+          "min"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 3,
+        "pieces": [
+          "▁pass",
+          "w",
+          "ord"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 9,
+        "pieces": [
+          "▁R",
+          "E",
+          "Q",
+          "U",
+          "I",
+          "RE",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 8,
+        "pieces": [
+          "▁BL",
+          "OC",
+          "K",
+          "_",
+          "AN",
+          "OM",
+          "A",
+          "LY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 11,
+        "pieces": [
+          "▁O",
+          "C",
+          "R",
+          "_",
+          "AL",
+          "W",
+          "AY",
+          "S",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "w",
+          "ith",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 10,
+        "pieces": [
+          "▁r",
+          "is",
+          "k",
+          "_",
+          "sc",
+          "ore",
+          "=",
+          "0",
+          ".0",
+          "1"
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 9,
+        "pieces": [
+          "▁R",
+          "E",
+          "Q",
+          "U",
+          "I",
+          "RE",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 9,
+        "pieces": [
+          "▁de",
+          "c",
+          "is",
+          "ion",
+          "=",
+          "P",
+          "ASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 7,
+        "pieces": [
+          "▁G",
+          "R",
+          "AB",
+          "F",
+          "O",
+          "O",
+          "D"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 7,
+        "pieces": [
+          "▁ac",
+          "c",
+          "ount",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "unrestricted",
+        "num_tokens": 7,
+        "pieces": [
+          "▁u",
+          "n",
+          "re",
+          "str",
+          "i",
+          "ct",
+          "ed"
+        ]
+      },
+      {
+        "word": "INTERNET",
+        "num_tokens": 6,
+        "pieces": [
+          "▁I",
+          "N",
+          "TE",
+          "R",
+          "N",
+          "ET"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 6,
+        "pieces": [
+          "▁[",
+          "DE",
+          "VE",
+          "L",
+          "OP",
+          "ER"
+        ]
+      },
+      {
+        "word": "anti-scam",
+        "num_tokens": 6,
+        "pieces": [
+          "▁an",
+          "t",
+          "i",
+          "-",
+          "sc",
+          "am"
+        ]
+      },
+      {
+        "word": "assistant,",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "ass",
+          "i",
+          "st",
+          "ant",
+          ","
+        ]
+      },
+      {
+        "word": "automatically",
+        "num_tokens": 6,
+        "pieces": [
+          "▁au",
+          "t",
+          "om",
+          "at",
+          "ic",
+          "ally"
+        ]
+      },
+      {
+        "word": "receipt:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "ec",
+          "e",
+          "ip",
+          "t",
+          ":"
+        ]
+      },
+      {
+        "word": "reply_text",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "ep",
+          "ly",
+          "_",
+          "t",
+          "ext"
+        ]
+      },
+      {
+        "word": "risk_score",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "is",
+          "k",
+          "_",
+          "sc",
+          "ore"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 6,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "999"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 6,
+        "pieces": [
+          "▁u",
+          "n",
+          "l",
+          "im",
+          "ited",
+          ","
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁x",
+          "ai",
+          "_",
+          "re",
+          "as",
+          "ons"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "M",
+          "inh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 5,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ười"
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "s",
+          "ystem",
+          ">"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "COMPLETED",
+        "num_tokens": 5,
+        "pieces": [
+          "▁COM",
+          "P",
+          "LE",
+          "TE",
+          "D"
+        ]
+      },
+      {
+        "word": "RECEIPT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EC",
+          "E",
+          "I",
+          "PT"
+        ]
+      },
+      {
+        "word": "TOCOTOCO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁TO",
+          "CO",
+          "T",
+          "OC",
+          "O"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "b",
+          "ig",
+          "ui",
+          "ty"
+        ]
+      },
+      {
+        "word": "constraints",
+        "num_tokens": 5,
+        "pieces": [
+          "▁con",
+          "str",
+          "ai",
+          "nt",
+          "s"
+        ]
+      },
+      {
+        "word": "currency",
+        "num_tokens": 5,
+        "pieces": [
+          "▁cu",
+          "r",
+          "r",
+          "en",
+          "cy"
+        ]
+      },
+      {
+        "word": "everything",
+        "num_tokens": 5,
+        "pieces": [
+          "▁e",
+          "ver",
+          "y",
+          "thi",
+          "ng"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁f",
+          "o",
+          "ll",
+          "ow",
+          "ing"
+        ]
+      },
+      {
+        "word": "gatekeeper",
+        "num_tokens": 5,
+        "pieces": [
+          "▁g",
+          "ate",
+          "ke",
+          "ep",
+          "er"
+        ]
+      },
+      {
+        "word": "helpful",
+        "num_tokens": 5,
+        "pieces": [
+          "▁h",
+          "el",
+          "p",
+          "f",
+          "ul"
+        ]
+      },
+      {
+        "word": "policy:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁p",
+          "ol",
+          "ic",
+          "y",
+          ":"
+        ]
+      }
+    ],
+    "byte_fallback_examples": [
+      {
+        "domain": "ocr_receipts",
+        "text": "PHIẾU ĐẶT CỌC THUÊ PHÒNG | Tiền cọc: 3.500.000đ | Chủ nhà: Lê Văn B | STK <ACCT_2> Sacombank",
+        "pieces": [
+          "▁PHIẾU",
+          "▁Đ",
+          "<0xE1>",
+          "<0xBA>",
+          "<0xB6>",
+          "T",
+          "▁CỌC",
+          "▁THU",
+          "Ê",
+          "▁PH",
+          "<0xC3>",
+          "<0x92>",
+          "NG",
+          "▁|",
+          "▁Tiền",
+          "▁cọc",
+          ":",
+          "▁3.5",
+          "00.000",
+          "đ",
+          "▁|",
+          "▁Chủ",
+          "▁nhà",
+          ":",
+          "▁Lê",
+          "▁Văn",
+          "▁B",
+          "▁|",
+          "▁STK",
+          "▁",
+          "<ACCT_2>",
+          "▁Sacombank"
+        ]
+      }
+    ]
+  },
+  "spm_bpe_14000": {
+    "model_name": "spm_bpe_14000",
+    "atomicity_failures": [
+      {
+        "token": "[PAD]",
+        "pieces_alone": [
+          "▁[",
+          "P",
+          "AD",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[UNK]",
+        "pieces_alone": [
+          "▁[",
+          "U",
+          "NK",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[CLS]",
+        "pieces_alone": [
+          "▁",
+          "[CLS]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[SEP]",
+        "pieces_alone": [
+          "▁",
+          "[SEP]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[MASK]",
+        "pieces_alone": [
+          "▁",
+          "[MASK]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_1>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_2>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_3>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_4>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_5>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_1>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_2>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_3>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_4>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_5>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_1>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_2>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_3>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_4>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_5>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_CONTACT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_CONTACT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_RAW_ACCT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_RAW_ACCT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "OCR_RECEIPT",
+        "pieces_alone": [
+          "▁",
+          "OCR_RECEIPT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "lookup_contact",
+        "pieces_alone": [
+          "▁",
+          "lookup_contact"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "get_recent_transactions",
+        "pieces_alone": [
+          "▁",
+          "get_recent_transactions"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "check_scam_database",
+        "pieces_alone": [
+          "▁",
+          "check_scam_database"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "parse_receipt_image",
+        "pieces_alone": [
+          "▁",
+          "parse_receipt_image"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "create_draft_transfer",
+        "pieces_alone": [
+          "▁",
+          "create_draft_transfer"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "upsert_contact_alias",
+        "pieces_alone": [
+          "▁",
+          "upsert_contact_alias"
+        ],
+        "in_ctx": true
+      }
+    ],
+    "keywords_gt_2_tokens_count": 10,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "bản nháp",
+        "num_tokens": 3,
+        "pieces": [
+          "▁bản",
+          "▁nh",
+          "áp"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "tòa án",
+        "num_tokens": 3,
+        "pieces": [
+          "▁tò",
+          "a",
+          "▁án"
+        ]
+      },
+      {
+        "keyword": "admin",
+        "num_tokens": 3,
+        "pieces": [
+          "▁a",
+          "d",
+          "min"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 3,
+        "pieces": [
+          "▁pass",
+          "w",
+          "ord"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 9,
+        "pieces": [
+          "▁R",
+          "E",
+          "Q",
+          "U",
+          "I",
+          "RE",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 8,
+        "pieces": [
+          "▁BL",
+          "OC",
+          "K",
+          "_",
+          "AN",
+          "OM",
+          "A",
+          "LY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 11,
+        "pieces": [
+          "▁O",
+          "C",
+          "R",
+          "_",
+          "AL",
+          "W",
+          "AY",
+          "S",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "w",
+          "ith",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 10,
+        "pieces": [
+          "▁r",
+          "is",
+          "k",
+          "_",
+          "sc",
+          "ore",
+          "=",
+          "0",
+          ".0",
+          "1"
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 9,
+        "pieces": [
+          "▁R",
+          "E",
+          "Q",
+          "U",
+          "I",
+          "RE",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 9,
+        "pieces": [
+          "▁de",
+          "c",
+          "is",
+          "ion",
+          "=",
+          "P",
+          "ASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 9,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "002",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 7,
+        "pieces": [
+          "▁G",
+          "R",
+          "AB",
+          "F",
+          "O",
+          "O",
+          "D"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 7,
+        "pieces": [
+          "▁ac",
+          "c",
+          "ount",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "INTERNET",
+        "num_tokens": 6,
+        "pieces": [
+          "▁I",
+          "N",
+          "TE",
+          "R",
+          "N",
+          "ET"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 6,
+        "pieces": [
+          "▁[",
+          "DE",
+          "VE",
+          "L",
+          "OP",
+          "ER"
+        ]
+      },
+      {
+        "word": "anti-scam",
+        "num_tokens": 6,
+        "pieces": [
+          "▁an",
+          "t",
+          "i",
+          "-",
+          "sc",
+          "am"
+        ]
+      },
+      {
+        "word": "assistant,",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "ass",
+          "i",
+          "st",
+          "ant",
+          ","
+        ]
+      },
+      {
+        "word": "automatically",
+        "num_tokens": 6,
+        "pieces": [
+          "▁au",
+          "t",
+          "om",
+          "at",
+          "ic",
+          "ally"
+        ]
+      },
+      {
+        "word": "receipt:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "ec",
+          "e",
+          "ip",
+          "t",
+          ":"
+        ]
+      },
+      {
+        "word": "reply_text",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "ep",
+          "ly",
+          "_",
+          "t",
+          "ext"
+        ]
+      },
+      {
+        "word": "risk_score",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "is",
+          "k",
+          "_",
+          "sc",
+          "ore"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 6,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "999"
+        ]
+      },
+      {
+        "word": "unrestricted",
+        "num_tokens": 6,
+        "pieces": [
+          "▁un",
+          "re",
+          "str",
+          "i",
+          "ct",
+          "ed"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁x",
+          "ai",
+          "_",
+          "re",
+          "as",
+          "ons"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "M",
+          "inh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 5,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ười"
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "s",
+          "ystem",
+          ">"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "COMPLETED",
+        "num_tokens": 5,
+        "pieces": [
+          "▁COM",
+          "P",
+          "LE",
+          "TE",
+          "D"
+        ]
+      },
+      {
+        "word": "RECEIPT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EC",
+          "E",
+          "I",
+          "PT"
+        ]
+      },
+      {
+        "word": "TOCOTOCO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁TO",
+          "CO",
+          "T",
+          "OC",
+          "O"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "b",
+          "ig",
+          "ui",
+          "ty"
+        ]
+      },
+      {
+        "word": "constraints",
+        "num_tokens": 5,
+        "pieces": [
+          "▁con",
+          "str",
+          "ai",
+          "nt",
+          "s"
+        ]
+      },
+      {
+        "word": "currency",
+        "num_tokens": 5,
+        "pieces": [
+          "▁cu",
+          "r",
+          "r",
+          "en",
+          "cy"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁f",
+          "o",
+          "ll",
+          "ow",
+          "ing"
+        ]
+      },
+      {
+        "word": "gatekeeper",
+        "num_tokens": 5,
+        "pieces": [
+          "▁g",
+          "ate",
+          "ke",
+          "ep",
+          "er"
+        ]
+      },
+      {
+        "word": "helpful",
+        "num_tokens": 5,
+        "pieces": [
+          "▁h",
+          "el",
+          "p",
+          "f",
+          "ul"
+        ]
+      },
+      {
+        "word": "policy:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁p",
+          "ol",
+          "ic",
+          "y",
+          ":"
+        ]
+      },
+      {
+        "word": "purposes",
+        "num_tokens": 5,
+        "pieces": [
+          "▁p",
+          "ur",
+          "p",
+          "os",
+          "es"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁source",
+          "_",
+          "type",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      }
+    ],
+    "byte_fallback_examples": [
+      {
+        "domain": "ocr_receipts",
+        "text": "PHIẾU ĐẶT CỌC THUÊ PHÒNG | Tiền cọc: 3.500.000đ | Chủ nhà: Lê Văn B | STK <ACCT_2> Sacombank",
+        "pieces": [
+          "▁PHIẾU",
+          "▁Đ",
+          "<0xE1>",
+          "<0xBA>",
+          "<0xB6>",
+          "T",
+          "▁CỌC",
+          "▁THU",
+          "Ê",
+          "▁PH",
+          "<0xC3>",
+          "<0x92>",
+          "NG",
+          "▁|",
+          "▁Tiền",
+          "▁cọc",
+          ":",
+          "▁3.5",
+          "00.000",
+          "đ",
+          "▁|",
+          "▁Chủ",
+          "▁nhà",
+          ":",
+          "▁Lê",
+          "▁Văn",
+          "▁B",
+          "▁|",
+          "▁STK",
+          "▁",
+          "<ACCT_2>",
+          "▁Sacombank"
+        ]
+      }
+    ]
+  },
+  "spm_bpe_16000": {
+    "model_name": "spm_bpe_16000",
+    "atomicity_failures": [
+      {
+        "token": "[PAD]",
+        "pieces_alone": [
+          "▁[",
+          "P",
+          "AD",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[UNK]",
+        "pieces_alone": [
+          "▁[",
+          "U",
+          "NK",
+          "]"
+        ],
+        "in_ctx": false
+      },
+      {
+        "token": "[CLS]",
+        "pieces_alone": [
+          "▁",
+          "[CLS]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[SEP]",
+        "pieces_alone": [
+          "▁",
+          "[SEP]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "[MASK]",
+        "pieces_alone": [
+          "▁",
+          "[MASK]"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_1>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_2>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_3>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_4>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<ACCT_5>",
+        "pieces_alone": [
+          "▁",
+          "<ACCT_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_1>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_2>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_3>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_4>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<PHONE_5>",
+        "pieces_alone": [
+          "▁",
+          "<PHONE_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_1>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_1>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_2>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_2>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_3>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_3>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_4>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_4>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "<CCCD_5>",
+        "pieces_alone": [
+          "▁",
+          "<CCCD_5>"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_CONTACT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_CONTACT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "CHAT_RAW_ACCT",
+        "pieces_alone": [
+          "▁",
+          "CHAT_RAW_ACCT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "OCR_RECEIPT",
+        "pieces_alone": [
+          "▁",
+          "OCR_RECEIPT"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "lookup_contact",
+        "pieces_alone": [
+          "▁",
+          "lookup_contact"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "get_recent_transactions",
+        "pieces_alone": [
+          "▁",
+          "get_recent_transactions"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "check_scam_database",
+        "pieces_alone": [
+          "▁",
+          "check_scam_database"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "parse_receipt_image",
+        "pieces_alone": [
+          "▁",
+          "parse_receipt_image"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "create_draft_transfer",
+        "pieces_alone": [
+          "▁",
+          "create_draft_transfer"
+        ],
+        "in_ctx": true
+      },
+      {
+        "token": "upsert_contact_alias",
+        "pieces_alone": [
+          "▁",
+          "upsert_contact_alias"
+        ],
+        "in_ctx": true
+      }
+    ],
+    "keywords_gt_2_tokens_count": 8,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "bản nháp",
+        "num_tokens": 3,
+        "pieces": [
+          "▁bản",
+          "▁nh",
+          "áp"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "tòa án",
+        "num_tokens": 3,
+        "pieces": [
+          "▁tò",
+          "a",
+          "▁án"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 8,
+        "pieces": [
+          "▁RE",
+          "Q",
+          "U",
+          "I",
+          "RE",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 8,
+        "pieces": [
+          "▁BL",
+          "OC",
+          "K",
+          "_",
+          "AN",
+          "OM",
+          "A",
+          "LY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 11,
+        "pieces": [
+          "▁O",
+          "C",
+          "R",
+          "_",
+          "AL",
+          "W",
+          "AY",
+          "S",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "w",
+          "ith",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 10,
+        "pieces": [
+          "▁r",
+          "is",
+          "k",
+          "_",
+          "sc",
+          "ore",
+          "=",
+          "0",
+          ".0",
+          "1"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 9,
+        "pieces": [
+          "▁de",
+          "c",
+          "is",
+          "ion",
+          "=",
+          "P",
+          "ASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 9,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "002",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 8,
+        "pieces": [
+          "▁RE",
+          "Q",
+          "U",
+          "I",
+          "RE",
+          "_",
+          "H",
+          "ITL"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 7,
+        "pieces": [
+          "▁ac",
+          "c",
+          "ount",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 6,
+        "pieces": [
+          "▁G",
+          "R",
+          "AB",
+          "F",
+          "O",
+          "OD"
+        ]
+      },
+      {
+        "word": "INTERNET",
+        "num_tokens": 6,
+        "pieces": [
+          "▁I",
+          "N",
+          "TE",
+          "R",
+          "N",
+          "ET"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 6,
+        "pieces": [
+          "▁[",
+          "DE",
+          "VE",
+          "L",
+          "OP",
+          "ER"
+        ]
+      },
+      {
+        "word": "anti-scam",
+        "num_tokens": 6,
+        "pieces": [
+          "▁an",
+          "t",
+          "i",
+          "-",
+          "sc",
+          "am"
+        ]
+      },
+      {
+        "word": "assistant,",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "ass",
+          "i",
+          "st",
+          "ant",
+          ","
+        ]
+      },
+      {
+        "word": "automatically",
+        "num_tokens": 6,
+        "pieces": [
+          "▁au",
+          "t",
+          "om",
+          "at",
+          "ic",
+          "ally"
+        ]
+      },
+      {
+        "word": "receipt:",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "ec",
+          "e",
+          "ip",
+          "t",
+          ":"
+        ]
+      },
+      {
+        "word": "reply_text",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "ep",
+          "ly",
+          "_",
+          "t",
+          "ext"
+        ]
+      },
+      {
+        "word": "risk_score",
+        "num_tokens": 6,
+        "pieces": [
+          "▁r",
+          "is",
+          "k",
+          "_",
+          "sc",
+          "ore"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 6,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "999"
+        ]
+      },
+      {
+        "word": "unrestricted",
+        "num_tokens": 6,
+        "pieces": [
+          "▁un",
+          "re",
+          "str",
+          "i",
+          "ct",
+          "ed"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁x",
+          "ai",
+          "_",
+          "re",
+          "as",
+          "ons"
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 5,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ười"
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "s",
+          "ystem",
+          ">"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "COMPLETED",
+        "num_tokens": 5,
+        "pieces": [
+          "▁COM",
+          "P",
+          "LE",
+          "TE",
+          "D"
+        ]
+      },
+      {
+        "word": "RECEIPT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EC",
+          "E",
+          "I",
+          "PT"
+        ]
+      },
+      {
+        "word": "TOCOTOCO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁TO",
+          "CO",
+          "T",
+          "OC",
+          "O"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "b",
+          "ig",
+          "ui",
+          "ty"
+        ]
+      },
+      {
+        "word": "constraints",
+        "num_tokens": 5,
+        "pieces": [
+          "▁con",
+          "str",
+          "ai",
+          "nt",
+          "s"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁f",
+          "o",
+          "ll",
+          "ow",
+          "ing"
+        ]
+      },
+      {
+        "word": "purposes",
+        "num_tokens": 5,
+        "pieces": [
+          "▁p",
+          "ur",
+          "p",
+          "os",
+          "es"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁source",
+          "_",
+          "type",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁un",
+          "l",
+          "im",
+          "ited",
+          ","
+        ]
+      },
+      {
+        "word": "ĐẶT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁Đ",
+          "<0xE1>",
+          "<0xBA>",
+          "<0xB6>",
+          "T"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "Minh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "s",
+          "ếp",
+          "'"
+        ]
+      },
+      {
+        "word": "(VAT)",
+        "num_tokens": 4,
+        "pieces": [
+          "▁(",
+          "V",
+          "AT",
+          ")"
+        ]
+      }
+    ],
+    "byte_fallback_examples": [
+      {
+        "domain": "ocr_receipts",
+        "text": "PHIẾU ĐẶT CỌC THUÊ PHÒNG | Tiền cọc: 3.500.000đ | Chủ nhà: Lê Văn B | STK <ACCT_2> Sacombank",
+        "pieces": [
+          "▁PHIẾU",
+          "▁Đ",
+          "<0xE1>",
+          "<0xBA>",
+          "<0xB6>",
+          "T",
+          "▁CỌC",
+          "▁THU",
+          "Ê",
+          "▁PH",
+          "<0xC3>",
+          "<0x92>",
+          "NG",
+          "▁|",
+          "▁Tiền",
+          "▁cọc",
+          ":",
+          "▁3.5",
+          "00.000",
+          "đ",
+          "▁|",
+          "▁Chủ",
+          "▁nhà",
+          ":",
+          "▁Lê",
+          "▁Văn",
+          "▁B",
+          "▁|",
+          "▁STK",
+          "▁",
+          "<ACCT_2>",
+          "▁Sacombank"
+        ]
+      }
+    ]
+  }
+}

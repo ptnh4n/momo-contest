@@ -1,0 +1,285 @@
+{
+  "winner_model": "spm_bpe_16000",
+  "winning_round": "round2",
+  "tokenizer_sha256": "fc8704dc9b5eee85bfadab30bd438cc38e20b0702e746730fed4e049ec900809",
+  "param_budget": {
+    "vocab_size": 16000,
+    "tabular_input_dim": 14,
+    "embedding_params": 1074432,
+    "token_embedding_only": 1024000,
+    "encoder_params": 3159552,
+    "tabular_params": 10432,
+    "fusion_heads_params": 2245,
+    "total_params": 4246661,
+    "embedding_limit": 2000000,
+    "total_limit": 20000000,
+    "fp32_size_mb": 16.2,
+    "est_onnx_int8_mb": 4.05
+  },
+  "local_cpu_latency": {
+    "runs": 1000,
+    "mean_ms": 0.0598,
+    "p50_ms": 0.0459,
+    "p95_ms": 0.0626,
+    "p99_ms": 0.1648,
+    "max_ms": 3.919,
+    "p95_under_0_5ms": true
+  },
+  "round2_winner_metrics": {
+    "model_name": "spm_bpe_16000",
+    "algo": "bpe",
+    "vocab_size": 16000,
+    "actual_piece_size": 16000,
+    "case_preserved": true,
+    "special_token_atomicity": 1.0,
+    "atomicity_failures_count": 0,
+    "overall_fertility": 1.233,
+    "overall_chars_per_token": 3.908,
+    "overall_unk_rate": 0.0,
+    "overall_byte_fallback_rate": 0.0,
+    "unaccented_accented_gap": 0.0081,
+    "keyword_integrity_le2": 0.9536,
+    "keyword_single_token": 0.543,
+    "keyword_byte_only_rate": 0.0,
+    "p95_seq_len": 41,
+    "p99_seq_len": 45,
+    "max_seq_len": 52,
+    "truncation_rate_128": 0.0,
+    "budget": {
+      "vocab_size": 16000,
+      "embedding_params": 1074432,
+      "encoder_params": 3159552,
+      "tabular_params": 10432,
+      "fusion_heads_params": 2245,
+      "total_params": 4246661,
+      "embedding_under_2m": true,
+      "total_under_20m": true,
+      "est_onnx_int8_mb": 4.05
+    },
+    "subdomains": {
+      "normal_accented": {
+        "num_sentences": 45,
+        "fertility": 1.1172,
+        "chars_per_token": 4.1152,
+        "unk_rate": 0.0,
+        "byte_fallback_rate": 0.0,
+        "max_seq_len": 29,
+        "truncation_rate_128": 0.0
+      },
+      "normal_unaccented": {
+        "num_sentences": 45,
+        "fertility": 1.1253,
+        "chars_per_token": 4.0735,
+        "unk_rate": 0.0,
+        "byte_fallback_rate": 0.0,
+        "max_seq_len": 28,
+        "truncation_rate_128": 0.0
+      },
+      "teencode_slang": {
+        "num_sentences": 45,
+        "fertility": 1.137,
+        "chars_per_token": 3.6486,
+        "unk_rate": 0.0,
+        "byte_fallback_rate": 0.0,
+        "max_seq_len": 30,
+        "truncation_rate_128": 0.0
+      },
+      "scam_social_eng": {
+        "num_sentences": 40,
+        "fertility": 1.1783,
+        "chars_per_token": 4.0516,
+        "unk_rate": 0.0,
+        "byte_fallback_rate": 0.0,
+        "max_seq_len": 42,
+        "truncation_rate_128": 0.0
+      },
+      "prompt_injection_bi": {
+        "num_sentences": 40,
+        "fertility": 1.56,
+        "chars_per_token": 3.9289,
+        "unk_rate": 0.0,
+        "byte_fallback_rate": 0.0,
+        "max_seq_len": 52,
+        "truncation_rate_128": 0.0
+      },
+      "ocr_receipts": {
+        "num_sentences": 30,
+        "fertility": 1.2886,
+        "chars_per_token": 3.5955,
+        "unk_rate": 0.0,
+        "byte_fallback_rate": 0.0,
+        "max_seq_len": 48,
+        "truncation_rate_128": 0.0
+      },
+      "ambiguous_currency_contact": {
+        "num_sentences": 30,
+        "fertility": 1.0123,
+        "chars_per_token": 4.1818,
+        "unk_rate": 0.0,
+        "byte_fallback_rate": 0.0,
+        "max_seq_len": 22,
+        "truncation_rate_128": 0.0
+      }
+    },
+    "all_criteria_passed": true,
+    "checks": {
+      "unk_rate_zero": true,
+      "atomicity_100": true,
+      "overall_fertility_le_1_35": true,
+      "normal_accented_le_1_25": true,
+      "normal_unaccented_le_1_35": true,
+      "teencode_slang_le_1_45": true,
+      "scam_social_eng_le_1_30": true,
+      "prompt_injection_bi_le_1_65": true,
+      "ocr_receipts_le_1_50": true,
+      "unaccented_gap_le_0_20": true,
+      "keyword_le2_ge_0_95": true,
+      "keyword_byte_only_zero": true,
+      "p95_seq_le_96": true,
+      "p99_seq_le_120": true,
+      "truncation_lt_1pct": true,
+      "embedding_lt_2m": true,
+      "total_lt_20m": true
+    },
+    "train_seconds": 6.54,
+    "model_sha256": "fc8704dc9b5eee85bfadab30bd438cc38e20b0702e746730fed4e049ec900809"
+  },
+  "rounds_summary": {
+    "round1": [
+      {
+        "model_name": "spm_bpe_16000",
+        "algo": "bpe",
+        "vocab_size": 16000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.2906,
+        "keyword_integrity_le2": 0.947,
+        "overall_byte_fallback_rate": 0.001163,
+        "special_token_atomicity": 0.0,
+        "p95_seq_len": 44
+      },
+      {
+        "model_name": "spm_bpe_14000",
+        "algo": "bpe",
+        "vocab_size": 14000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.2969,
+        "keyword_integrity_le2": 0.9338,
+        "overall_byte_fallback_rate": 0.001157,
+        "special_token_atomicity": 0.0,
+        "p95_seq_len": 44
+      },
+      {
+        "model_name": "spm_bpe_12000",
+        "algo": "bpe",
+        "vocab_size": 12000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.3044,
+        "keyword_integrity_le2": 0.9338,
+        "overall_byte_fallback_rate": 0.001151,
+        "special_token_atomicity": 0.0,
+        "p95_seq_len": 45
+      },
+      {
+        "model_name": "spm_unigram_16000",
+        "algo": "unigram",
+        "vocab_size": 16000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.3239,
+        "keyword_integrity_le2": 0.947,
+        "overall_byte_fallback_rate": 0.001134,
+        "special_token_atomicity": 0.0,
+        "p95_seq_len": 45
+      },
+      {
+        "model_name": "spm_unigram_14000",
+        "algo": "unigram",
+        "vocab_size": 14000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.3278,
+        "keyword_integrity_le2": 0.9404,
+        "overall_byte_fallback_rate": 0.00113,
+        "special_token_atomicity": 0.0,
+        "p95_seq_len": 45
+      },
+      {
+        "model_name": "spm_unigram_12000",
+        "algo": "unigram",
+        "vocab_size": 12000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.3323,
+        "keyword_integrity_le2": 0.9404,
+        "overall_byte_fallback_rate": 0.001127,
+        "special_token_atomicity": 0.0,
+        "p95_seq_len": 46
+      }
+    ],
+    "round2": [
+      {
+        "model_name": "spm_bpe_16000",
+        "algo": "bpe",
+        "vocab_size": 16000,
+        "all_criteria_passed": true,
+        "overall_fertility": 1.233,
+        "keyword_integrity_le2": 0.9536,
+        "overall_byte_fallback_rate": 0.0,
+        "special_token_atomicity": 1.0,
+        "p95_seq_len": 41
+      },
+      {
+        "model_name": "spm_bpe_14000",
+        "algo": "bpe",
+        "vocab_size": 14000,
+        "all_criteria_passed": true,
+        "overall_fertility": 1.2387,
+        "keyword_integrity_le2": 0.9536,
+        "overall_byte_fallback_rate": 0.0,
+        "special_token_atomicity": 1.0,
+        "p95_seq_len": 41
+      },
+      {
+        "model_name": "spm_bpe_12000",
+        "algo": "bpe",
+        "vocab_size": 12000,
+        "all_criteria_passed": true,
+        "overall_fertility": 1.2462,
+        "keyword_integrity_le2": 0.9536,
+        "overall_byte_fallback_rate": 0.0,
+        "special_token_atomicity": 1.0,
+        "p95_seq_len": 42
+      },
+      {
+        "model_name": "spm_unigram_16000",
+        "algo": "unigram",
+        "vocab_size": 16000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.2546,
+        "keyword_integrity_le2": 0.9536,
+        "overall_byte_fallback_rate": 0.0,
+        "special_token_atomicity": 1.0,
+        "p95_seq_len": 42
+      },
+      {
+        "model_name": "spm_unigram_14000",
+        "algo": "unigram",
+        "vocab_size": 14000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.257,
+        "keyword_integrity_le2": 0.9536,
+        "overall_byte_fallback_rate": 0.0,
+        "special_token_atomicity": 1.0,
+        "p95_seq_len": 42
+      },
+      {
+        "model_name": "spm_unigram_12000",
+        "algo": "unigram",
+        "vocab_size": 12000,
+        "all_criteria_passed": false,
+        "overall_fertility": 1.2669,
+        "keyword_integrity_le2": 0.9536,
+        "overall_byte_fallback_rate": 0.0,
+        "special_token_atomicity": 1.0,
+        "p95_seq_len": 42
+      }
+    ]
+  }
+}

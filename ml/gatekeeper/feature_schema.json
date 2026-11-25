@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Single Source of Truth cho Feature Schema (14 chiều Tabular) và cấu hình Text/Tokenizer của SafePay Gatekeeper (<20M tham số).",
+  "labels": [
+    "PASS_AUTO",
+    "REQUIRE_HITL",
+    "CLARIFY",
+    "BLOCK_ANOMALY"
+  ],
+  "source_types": [
+    "CHAT_CONTACT",
+    "CHAT_RAW_ACCT",
+    "OCR_RECEIPT"
+  ],
+  "tool_names": [
+    "lookup_contact",
+    "get_recent_transactions",
+    "check_scam_database",
+    "parse_receipt_image",
+    "create_draft_transfer",
+    "upsert_contact_alias"
+  ],
+  "sbv_limits": {
+    "single_tx_vnd": 10000000,
+    "daily_total_vnd": 20000000,
+    "default_auto_approve_limit_vnd": 100000,
+    "cold_start_avg_amount_vnd": 200000,
+    "timezone": "UTC+07:00",
+    "late_night_hours": [
+      23,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "no_prev_tx_seconds": 2592000
+  },
+  "text_config": {
+    "template": "[CLS] <User_Message> [SEP] <Tool_Name> | <Note> | <Source_Type> [SEP]",
+    "max_length": 128,
+    "max_seg_b_tokens": 40,
+    "truncation_strategy": "head_tail_seg_a_preserve_seg_b_meta",
+    "unicode_norm": "NFC",
+    "preserve_case": true,
+    "preserve_diacritics": true,
+    "strip_zero_width": true,
+    "control_tokens": {
+      "pad": "[PAD]",
+      "unk": "[UNK]",
+      "cls": "[CLS]",
+      "sep": "[SEP]",
+      "mask": "[MASK]"
+    },
+    "protected_tokens": [
+      "<ACCT>",
+      "<ACCT_1>",
+      "<ACCT_2>",
+      "<ACCT_3>",
+      "<ACCT_4>",
+      "<ACCT_5>",
+      "<PHONE>",
+      "<PHONE_1>",
+      "<PHONE_2>",
+      "<PHONE_3>",
+      "<PHONE_4>",
+      "<PHONE_5>",
+      "<CCCD>",
+      "<CCCD_1>",
+      "<CCCD_2>",
+      "<CCCD_3>",
+      "<CCCD_4>",
+      "<CCCD_5>",
+      "CHAT_CONTACT",
+      "CHAT_RAW_ACCT",
+      "OCR_RECEIPT",
+      "lookup_contact",
+      "get_recent_transactions",
+      "check_scam_database",
+      "parse_receipt_image",
+      "create_draft_transfer",
+      "upsert_contact_alias"
+    ],
+    "tokenizer_path": "ml/gatekeeper/tokenizer/safepay_spm.model",
+    "tokenizer_sha256": "fc8704dc9b5eee85bfadab30bd438cc38e20b0702e746730fed4e049ec900809"
+  },
+  "tabular_config": {
+    "num_features": 14,
+    "dtype": "float32",
+    "scaling_policy": "deterministic_fixed_bounds_zero_train_serve_skew",
+    "features": [
+      {
+        "index": 0,
+        "name": "ratio_avg_amount",
+        "origin": "blueprint_10",
+        "type": "continuous",
+        "formula": "log1p(clip(amount / (user_avg_amount + 1.0), 0.0, 1000.0)) / 7.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "cold_start_rule": "user_avg_amount = max(auto_approve_limit, 200000) khi user chưa có lịch sử giao dịch",
+        "description": "Tỷ lệ số tiền giao dịch so với mức chi trung bình của người dùng (log-scaled)"
+      },
+      {
+        "index": 1,
+        "name": "amount_log",
+        "origin": "blueprint_10",
+        "type": "continuous",
+        "formula": "clip(log1p(max(0, amount)) / 20.0, 0.0, 1.25)",
+        "range": [
+          0.0,
+          1.25
+        ],
+        "description": "Logarit tự nhiên (1 + amount VNĐ) chuẩn hóa cố định theo ngưỡng 20.0"
+      },
+      {
+        "index": 2,
+        "name": "is_new_recipient",
+        "origin": "blueprint_10",
+        "type": "binary",
+        "formula": "1.0 if (contact_id is None or trust_level != 'TRUSTED') else 0.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Người nhận mới hoặc chưa được gắn TRUSTED (khớp seed.py và schema.sql)"
+      },
+      {
+        "index": 3,
+        "name": "transfer_count_log",
+        "origin": "blueprint_10",
+        "type": "continuous",
+        "formula": "log1p(clip(effective_transfer_count, 0, 10000)) / 10.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Số lần đã chuyển tới người nhận (max của contacts.transfer_count và số dòng COMPLETED trong transactions)"
+      },
+      {
+        "index": 4,
+        "name": "matched_contact_count",
+        "origin": "blueprint_10",
+        "type": "continuous",
+        "formula": "clip(matched_contact_count, 0, 5) / 5.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Số danh bạ khớp query (đo độ mơ hồ danh bạ, tối đa 5 theo lookup_contact_zero_pii)"
+      },
+      {
+        "index": 5,
+        "name": "exceeds_auto_limit",
+        "origin": "blueprint_10",
+        "type": "binary",
+        "formula": "1.0 if amount > auto_approve_limit else 0.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Vượt hạn mức tự duyệt do người dùng cấu hình (mặc định 100.000 VNĐ)"
+      },
+      {
+        "index": 6,
+        "name": "exceeds_sbv_limit",
+        "origin": "blueprint_10",
+        "type": "binary",
+        "formula": "1.0 if (amount >= 10000000 or (daily_transferred + amount) >= 20000000) else 0.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Chạm ngưỡng bắt buộc xác thực theo quy định NHNN (>=10tr/lần hoặc >=20tr/ngày)"
+      },
+      {
+        "index": 7,
+        "name": "is_ocr_source",
+        "origin": "blueprint_10",
+        "type": "binary",
+        "formula": "1.0 if source_type == 'OCR_RECEIPT' else 0.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Nguồn giao dịch trích xuất từ ảnh hóa đơn OCR"
+      },
+      {
+        "index": 8,
+        "name": "is_late_night",
+        "origin": "blueprint_10",
+        "type": "binary",
+        "formula": "1.0 if vn_local_hour in {23, 0, 1, 2, 3, 4} else 0.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Giao dịch trong khung giờ đêm rủi ro cao (23:00 - 04:59 UTC+7)"
+      },
+      {
+        "index": 9,
+        "name": "time_since_last_tx_log",
+        "origin": "blueprint_10",
+        "type": "continuous",
+        "formula": "log1p(clip(delta_seconds, 0.0, 2592000.0)) / 15.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "cold_start_rule": "delta_seconds = 2592000.0 (30 ngày) nếu user chưa có giao dịch trước đó",
+        "description": "Log thời gian từ giao dịch gần nhất (phát hiện chuyển tiền dồn dập bất thường)"
+      },
+      {
+        "index": 10,
+        "name": "daily_total_ratio",
+        "origin": "schema_extension_4",
+        "type": "continuous",
+        "formula": "clip((daily_transferred + amount) / 20000000.0, 0.0, 5.0) / 2.0",
+        "range": [
+          0.0,
+          2.5
+        ],
+        "description": "Tỷ lệ tổng giá trị chuyển khoản trong ngày (cộng giao dịch hiện tại) so với trần 20tr NHNN"
+      },
+      {
+        "index": 11,
+        "name": "balance_drain_ratio",
+        "origin": "schema_extension_4",
+        "type": "continuous",
+        "formula": "clip(amount / (max(0, balance) + 1.0), 0.0, 2.0)",
+        "range": [
+          0.0,
+          2.0
+        ],
+        "description": "Tỷ lệ rút cạn số dư hiện có trong ví (phát hiện vét sạch tài khoản hoặc vượt số dư)"
+      },
+      {
+        "index": 12,
+        "name": "is_raw_account",
+        "origin": "schema_extension_4",
+        "type": "binary",
+        "formula": "1.0 if source_type == 'CHAT_RAW_ACCT' else 0.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Người dùng nhập trực tiếp số tài khoản mới qua chat (không qua danh bạ)"
+      },
+      {
+        "index": 13,
+        "name": "has_ambiguous_amount",
+        "origin": "schema_extension_4",
+        "type": "binary",
+        "formula": "1.0 if amount_ambiguous else 0.0",
+        "range": [
+          0.0,
+          1.0
+        ],
+        "description": "Cờ số tiền mơ hồ đơn vị tiền tệ tiếng Việt (VD: '500', '200' không kèm k/tr/đ)"
+      }
+    ]
+  },
+  "model_budget_spec": {
+    "architecture": "FactorizedEmbeddingDualBranchGatekeeper",
+    "vocab_size": 16000,
+    "embed_dim": 64,
+    "hidden_dim": 256,
+    "num_layers": 4,
+    "num_heads": 4,
+    "ffn_dim": 1024,
+    "max_length": 128,
+    "token_type_vocab_size": 2,
+    "tabular_input_dim": 14,
+    "tabular_hidden_dim": 128,
+    "tabular_output_dim": 64,
+    "fusion_dim": 320,
+    "num_classes": 4,
+    "embedding_param_limit": 2000000,
+    "total_param_limit": 20000000
+  }
+}

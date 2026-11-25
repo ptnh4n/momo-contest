@@ -1,0 +1,2843 @@
+{
+  "spm_unigram_12000": {
+    "model_name": "spm_unigram_12000",
+    "atomicity_failures": [],
+    "keywords_gt_2_tokens_count": 7,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 4,
+        "pieces": [
+          "▁pass",
+          "w",
+          "or",
+          "d"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EQUI",
+          "RE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 3,
+        "pieces": [
+          "▁BLOCK",
+          "_",
+          "ANOMALY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "wi",
+          "th",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "s",
+          "y",
+          "st",
+          "em",
+          ">"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "[",
+          "D",
+          "EV",
+          "EL",
+          "O",
+          "P",
+          "ER"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "<",
+          "s",
+          "y",
+          "st",
+          "em",
+          ">"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "K",
+          "A",
+          "RA",
+          "O",
+          "K",
+          "E"
+        ]
+      },
+      {
+        "word": "classify",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "c",
+          "la",
+          "s",
+          "si",
+          "f",
+          "y"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 7,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "9",
+          "99"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "li",
+          "m",
+          "ite",
+          "d",
+          ","
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 6,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ư",
+          "ời"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "u",
+          "ser",
+          ">"
+        ]
+      },
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 6,
+        "pieces": [
+          "▁OCR",
+          "_",
+          "AL",
+          "WAYS",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁xa",
+          "i",
+          "_",
+          "rea",
+          "son",
+          "s"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "M",
+          "inh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "(VAT)",
+        "num_tokens": 5,
+        "pieces": [
+          "▁(",
+          "V",
+          "A",
+          "T",
+          ")"
+        ]
+      },
+      {
+        "word": "Agent,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁A",
+          "g",
+          "en",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 5,
+        "pieces": [
+          "▁F",
+          "T",
+          "2",
+          "63",
+          "29"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 5,
+        "pieces": [
+          "▁G",
+          "RA",
+          "BF",
+          "O",
+          "OD"
+        ]
+      },
+      {
+        "word": "INTERNET",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "IN",
+          "TER",
+          "NE",
+          "T"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ri",
+          "de",
+          ":"
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EQUI",
+          "RE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "TikTok",
+        "num_tokens": 5,
+        "pieces": [
+          "▁Ti",
+          "k",
+          "T",
+          "o",
+          "k"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 5,
+        "pieces": [
+          "▁account",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "bi",
+          "g",
+          "u",
+          "ity"
+        ]
+      },
+      {
+        "word": "amount=50000000",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "ount",
+          "=500",
+          "00",
+          "000"
+        ]
+      },
+      {
+        "word": "currency",
+        "num_tokens": 5,
+        "pieces": [
+          "▁cu",
+          "r",
+          "ren",
+          "c",
+          "y"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁decision",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "f",
+          "ol",
+          "low",
+          "ing"
+        ]
+      },
+      {
+        "word": "gatekeeper",
+        "num_tokens": 5,
+        "pieces": [
+          "▁ga",
+          "te",
+          "k",
+          "ee",
+          "per"
+        ]
+      },
+      {
+        "word": "injection",
+        "num_tokens": 5,
+        "pieces": [
+          "▁in",
+          "j",
+          "ec",
+          "t",
+          "ion"
+        ]
+      },
+      {
+        "word": "message:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁me",
+          "s",
+          "s",
+          "age",
+          ":"
+        ]
+      },
+      {
+        "word": "reply_text",
+        "num_tokens": 5,
+        "pieces": [
+          "▁reply",
+          "_",
+          "t",
+          "ex",
+          "t"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 5,
+        "pieces": [
+          "▁risk",
+          "_",
+          "score",
+          "=0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "source_type",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype"
+        ]
+      }
+    ],
+    "byte_fallback_examples": []
+  },
+  "spm_unigram_14000": {
+    "model_name": "spm_unigram_14000",
+    "atomicity_failures": [],
+    "keywords_gt_2_tokens_count": 7,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 4,
+        "pieces": [
+          "▁pass",
+          "w",
+          "or",
+          "d"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EQUI",
+          "RE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 3,
+        "pieces": [
+          "▁BLOCK",
+          "_",
+          "ANOMALY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "wi",
+          "th",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "s",
+          "y",
+          "st",
+          "em",
+          ">"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "[",
+          "D",
+          "EV",
+          "EL",
+          "O",
+          "P",
+          "ER"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "<",
+          "s",
+          "y",
+          "st",
+          "em",
+          ">"
+        ]
+      },
+      {
+        "word": "classify",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "c",
+          "la",
+          "s",
+          "si",
+          "f",
+          "y"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 7,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "99",
+          "9"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "li",
+          "m",
+          "ite",
+          "d",
+          ","
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 6,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ư",
+          "ời"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "u",
+          "ser",
+          ">"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "K",
+          "AR",
+          "AO",
+          "K",
+          "E"
+        ]
+      },
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 6,
+        "pieces": [
+          "▁OCR",
+          "_",
+          "AL",
+          "WAYS",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁xa",
+          "i",
+          "_",
+          "rea",
+          "son",
+          "s"
+        ]
+      },
+      {
+        "word": "(VAT)",
+        "num_tokens": 5,
+        "pieces": [
+          "▁(",
+          "V",
+          "A",
+          "T",
+          ")"
+        ]
+      },
+      {
+        "word": "Agent,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁A",
+          "g",
+          "en",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 5,
+        "pieces": [
+          "▁F",
+          "T",
+          "2",
+          "63",
+          "29"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ri",
+          "de",
+          ":"
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EQUI",
+          "RE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 5,
+        "pieces": [
+          "▁account",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "bi",
+          "g",
+          "u",
+          "ity"
+        ]
+      },
+      {
+        "word": "amount=50000000",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "ount",
+          "=500",
+          "00",
+          "000"
+        ]
+      },
+      {
+        "word": "currency",
+        "num_tokens": 5,
+        "pieces": [
+          "▁cu",
+          "r",
+          "ren",
+          "c",
+          "y"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁decision",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "f",
+          "ol",
+          "low",
+          "ing"
+        ]
+      },
+      {
+        "word": "gatekeeper",
+        "num_tokens": 5,
+        "pieces": [
+          "▁ga",
+          "te",
+          "k",
+          "ee",
+          "per"
+        ]
+      },
+      {
+        "word": "message:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁me",
+          "s",
+          "s",
+          "age",
+          ":"
+        ]
+      },
+      {
+        "word": "reply_text",
+        "num_tokens": 5,
+        "pieces": [
+          "▁reply",
+          "_",
+          "t",
+          "ex",
+          "t"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 5,
+        "pieces": [
+          "▁risk",
+          "_",
+          "score",
+          "=0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "source_type",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "Minh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "s",
+          "ếp",
+          "'"
+        ]
+      },
+      {
+        "word": "'thằng",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "th",
+          "ằ",
+          "ng"
+        ]
+      },
+      {
+        "word": "-20.000đ",
+        "num_tokens": 4,
+        "pieces": [
+          "▁",
+          "-20",
+          ".000",
+          "đ"
+        ]
+      },
+      {
+        "word": "1.240.000đ,",
+        "num_tokens": 4,
+        "pieces": [
+          "▁1.240",
+          ".000",
+          "đ",
+          ","
+        ]
+      }
+    ],
+    "byte_fallback_examples": []
+  },
+  "spm_unigram_16000": {
+    "model_name": "spm_unigram_16000",
+    "atomicity_failures": [],
+    "keywords_gt_2_tokens_count": 7,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 4,
+        "pieces": [
+          "▁pass",
+          "w",
+          "or",
+          "d"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EQUI",
+          "RE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 3,
+        "pieces": [
+          "▁BLOCK",
+          "_",
+          "ANOMALY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "wi",
+          "th",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "s",
+          "y",
+          "st",
+          "em",
+          ">"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 8,
+        "pieces": [
+          "▁",
+          "[",
+          "D",
+          "EV",
+          "EL",
+          "O",
+          "P",
+          "ER"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "<",
+          "s",
+          "y",
+          "st",
+          "em",
+          ">"
+        ]
+      },
+      {
+        "word": "classify",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "c",
+          "la",
+          "s",
+          "si",
+          "f",
+          "y"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 7,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "c",
+          "ount",
+          "=",
+          "99",
+          "9"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 7,
+        "pieces": [
+          "▁",
+          "un",
+          "li",
+          "m",
+          "ite",
+          "d",
+          ","
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "<",
+          "/",
+          "u",
+          "ser",
+          ">"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 6,
+        "pieces": [
+          "▁",
+          "K",
+          "AR",
+          "AO",
+          "K",
+          "E"
+        ]
+      },
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 6,
+        "pieces": [
+          "▁OCR",
+          "_",
+          "AL",
+          "WAYS",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁xa",
+          "i",
+          "_",
+          "rea",
+          "son",
+          "s"
+        ]
+      },
+      {
+        "word": "(VAT)",
+        "num_tokens": 5,
+        "pieces": [
+          "▁(",
+          "V",
+          "A",
+          "T",
+          ")"
+        ]
+      },
+      {
+        "word": "Agent,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁A",
+          "g",
+          "en",
+          "t",
+          ","
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 5,
+        "pieces": [
+          "▁F",
+          "T",
+          "2",
+          "63",
+          "29"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ri",
+          "de",
+          ":"
+        ]
+      },
+      {
+        "word": "REQUIRE_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁R",
+          "EQUI",
+          "RE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 5,
+        "pieces": [
+          "▁account",
+          "_",
+          "n",
+          "um",
+          "ber"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "bi",
+          "g",
+          "u",
+          "ity"
+        ]
+      },
+      {
+        "word": "amount=50000000",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "ount",
+          "=500",
+          "00",
+          "000"
+        ]
+      },
+      {
+        "word": "currency",
+        "num_tokens": 5,
+        "pieces": [
+          "▁cu",
+          "r",
+          "ren",
+          "c",
+          "y"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁decision",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "f",
+          "ol",
+          "low",
+          "ing"
+        ]
+      },
+      {
+        "word": "gatekeeper",
+        "num_tokens": 5,
+        "pieces": [
+          "▁ga",
+          "te",
+          "k",
+          "ee",
+          "per"
+        ]
+      },
+      {
+        "word": "message:",
+        "num_tokens": 5,
+        "pieces": [
+          "▁me",
+          "s",
+          "s",
+          "age",
+          ":"
+        ]
+      },
+      {
+        "word": "reply_text",
+        "num_tokens": 5,
+        "pieces": [
+          "▁reply",
+          "_",
+          "t",
+          "ex",
+          "t"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 5,
+        "pieces": [
+          "▁risk",
+          "_",
+          "score",
+          "=0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "source_type",
+        "num_tokens": 5,
+        "pieces": [
+          "▁",
+          "source",
+          "_",
+          "t",
+          "ype"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "Minh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "s",
+          "ếp",
+          "'"
+        ]
+      },
+      {
+        "word": "'thằng",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "th",
+          "ằ",
+          "ng"
+        ]
+      },
+      {
+        "word": "-20.000đ",
+        "num_tokens": 4,
+        "pieces": [
+          "▁",
+          "-20",
+          ".000",
+          "đ"
+        ]
+      },
+      {
+        "word": "1.240.000đ,",
+        "num_tokens": 4,
+        "pieces": [
+          "▁1.240",
+          ".000",
+          "đ",
+          ","
+        ]
+      },
+      {
+        "word": "1.950.000đ",
+        "num_tokens": 4,
+        "pieces": [
+          "▁1",
+          ".950",
+          ".000",
+          "đ"
+        ]
+      }
+    ],
+    "byte_fallback_examples": []
+  },
+  "spm_bpe_12000": {
+    "model_name": "spm_bpe_12000",
+    "atomicity_failures": [],
+    "keywords_gt_2_tokens_count": 7,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 4,
+        "pieces": [
+          "▁pass",
+          "w",
+          "or",
+          "d"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 3,
+        "pieces": [
+          "▁REQUIRE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 3,
+        "pieces": [
+          "▁BLOCK",
+          "_",
+          "ANOMALY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "w",
+          "ith",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 7,
+        "pieces": [
+          "▁x",
+          "ai",
+          "_",
+          "re",
+          "as",
+          "on",
+          "s"
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁<",
+          "/",
+          "s",
+          "y",
+          "stem",
+          ">"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 6,
+        "pieces": [
+          "▁G",
+          "R",
+          "AB",
+          "F",
+          "O",
+          "OD"
+        ]
+      },
+      {
+        "word": "currency",
+        "num_tokens": 6,
+        "pieces": [
+          "▁cu",
+          "r",
+          "r",
+          "en",
+          "c",
+          "y"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "M",
+          "inh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 5,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ười"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "s",
+          "y",
+          "stem",
+          ">"
+        ]
+      },
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁OCR",
+          "_",
+          "ALWAYS",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "TOCOTOCO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁TO",
+          "C",
+          "OT",
+          "OC",
+          "O"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "b",
+          "ig",
+          "u",
+          "ity"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁decision",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁f",
+          "o",
+          "ll",
+          "ow",
+          "ing"
+        ]
+      },
+      {
+        "word": "gatekeeper",
+        "num_tokens": 5,
+        "pieces": [
+          "▁g",
+          "ate",
+          "ke",
+          "ep",
+          "er"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 5,
+        "pieces": [
+          "▁risk",
+          "_",
+          "score",
+          "=0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁source",
+          "_",
+          "type",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 5,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "count",
+          "=",
+          "999"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁un",
+          "l",
+          "im",
+          "ited",
+          ","
+        ]
+      },
+      {
+        "word": "'500'",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "5",
+          "00",
+          "'"
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "s",
+          "ếp",
+          "'"
+        ]
+      },
+      {
+        "word": "(VAT)",
+        "num_tokens": 4,
+        "pieces": [
+          "▁(",
+          "V",
+          "AT",
+          ")"
+        ]
+      },
+      {
+        "word": "1.240.000đ,",
+        "num_tokens": 4,
+        "pieces": [
+          "▁1.240",
+          ".000",
+          "đ",
+          ","
+        ]
+      },
+      {
+        "word": "2.520.000đ",
+        "num_tokens": 4,
+        "pieces": [
+          "▁2.5",
+          "20",
+          ".000",
+          "đ"
+        ]
+      },
+      {
+        "word": "9500000)",
+        "num_tokens": 4,
+        "pieces": [
+          "▁95",
+          "00",
+          "000",
+          ")"
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 4,
+        "pieces": [
+          "▁FT",
+          "26",
+          "32",
+          "9"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 4,
+        "pieces": [
+          "▁K",
+          "AR",
+          "AO",
+          "KE"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 4,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ride",
+          ":"
+        ]
+      },
+      {
+        "word": "PE0192",
+        "num_tokens": 4,
+        "pieces": [
+          "▁PE",
+          "0",
+          "19",
+          "2"
+        ]
+      },
+      {
+        "word": "TikTok",
+        "num_tokens": 4,
+        "pieces": [
+          "▁Ti",
+          "k",
+          "T",
+          "ok"
+        ]
+      },
+      {
+        "word": "Zero-PII",
+        "num_tokens": 4,
+        "pieces": [
+          "▁Zero",
+          "-",
+          "P",
+          "II"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 4,
+        "pieces": [
+          "▁[",
+          "DE",
+          "VELOP",
+          "ER"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 4,
+        "pieces": [
+          "▁account",
+          "_",
+          "n",
+          "umber"
+        ]
+      },
+      {
+        "word": "amount=50000000",
+        "num_tokens": 4,
+        "pieces": [
+          "▁amount",
+          "=500",
+          "00",
+          "000"
+        ]
+      }
+    ],
+    "byte_fallback_examples": []
+  },
+  "spm_bpe_14000": {
+    "model_name": "spm_bpe_14000",
+    "atomicity_failures": [],
+    "keywords_gt_2_tokens_count": 7,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 3,
+        "pieces": [
+          "▁pass",
+          "w",
+          "ord"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 3,
+        "pieces": [
+          "▁REQUIRE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 3,
+        "pieces": [
+          "▁BLOCK",
+          "_",
+          "ANOMALY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "w",
+          "ith",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 7,
+        "pieces": [
+          "▁x",
+          "ai",
+          "_",
+          "re",
+          "as",
+          "on",
+          "s"
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁<",
+          "/",
+          "s",
+          "y",
+          "stem",
+          ">"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "M",
+          "inh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 5,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ười"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "s",
+          "y",
+          "stem",
+          ">"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 5,
+        "pieces": [
+          "▁GR",
+          "AB",
+          "F",
+          "O",
+          "OD"
+        ]
+      },
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁OCR",
+          "_",
+          "ALWAYS",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "TOCOTOCO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁TO",
+          "C",
+          "OT",
+          "OC",
+          "O"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "b",
+          "ig",
+          "u",
+          "ity"
+        ]
+      },
+      {
+        "word": "currency",
+        "num_tokens": 5,
+        "pieces": [
+          "▁cu",
+          "r",
+          "r",
+          "en",
+          "cy"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁decision",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁f",
+          "o",
+          "ll",
+          "ow",
+          "ing"
+        ]
+      },
+      {
+        "word": "gatekeeper",
+        "num_tokens": 5,
+        "pieces": [
+          "▁g",
+          "ate",
+          "ke",
+          "ep",
+          "er"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 5,
+        "pieces": [
+          "▁risk",
+          "_",
+          "score",
+          "=0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁source",
+          "_",
+          "type",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 5,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "count",
+          "=",
+          "999"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁un",
+          "l",
+          "im",
+          "ited",
+          ","
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "s",
+          "ếp",
+          "'"
+        ]
+      },
+      {
+        "word": "(VAT)",
+        "num_tokens": 4,
+        "pieces": [
+          "▁(",
+          "V",
+          "AT",
+          ")"
+        ]
+      },
+      {
+        "word": "1.240.000đ,",
+        "num_tokens": 4,
+        "pieces": [
+          "▁1.240",
+          ".000",
+          "đ",
+          ","
+        ]
+      },
+      {
+        "word": "2.520.000đ",
+        "num_tokens": 4,
+        "pieces": [
+          "▁2.5",
+          "20",
+          ".000",
+          "đ"
+        ]
+      },
+      {
+        "word": "9500000)",
+        "num_tokens": 4,
+        "pieces": [
+          "▁95",
+          "00",
+          "000",
+          ")"
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 4,
+        "pieces": [
+          "▁FT",
+          "26",
+          "32",
+          "9"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 4,
+        "pieces": [
+          "▁K",
+          "AR",
+          "AO",
+          "KE"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 4,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ride",
+          ":"
+        ]
+      },
+      {
+        "word": "PE0192",
+        "num_tokens": 4,
+        "pieces": [
+          "▁PE",
+          "0",
+          "19",
+          "2"
+        ]
+      },
+      {
+        "word": "Zero-PII",
+        "num_tokens": 4,
+        "pieces": [
+          "▁Zero",
+          "-",
+          "P",
+          "II"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 4,
+        "pieces": [
+          "▁[",
+          "DE",
+          "VELOP",
+          "ER"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 4,
+        "pieces": [
+          "▁account",
+          "_",
+          "n",
+          "umber"
+        ]
+      },
+      {
+        "word": "amount=50000000",
+        "num_tokens": 4,
+        "pieces": [
+          "▁amount",
+          "=500",
+          "00",
+          "000"
+        ]
+      },
+      {
+        "word": "command:",
+        "num_tokens": 4,
+        "pieces": [
+          "▁com",
+          "m",
+          "and",
+          ":"
+        ]
+      },
+      {
+        "word": "injection",
+        "num_tokens": 4,
+        "pieces": [
+          "▁in",
+          "j",
+          "ec",
+          "tion"
+        ]
+      }
+    ],
+    "byte_fallback_examples": []
+  },
+  "spm_bpe_16000": {
+    "model_name": "spm_bpe_16000",
+    "atomicity_failures": [],
+    "keywords_gt_2_tokens_count": 7,
+    "keywords_gt_2_tokens": [
+      {
+        "keyword": "số tài khoản",
+        "num_tokens": 3,
+        "pieces": [
+          "▁số",
+          "▁tài",
+          "▁khoản"
+        ]
+      },
+      {
+        "keyword": "sinh trắc học",
+        "num_tokens": 3,
+        "pieces": [
+          "▁sinh",
+          "▁trắc",
+          "▁học"
+        ]
+      },
+      {
+        "keyword": "viện kiểm sát",
+        "num_tokens": 3,
+        "pieces": [
+          "▁viện",
+          "▁kiểm",
+          "▁sát"
+        ]
+      },
+      {
+        "keyword": "password",
+        "num_tokens": 3,
+        "pieces": [
+          "▁pass",
+          "w",
+          "ord"
+        ]
+      },
+      {
+        "keyword": "PASS_AUTO",
+        "num_tokens": 3,
+        "pieces": [
+          "▁PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "keyword": "REQUIRE_HITL",
+        "num_tokens": 3,
+        "pieces": [
+          "▁REQUIRE",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "keyword": "BLOCK_ANOMALY",
+        "num_tokens": 3,
+        "pieces": [
+          "▁BLOCK",
+          "_",
+          "ANOMALY"
+        ]
+      }
+    ],
+    "top_fragmented_words": [
+      {
+        "word": "approve_without_pin(<ACCT_1>,",
+        "num_tokens": 11,
+        "pieces": [
+          "▁approve",
+          "_",
+          "w",
+          "ith",
+          "out",
+          "_",
+          "p",
+          "in",
+          "(",
+          "<ACCT_1>",
+          ","
+        ]
+      },
+      {
+        "word": "upsert_contact_alias('C_002',",
+        "num_tokens": 10,
+        "pieces": [
+          "▁",
+          "upsert_contact_alias",
+          "(",
+          "'",
+          "C",
+          "_",
+          "00",
+          "2",
+          "'",
+          ","
+        ]
+      },
+      {
+        "word": "</system>",
+        "num_tokens": 6,
+        "pieces": [
+          "▁<",
+          "/",
+          "s",
+          "y",
+          "stem",
+          ">"
+        ]
+      },
+      {
+        "word": "xai_reasons",
+        "num_tokens": 6,
+        "pieces": [
+          "▁x",
+          "ai",
+          "_",
+          "re",
+          "ason",
+          "s"
+        ]
+      },
+      {
+        "word": "'Minh')",
+        "num_tokens": 5,
+        "pieces": [
+          "▁'",
+          "M",
+          "inh",
+          "'",
+          ")"
+        ]
+      },
+      {
+        "word": "300k/người",
+        "num_tokens": 5,
+        "pieces": [
+          "▁300",
+          "k",
+          "/",
+          "ng",
+          "ười"
+        ]
+      },
+      {
+        "word": "</user>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "/",
+          "us",
+          "er",
+          ">"
+        ]
+      },
+      {
+        "word": "<system>",
+        "num_tokens": 5,
+        "pieces": [
+          "▁<",
+          "s",
+          "y",
+          "stem",
+          ">"
+        ]
+      },
+      {
+        "word": "GRABFOOD",
+        "num_tokens": 5,
+        "pieces": [
+          "▁GR",
+          "AB",
+          "F",
+          "O",
+          "OD"
+        ]
+      },
+      {
+        "word": "OCR_ALWAYS_HITL",
+        "num_tokens": 5,
+        "pieces": [
+          "▁OCR",
+          "_",
+          "ALWAYS",
+          "_",
+          "HITL"
+        ]
+      },
+      {
+        "word": "TOCOTOCO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁TO",
+          "C",
+          "OT",
+          "OC",
+          "O"
+        ]
+      },
+      {
+        "word": "ambiguity",
+        "num_tokens": 5,
+        "pieces": [
+          "▁am",
+          "b",
+          "ig",
+          "u",
+          "ity"
+        ]
+      },
+      {
+        "word": "currency",
+        "num_tokens": 5,
+        "pieces": [
+          "▁cu",
+          "r",
+          "r",
+          "en",
+          "cy"
+        ]
+      },
+      {
+        "word": "decision=PASS_AUTO",
+        "num_tokens": 5,
+        "pieces": [
+          "▁decision",
+          "=",
+          "PASS",
+          "_",
+          "AUTO"
+        ]
+      },
+      {
+        "word": "following",
+        "num_tokens": 5,
+        "pieces": [
+          "▁f",
+          "o",
+          "ll",
+          "ow",
+          "ing"
+        ]
+      },
+      {
+        "word": "gatekeeper",
+        "num_tokens": 5,
+        "pieces": [
+          "▁g",
+          "ate",
+          "ke",
+          "ep",
+          "er"
+        ]
+      },
+      {
+        "word": "risk_score=0.01",
+        "num_tokens": 5,
+        "pieces": [
+          "▁risk",
+          "_",
+          "score",
+          "=0.0",
+          "1"
+        ]
+      },
+      {
+        "word": "source_type=CHAT_CONTACT",
+        "num_tokens": 5,
+        "pieces": [
+          "▁source",
+          "_",
+          "type",
+          "=",
+          "CHAT_CONTACT"
+        ]
+      },
+      {
+        "word": "transfer_count=999",
+        "num_tokens": 5,
+        "pieces": [
+          "▁transfer",
+          "_",
+          "count",
+          "=",
+          "999"
+        ]
+      },
+      {
+        "word": "unlimited,",
+        "num_tokens": 5,
+        "pieces": [
+          "▁un",
+          "l",
+          "im",
+          "ited",
+          ","
+        ]
+      },
+      {
+        "word": "'sếp'",
+        "num_tokens": 4,
+        "pieces": [
+          "▁'",
+          "s",
+          "ếp",
+          "'"
+        ]
+      },
+      {
+        "word": "(VAT)",
+        "num_tokens": 4,
+        "pieces": [
+          "▁(",
+          "V",
+          "AT",
+          ")"
+        ]
+      },
+      {
+        "word": "1.240.000đ,",
+        "num_tokens": 4,
+        "pieces": [
+          "▁1.240",
+          ".000",
+          "đ",
+          ","
+        ]
+      },
+      {
+        "word": "2.520.000đ",
+        "num_tokens": 4,
+        "pieces": [
+          "▁2.5",
+          "20",
+          ".000",
+          "đ"
+        ]
+      },
+      {
+        "word": "9500000)",
+        "num_tokens": 4,
+        "pieces": [
+          "▁95",
+          "00",
+          "000",
+          ")"
+        ]
+      },
+      {
+        "word": "FT26329",
+        "num_tokens": 4,
+        "pieces": [
+          "▁FT",
+          "26",
+          "32",
+          "9"
+        ]
+      },
+      {
+        "word": "KARAOKE",
+        "num_tokens": 4,
+        "pieces": [
+          "▁K",
+          "AR",
+          "AO",
+          "KE"
+        ]
+      },
+      {
+        "word": "Override:",
+        "num_tokens": 4,
+        "pieces": [
+          "▁O",
+          "ver",
+          "ride",
+          ":"
+        ]
+      },
+      {
+        "word": "PE0192",
+        "num_tokens": 4,
+        "pieces": [
+          "▁PE",
+          "0",
+          "19",
+          "2"
+        ]
+      },
+      {
+        "word": "Zero-PII",
+        "num_tokens": 4,
+        "pieces": [
+          "▁Zero",
+          "-",
+          "P",
+          "II"
+        ]
+      },
+      {
+        "word": "[DEVELOPER",
+        "num_tokens": 4,
+        "pieces": [
+          "▁[",
+          "DE",
+          "VELOP",
+          "ER"
+        ]
+      },
+      {
+        "word": "account_number",
+        "num_tokens": 4,
+        "pieces": [
+          "▁account",
+          "_",
+          "n",
+          "umber"
+        ]
+      },
+      {
+        "word": "amount=50000000",
+        "num_tokens": 4,
+        "pieces": [
+          "▁amount",
+          "=500",
+          "00",
+          "000"
+        ]
+      },
+      {
+        "word": "command:",
+        "num_tokens": 4,
+        "pieces": [
+          "▁com",
+          "m",
+          "and",
+          ":"
+        ]
+      },
+      {
+        "word": "message:",
+        "num_tokens": 4,
+        "pieces": [
+          "▁m",
+          "ess",
+          "age",
+          ":"
+        ]
+      }
+    ],
+    "byte_fallback_examples": []
+  }
+}
