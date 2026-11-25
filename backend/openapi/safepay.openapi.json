@@ -1,0 +1,239 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SafePay Agent API",
+    "version": "0.2.1",
+    "description": "Tiền là số nguyên VNĐ. Frontend render thẻ xác nhận từ object `draft`, KHÔNG từ `reply_text`."
+  },
+  "paths": {
+    "/api/chat": {
+      "post": {
+        "operationId": "postChat",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ChatRequest" } } } },
+        "responses": {
+          "200": { "description": "Kết quả (kể cả CLARIFY / BLOCK_ANOMALY)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ChatResponse" } } } },
+          "422": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/api/drafts/{tx_id}/confirm": {
+      "post": {
+        "operationId": "confirmDraft",
+        "summary": "Xác nhận bằng PIN. Idempotent.",
+        "parameters": [{ "$ref": "#/components/parameters/TxId" }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConfirmRequest" } } } },
+        "responses": {
+          "200": { "description": "Hoàn tất", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ConfirmResponse" } } } },
+          "401": { "$ref": "#/components/responses/Error" },
+          "404": { "$ref": "#/components/responses/Error" },
+          "409": { "$ref": "#/components/responses/Error" },
+          "422": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/api/drafts/{tx_id}/cancel": {
+      "post": {
+        "operationId": "cancelDraft",
+        "parameters": [{ "$ref": "#/components/parameters/TxId" }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CancelRequest" } } } },
+        "responses": {
+          "200": { "description": "Đã hủy", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CancelResponse" } } } },
+          "404": { "$ref": "#/components/responses/Error" },
+          "409": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/api/wallet/state": {
+      "get": {
+        "operationId": "getWalletState",
+        "summary": "Trạng thái ví cho UI (không dành cho LLM)",
+        "parameters": [{ "name": "user_id", "in": "query", "required": true, "schema": { "type": "string" } }],
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/WalletState" } } } },
+          "404": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/api/demo/reset": {
+      "post": {
+        "operationId": "resetDemo",
+        "summary": "Khôi phục số dư 10.000.000, danh bạ mẫu, blacklist mẫu",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResetRequest" } } } },
+        "responses": {
+          "200": { "description": "Đã reset", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResetResponse" } } } }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "responses": {
+          "200": { "description": "OK", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Health" } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "TxId": { "name": "tx_id", "in": "path", "required": true, "schema": { "type": "string" } }
+    },
+    "responses": {
+      "Error": { "description": "Lỗi", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } } }
+    },
+    "schemas": {
+      "Decision": { "type": "string", "enum": ["PASS_AUTO", "REQUIRE_HITL", "CLARIFY", "BLOCK_ANOMALY"] },
+      "SourceType": { "type": "string", "enum": ["CHAT_CONTACT", "CHAT_RAW_ACCT", "OCR_RECEIPT"] },
+      "DraftStatus": { "type": "string", "enum": ["DRAFT", "COMPLETED", "CANCELLED", "BLOCKED"] },
+      "TrustLevel": { "type": "string", "enum": ["NEW", "TRUSTED"] },
+      "ChatRequest": {
+        "type": "object",
+        "required": ["user_id", "intent_id", "message"],
+        "properties": {
+          "user_id": { "type": "string" },
+          "intent_id": { "type": "string", "format": "uuid", "description": "UUIDv4 do client sinh. Gửi lại cùng giá trị sẽ nhận lại kết quả cũ." },
+          "message": { "type": "string" },
+          "image_base64": { "type": ["string", "null"] },
+          "clarify_choice": { "$ref": "#/components/schemas/ClarifyChoice" }
+        }
+      },
+      "ClarifyChoice": {
+        "type": "object",
+        "description": "Gửi kèm khi người dùng chọn một phương án trong clarify_options.",
+        "properties": {
+          "ref_intent_id": { "type": "string", "format": "uuid", "description": "intent_id của lượt CLARIFY trước." },
+          "contact_id": { "type": ["string", "null"] },
+          "amount": { "type": ["integer", "null"], "minimum": 1 }
+        }
+      },
+      "ChatResponse": {
+        "type": "object",
+        "required": ["reply_text", "decision", "risk_score", "xai_reasons"],
+        "properties": {
+          "reply_text": { "type": "string", "description": "Chỉ để hiển thị lời thoại, KHÔNG dùng để render thẻ giao dịch." },
+          "decision": { "$ref": "#/components/schemas/Decision" },
+          "risk_score": { "type": "number", "minimum": 0, "maximum": 1 },
+          "xai_reasons": { "type": "array", "items": { "type": "string" } },
+          "draft": { "oneOf": [{ "$ref": "#/components/schemas/DraftView" }, { "type": "null" }] },
+          "clarify_options": { "oneOf": [{ "$ref": "#/components/schemas/ClarifyOptions" }, { "type": "null" }] },
+          "new_balance": { "type": ["integer", "null"], "description": "Chỉ có khi PASS_AUTO đã thực thi." }
+        }
+      },
+      "DraftView": {
+        "type": "object",
+        "description": "Dữ liệu thô từ draft_transactions; nguồn duy nhất để render thẻ xác nhận.",
+        "required": ["tx_id", "recipient_name", "recipient_account", "bank_code", "amount", "source_type", "status"],
+        "properties": {
+          "tx_id": { "type": "string" },
+          "recipient_name": { "type": "string" },
+          "recipient_account": { "type": "string" },
+          "bank_code": { "type": "string" },
+          "amount": { "type": "integer", "minimum": 1 },
+          "note": { "type": ["string", "null"] },
+          "source_type": { "$ref": "#/components/schemas/SourceType" },
+          "suggested_alias": { "type": ["string", "null"], "description": "Luôn null khi source_type = OCR_RECEIPT." },
+          "status": { "$ref": "#/components/schemas/DraftStatus" }
+        }
+      },
+      "ClarifyOptions": {
+        "type": "object",
+        "required": ["kind", "options"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["CONTACT", "CURRENCY_UNIT"] },
+          "options": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "required": ["label"],
+              "properties": {
+                "label": { "type": "string", "description": "VD: 'Lê Quang Minh — TCB ****123' hoặc '500.000 VNĐ'." },
+                "contact_id": { "type": ["string", "null"] },
+                "amount": { "type": ["integer", "null"] }
+              }
+            }
+          }
+        }
+      },
+      "ConfirmRequest": {
+        "type": "object",
+        "required": ["user_id", "pin_code"],
+        "properties": {
+          "user_id": { "type": "string" },
+          "pin_code": { "type": "string", "pattern": "^[0-9]{4,8}$" },
+          "save_alias": { "type": "boolean", "default": false }
+        }
+      },
+      "ConfirmResponse": {
+        "type": "object",
+        "required": ["status", "new_balance", "tx_id"],
+        "properties": {
+          "status": { "type": "string", "enum": ["COMPLETED"] },
+          "new_balance": { "type": "integer" },
+          "tx_id": { "type": "string" },
+          "alias_saved": { "type": ["string", "null"] }
+        }
+      },
+      "CancelRequest": { "type": "object", "required": ["user_id"], "properties": { "user_id": { "type": "string" } } },
+      "CancelResponse": {
+        "type": "object",
+        "required": ["status", "tx_id"],
+        "properties": { "status": { "type": "string", "enum": ["CANCELLED"] }, "tx_id": { "type": "string" } }
+      },
+      "ContactView": {
+        "type": "object",
+        "description": "Cho UI; UI được thấy STK đầy đủ của chính chủ.",
+        "required": ["contact_id", "full_name", "bank_code", "account_number", "trust_level", "aliases"],
+        "properties": {
+          "contact_id": { "type": "string" },
+          "full_name": { "type": "string" },
+          "bank_code": { "type": "string" },
+          "account_number": { "type": "string" },
+          "trust_level": { "$ref": "#/components/schemas/TrustLevel" },
+          "aliases": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "TransactionView": {
+        "type": "object",
+        "required": ["tx_id", "recipient_name", "bank_code", "amount", "completed_at"],
+        "properties": {
+          "tx_id": { "type": "string" },
+          "recipient_name": { "type": "string" },
+          "bank_code": { "type": "string" },
+          "amount": { "type": "integer" },
+          "note": { "type": ["string", "null"] },
+          "completed_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "WalletState": {
+        "type": "object",
+        "required": ["balance", "daily_transferred", "auto_approve_limit", "contacts", "recent_transactions"],
+        "properties": {
+          "balance": { "type": "integer" },
+          "daily_transferred": { "type": "integer" },
+          "auto_approve_limit": { "type": "integer" },
+          "contacts": { "type": "array", "items": { "$ref": "#/components/schemas/ContactView" } },
+          "recent_transactions": { "type": "array", "items": { "$ref": "#/components/schemas/TransactionView" } }
+        }
+      },
+      "ResetRequest": { "type": "object", "required": ["user_id"], "properties": { "user_id": { "type": "string" } } },
+      "ResetResponse": {
+        "type": "object",
+        "required": ["status", "balance"],
+        "properties": { "status": { "type": "string", "enum": ["RESET_OK"] }, "balance": { "type": "integer" } }
+      },
+      "Health": {
+        "type": "object",
+        "required": ["status", "gatekeeper_loaded"],
+        "properties": { "status": { "type": "string", "enum": ["ok"] }, "gatekeeper_loaded": { "type": "boolean" } }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "required": ["error_code", "message"],
+        "properties": {
+          "error_code": { "type": "string", "enum": ["INVALID_PIN", "NOT_FOUND", "DRAFT_NOT_CONFIRMABLE", "BLOCKED_BY_BLACKLIST", "INSUFFICIENT_BALANCE", "VALIDATION_ERROR"] },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}
