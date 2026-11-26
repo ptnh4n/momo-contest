@@ -22,6 +22,9 @@ from fastapi.responses import JSONResponse
 
 from app.db.connection import get_conn, get_db_path, init_db
 from app.db.seed import DEMO_USER_ID, seed_demo
+from app.orchestrator.config import OrchestratorConfig, load_backend_env
+from app.orchestrator.graph import SafePayOrchestrator
+from app.orchestrator.privacy_guard import PrivacyGuard
 from app.wallet.privacy_proxy import PrivacyProxy
 from app.wallet.schemas import (
     CancelRequest,
@@ -46,11 +49,23 @@ from app.wallet.service import (
 )
 
 
-def create_app(db_path: str | None = None, *, seed_if_empty: bool = True) -> FastAPI:
-    """Factory tạo FastAPI app (dễ truyền db_path riêng khi chạy test)."""
+def create_app(
+    db_path: str | None = None,
+    *,
+    seed_if_empty: bool = True,
+    orchestrator: SafePayOrchestrator | None = None,
+    orchestrator_mode: str | None = None,
+) -> FastAPI:
+    """Factory tạo FastAPI app (dễ truyền db_path và orchestrator riêng khi chạy test)."""
+    load_backend_env()
     resolved_db_path = db_path or get_db_path()
     privacy_proxy = PrivacyProxy()
     clarify_store = ClarifyContextStore()
+    active_orchestrator = orchestrator or SafePayOrchestrator(
+        config=OrchestratorConfig.from_env(mode_override=orchestrator_mode),
+        privacy_guard=PrivacyGuard(privacy_proxy),
+        clarify_store=clarify_store,
+    )
 
     @asynccontextmanager
     async def lifespan(_app: FastAPI):
@@ -85,6 +100,7 @@ def create_app(db_path: str | None = None, *, seed_if_empty: bool = True) -> Fas
     app.state.db_path = resolved_db_path
     app.state.privacy_proxy = privacy_proxy
     app.state.clarify_store = clarify_store
+    app.state.orchestrator = active_orchestrator
 
     @app.exception_handler(WalletError)
     async def _wallet_error_handler(_request: Request, exc: WalletError):
@@ -104,6 +120,8 @@ def create_app(db_path: str | None = None, *, seed_if_empty: bool = True) -> Fas
     def post_chat(req: ChatRequest) -> ChatResponse:
         conn = get_conn(resolved_db_path)
         try:
+            if active_orchestrator.is_llm_enabled:
+                return active_orchestrator.handle_chat(conn, req)
             return handle_chat_message(
                 conn,
                 req,
@@ -169,7 +187,10 @@ def create_app(db_path: str | None = None, *, seed_if_empty: bool = True) -> Fas
 
     @app.get("/health", response_model=HealthResponse, operation_id="getHealth")
     def get_health() -> HealthResponse:
-        return HealthResponse(status="ok", gatekeeper_loaded=False)
+        return HealthResponse(
+            status="ok",
+            gatekeeper_loaded=active_orchestrator.gatekeeper_loaded,
+        )
 
     return app
 
