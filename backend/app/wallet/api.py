@@ -1,0 +1,177 @@
+"""
+api.py — FastAPI Sandbox Wallet API tuân thủ hợp đồng backend/openapi/safepay.openapi.json.
+
+Endpoints:
+- POST /api/chat
+- POST /api/drafts/{tx_id}/confirm
+- POST /api/drafts/{tx_id}/cancel
+- GET  /api/wallet/state
+- POST /api/demo/reset
+- GET  /health
+"""
+
+from __future__ import annotations
+
+from contextlib import asynccontextmanager
+import os
+
+from fastapi import FastAPI, Query, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+
+from app.db.connection import get_conn, get_db_path, init_db
+from app.db.seed import DEMO_USER_ID, seed_demo
+from app.wallet.privacy_proxy import PrivacyProxy
+from app.wallet.schemas import (
+    CancelRequest,
+    CancelResponse,
+    ChatRequest,
+    ChatResponse,
+    ConfirmRequest,
+    ConfirmResponse,
+    HealthResponse,
+    ResetRequest,
+    ResetResponse,
+    WalletState,
+)
+from app.wallet.service import (
+    ClarifyContextStore,
+    WalletError,
+    cancel_draft,
+    confirm_draft,
+    get_wallet_state,
+    handle_chat_message,
+    reset_wallet_demo,
+)
+
+
+def create_app(db_path: str | None = None, *, seed_if_empty: bool = True) -> FastAPI:
+    """Factory tạo FastAPI app (dễ truyền db_path riêng khi chạy test)."""
+    resolved_db_path = db_path or get_db_path()
+    privacy_proxy = PrivacyProxy()
+    clarify_store = ClarifyContextStore()
+
+    @asynccontextmanager
+    async def lifespan(_app: FastAPI):
+        init_db(resolved_db_path)
+        if seed_if_empty:
+            conn = get_conn(resolved_db_path)
+            try:
+                cnt = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
+                if cnt == 0:
+                    seed_demo(conn, DEMO_USER_ID)
+            finally:
+                conn.close()
+        yield
+
+    app = FastAPI(
+        title="SafePay Agent API",
+        version="0.2.1",
+        lifespan=lifespan,
+    )
+
+    cors_origins = os.environ.get(
+        "SAFEPAY_CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
+    ).split(",")
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[o.strip() for o in cors_origins if o.strip()],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    app.state.db_path = resolved_db_path
+    app.state.privacy_proxy = privacy_proxy
+    app.state.clarify_store = clarify_store
+
+    @app.exception_handler(WalletError)
+    async def _wallet_error_handler(_request: Request, exc: WalletError):
+        return JSONResponse(
+            status_code=exc.status_code,
+            content={"error_code": exc.error_code, "message": exc.message},
+        )
+
+    @app.exception_handler(RequestValidationError)
+    async def _validation_error_handler(_request: Request, exc: RequestValidationError):
+        return JSONResponse(
+            status_code=422,
+            content={"error_code": "VALIDATION_ERROR", "message": str(exc.errors())},
+        )
+
+    @app.post("/api/chat", response_model=ChatResponse, operation_id="postChat")
+    def post_chat(req: ChatRequest) -> ChatResponse:
+        conn = get_conn(resolved_db_path)
+        try:
+            return handle_chat_message(
+                conn,
+                req,
+                proxy=privacy_proxy,
+                clarify_store=clarify_store,
+            )
+        finally:
+            conn.close()
+
+    @app.post(
+        "/api/drafts/{tx_id}/confirm",
+        response_model=ConfirmResponse,
+        operation_id="confirmDraft",
+    )
+    def post_confirm_draft(tx_id: str, req: ConfirmRequest) -> ConfirmResponse:
+        conn = get_conn(resolved_db_path)
+        try:
+            return confirm_draft(
+                conn,
+                tx_id=tx_id,
+                user_id=req.user_id,
+                pin_code=req.pin_code,
+                save_alias=req.save_alias,
+            )
+        finally:
+            conn.close()
+
+    @app.post(
+        "/api/drafts/{tx_id}/cancel",
+        response_model=CancelResponse,
+        operation_id="cancelDraft",
+    )
+    def post_cancel_draft(tx_id: str, req: CancelRequest) -> CancelResponse:
+        conn = get_conn(resolved_db_path)
+        try:
+            return cancel_draft(conn, tx_id=tx_id, user_id=req.user_id)
+        finally:
+            conn.close()
+
+    @app.get(
+        "/api/wallet/state",
+        response_model=WalletState,
+        operation_id="getWalletState",
+    )
+    def get_state(user_id: str = Query(...)) -> WalletState:
+        conn = get_conn(resolved_db_path)
+        try:
+            return get_wallet_state(conn, user_id)
+        finally:
+            conn.close()
+
+    @app.post(
+        "/api/demo/reset",
+        response_model=ResetResponse,
+        operation_id="resetDemo",
+    )
+    def post_reset_demo(req: ResetRequest) -> ResetResponse:
+        conn = get_conn(resolved_db_path)
+        try:
+            return reset_wallet_demo(conn, req.user_id)
+        finally:
+            conn.close()
+
+    @app.get("/health", response_model=HealthResponse, operation_id="getHealth")
+    def get_health() -> HealthResponse:
+        return HealthResponse(status="ok", gatekeeper_loaded=False)
+
+    return app
+
+
+app = create_app()
