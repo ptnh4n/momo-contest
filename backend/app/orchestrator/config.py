@@ -17,8 +17,9 @@ OrchestratorMode = Literal["auto", "llm", "deterministic"]
 _BACKEND_DIR = Path(__file__).resolve().parents[2]
 _DEFAULT_ENV_PATH = _BACKEND_DIR / ".env"
 
-DEFAULT_GEMINI_MODEL = "gemini-4-hydrogen"
-DEFAULT_THINKING_LEVEL = "LOW"
+DEFAULT_GEMINI_MODEL = "gemini-3.6-flash"
+DEFAULT_FALLBACK_MODELS: tuple[str, ...] = ("gemini-3.5-flash-lite",)
+DEFAULT_THINKING_LEVEL = "NONE"
 
 
 def load_backend_env(env_path: str | Path | None = None, *, force: bool = False) -> bool:
@@ -42,12 +43,21 @@ def load_backend_env(env_path: str | Path | None = None, *, force: bool = False)
 
 
 def _parse_api_keys() -> tuple[str, ...]:
+    keys: list[str] = []
     multi = os.environ.get("GEMINI_API_KEYS", "")
-    keys = [k.strip() for k in multi.split(",") if k.strip()]
-    if keys:
-        return tuple(dict.fromkeys(keys))
+    if multi:
+        keys.extend(k.strip() for k in multi.split(",") if k.strip())
     single = os.environ.get("GEMINI_API_KEY", "").strip()
-    return (single,) if single else ()
+    if single:
+        keys.append(single)
+    return tuple(dict.fromkeys(keys))
+
+
+def _parse_fallback_models() -> tuple[str, ...]:
+    if "GEMINI_FALLBACK_MODELS" in os.environ:
+        raw = os.environ.get("GEMINI_FALLBACK_MODELS", "")
+        return tuple(dict.fromkeys(m.strip() for m in raw.split(",") if m.strip()))
+    return DEFAULT_FALLBACK_MODELS
 
 
 @dataclass(frozen=True)
@@ -55,7 +65,8 @@ class OrchestratorConfig:
     mode: OrchestratorMode = "auto"
     api_keys: tuple[str, ...] = ()
     model: str = DEFAULT_GEMINI_MODEL
-    thinking_level: str | None = DEFAULT_THINKING_LEVEL
+    fallback_models: tuple[str, ...] = DEFAULT_FALLBACK_MODELS
+    thinking_level: str | None = None
     temperature: float = 0.0
     max_tool_steps: int = 6
     max_retries: int = 1
@@ -63,6 +74,10 @@ class OrchestratorConfig:
     @property
     def has_api_key(self) -> bool:
         return len(self.api_keys) > 0
+
+    @property
+    def model_chain(self) -> tuple[str, ...]:
+        return tuple(dict.fromkeys([self.model, *self.fallback_models]))
 
     @classmethod
     def from_env(cls, mode_override: str | None = None) -> "OrchestratorConfig":
@@ -79,5 +94,6 @@ class OrchestratorConfig:
             mode=raw_mode,  # type: ignore[arg-type]
             api_keys=_parse_api_keys(),
             model=model,
+            fallback_models=_parse_fallback_models(),
             thinking_level=thinking_level,
         )

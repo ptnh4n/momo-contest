@@ -48,6 +48,7 @@ _VN_PHONE_10_RE = re.compile(r"^0[35789]\d{8}$")
 _UUID_RE = re.compile(
     r"\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b"
 )
+_INTERNAL_REF_RE = re.compile(r"\b(?:img|tx)_[0-9a-fA-F]{8,16}\b")
 _UNMASKED_CONTIGUOUS_DIGITS_RE = re.compile(r"(?<!\d)(\d{8,16})(?!\d)")
 _CURRENCY_SUFFIX_AFTER_DIGITS_RE = re.compile(
     r"^\s*(?:vn[dđ]|đồng|dong|đ|d)\b", re.IGNORECASE
@@ -245,7 +246,7 @@ class PrivacyGuard:
                         "Phát hiện số điện thoại chưa ẩn danh chuẩn bị gửi ra LLM."
                     )
 
-            txt_no_uuid = _UUID_RE.sub("<UUID>", txt)
+            txt_no_uuid = _INTERNAL_REF_RE.sub("<REF_ID>", _UUID_RE.sub("<UUID>", txt))
             for dm in _UNMASKED_CONTIGUOUS_DIGITS_RE.finditer(txt_no_uuid):
                 suffix = txt_no_uuid[dm.end() :]
                 if _CURRENCY_SUFFIX_AFTER_DIGITS_RE.match(suffix):

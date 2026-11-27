@@ -27,10 +27,12 @@ import io
 import os
 import re
 import sys
+from types import SimpleNamespace
 from typing import Any
 from uuid import uuid4
 
 from fastapi.testclient import TestClient
+from google.genai import errors as genai_errors
 from PIL import Image, ImageDraw
 import pytest
 
@@ -42,6 +44,7 @@ from app.orchestrator.config import OrchestratorConfig
 from app.orchestrator.graph import SafePayOrchestrator
 from app.orchestrator.llm_client import (
     BasePlannerClient,
+    GeminiPlannerClient,
     PlannerTurnResult,
     PlannerUnavailableError,
     ToolCall,
@@ -795,3 +798,92 @@ class TestEndToEndOrchestratorFlows:
 
             bal = db.execute("SELECT balance FROM users WHERE user_id = ?", (DEMO_USER_ID,)).fetchone()[0]
             assert bal == 10_000_000
+
+
+class TestFallbackAndKeyRotation:
+    def test_privacy_guard_allows_internal_img_and_tx_ids_with_8_digits(self):
+        guard = PrivacyGuard(PrivacyProxy())
+        clean = guard.assert_zero_pii_outbound(
+            "sess_ids",
+            {
+                "text": '[IMAGE_ATTACHED: image_id="img_1234567890ab"] ref tx_9876543210fe',
+                "uuid": "12345678-1234-4abc-9def-123456789012",
+            },
+        )
+        assert "img_1234567890ab" in clean
+        with pytest.raises(PiiLeakBlockedError):
+            guard.assert_zero_pii_outbound("sess_ids", {"text": "Chuyển tới 9001234567"})
+
+    def test_gemini_client_falls_back_to_35_flash_lite_on_503(self):
+        guard = PrivacyGuard(PrivacyProxy())
+        audit = OutboundAuditLog()
+        cfg = OrchestratorConfig(
+            mode="llm",
+            api_keys=("key-1", "key-2"),
+            model="gemini-3.6-flash",
+            fallback_models=("gemini-3.5-flash-lite",),
+            thinking_level=None,
+        )
+        client = GeminiPlannerClient(cfg, guard, audit)
+        called_models: list[str] = []
+
+        def _fake_generate(model: str, contents: Any, config: Any):
+            called_models.append(model)
+            if model == "gemini-3.6-flash":
+                raise genai_errors.ServerError(503, {"error": {"code": 503, "message": "high demand"}})
+            fc = SimpleNamespace(name="lookup_contact", args={"query": "thằng Nam"})
+            cand = SimpleNamespace(content=SimpleNamespace(role="model", parts=[]))
+            return SimpleNamespace(function_calls=[fc], candidates=[cand], text="")
+
+        client._clients = [
+            SimpleNamespace(models=SimpleNamespace(generate_content=_fake_generate)),
+            SimpleNamespace(models=SimpleNamespace(generate_content=_fake_generate)),
+        ]
+
+        res = client.plan_step(
+            session_id="s_fb",
+            history=[{"role": "user", "text": "Chuyển 250k cho thằng Nam"}],
+            tool_declarations=build_gemini_tool_declarations(),
+        )
+        assert called_models == ["gemini-3.6-flash", "gemini-3.5-flash-lite"]
+        assert res.tool_calls == [ToolCall("lookup_contact", {"query": "thằng Nam"})]
+        assert audit.entries()[-1].model == "gemini-3.5-flash-lite"
+
+    def test_gemini_client_rotates_api_keys_on_429(self):
+        guard = PrivacyGuard(PrivacyProxy())
+        audit = OutboundAuditLog()
+        cfg = OrchestratorConfig(
+            mode="llm",
+            api_keys=("key-1", "key-2", "key-3"),
+            model="gemini-3.6-flash",
+            fallback_models=("gemini-3.5-flash-lite",),
+            thinking_level=None,
+        )
+        client = GeminiPlannerClient(cfg, guard, audit)
+        key_hits: list[str] = []
+
+        def _make_fake_client(tag: str, fail_429: bool):
+            def _gen(model: str, contents: Any, config: Any):
+                key_hits.append(f"{tag}:{model}")
+                if fail_429:
+                    raise genai_errors.ClientError(429, {"error": {"code": 429, "message": "quota exceeded"}})
+                fc = SimpleNamespace(name="lookup_contact", args={"query": "sếp"})
+                cand = SimpleNamespace(content=SimpleNamespace(role="model", parts=[]))
+                return SimpleNamespace(function_calls=[fc], candidates=[cand], text="")
+
+            return SimpleNamespace(models=SimpleNamespace(generate_content=_gen))
+
+        client._clients = [
+            _make_fake_client("k1", True),
+            _make_fake_client("k2", False),
+            _make_fake_client("k3", False),
+        ]
+
+        res = client.plan_step(
+            session_id="s_rot",
+            history=[{"role": "user", "text": "Chuyển 200k cho sếp"}],
+            tool_declarations=build_gemini_tool_declarations(),
+        )
+        assert key_hits == ["k1:gemini-3.6-flash", "k2:gemini-3.6-flash"]
+        assert res.tool_calls == [ToolCall("lookup_contact", {"query": "sếp"})]
+        assert audit.entries()[-1].model == "gemini-3.6-flash"

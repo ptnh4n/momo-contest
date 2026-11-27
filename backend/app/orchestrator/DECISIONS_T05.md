@@ -2,7 +2,7 @@
 
 ## 1. LangGraph StateGraph gọi trực tiếp `google-genai` (Model-Agnostic)
 - **Quyết định:** Dựng `SafePayOrchestrator` bằng `langgraph.graph.StateGraph` (6 bước: `privacy_ingress` → `pre_guardrail` → `llm_planner` ↔ `tool_executor` → `post_checkpoint` → `finalize`) và gọi SDK `google-genai` trực tiếp thông qua giao diện `BasePlannerClient` thay vì `langchain-google-genai`.
-- **Lý do:** Kiểm soát 100% payload JSON gửi ra ngoài để thực thi kiểm tra fail-closed Zero-PII (`assert_zero_pii_outbound`) + `OutboundAuditLog`, giữ trọn `thought_signature` cho Gemini 4 (`gemini-4-hydrogen`, `thinking_level="LOW"`), hỗ trợ xoay vòng API key (chuẩn bị T13) và giữ sẵn `GatekeeperHook` cho T12.
+- **Lý do:** Kiểm soát 100% payload JSON gửi ra ngoài để thực thi kiểm tra fail-closed Zero-PII (`assert_zero_pii_outbound`) + `OutboundAuditLog`, giữ trọn `thought_signature` khi dùng Thinking model, cấu hình mặc định `gemini-3.6-flash` kèm tự động fallback sang `gemini-3.5-flash-lite` khi gặp `503`/`504`, xoay vòng nhiều API key khác Project khi gặp `429` (chuẩn bị T13) và giữ sẵn `GatekeeperHook` cho T12.
 
 ## 2. OCR hóa đơn 100% cục bộ bằng RapidOCR trước Privacy Proxy
 - **Quyết định:** Ảnh `image_base64` chỉ lưu tạm trong RAM (`ImageStagingStore`, TTL 300s) và được trích text trên Backend bằng `RapidOCR`, sau đó đi qua `PrivacyGuard` để mask STK/SĐT/CCCD (cả dạng viết liền và tách dấu cách/chấm/gạch ngang theo E07) thành `<ACCT_k>`, `<PHONE_k>`, `<CCCD_k>` trước khi gửi tới Gemini.

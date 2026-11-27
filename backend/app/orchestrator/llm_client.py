@@ -12,6 +12,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
+import logging
 import time
 from typing import Any
 
@@ -21,6 +22,8 @@ from google.genai import types
 
 from app.orchestrator.config import OrchestratorConfig
 from app.orchestrator.privacy_guard import OutboundAuditLog, PrivacyGuard
+
+logger = logging.getLogger(__name__)
 
 SAFE_PAY_SYSTEM_PROMPT = """Bạn là SafePay Agent — trợ lý ví điện tử bảo mật cao, giao tiếp tiếng Việt ngắn gọn và chính xác.
 
@@ -151,8 +154,8 @@ class GeminiPlannerClient(BasePlannerClient):
             genai.Client(
                 api_key=k,
                 http_options=types.HttpOptions(
-                    timeout=20_000,
-                    retry_options=types.HttpRetryOptions(attempts=2),
+                    timeout=15_000,
+                    retry_options=types.HttpRetryOptions(attempts=1),
                 ),
             )
             for k in config.api_keys
@@ -166,10 +169,11 @@ class GeminiPlannerClient(BasePlannerClient):
         self._key_idx += 1
         return client
 
-    def _build_config(self, tool_declarations: types.Tool) -> types.GenerateContentConfig:
+    def _build_config(self, tool_declarations: types.Tool, model_name: str) -> types.GenerateContentConfig:
+        supports_thinking = "gemini-4" in model_name or "gemini-3.6" in model_name or "gemini-3.7" in model_name or "gemini-3.8" in model_name
         thinking_cfg = (
             types.ThinkingConfig(thinking_level=self.config.thinking_level)
-            if self.config.thinking_level
+            if (self.config.thinking_level and supports_thinking)
             else None
         )
         return types.GenerateContentConfig(
@@ -188,6 +192,9 @@ class GeminiPlannerClient(BasePlannerClient):
         tool_declarations: types.Tool,
         extra_forbidden_pii: set[str] | None = None,
     ) -> PlannerTurnResult:
+        if not self._clients:
+            raise PlannerUnavailableError("Thiếu GEMINI_API_KEY cho GeminiPlannerClient.")
+
         contents = _history_to_genai_contents(history)
         audit_payload = _serialize_contents_for_audit(contents)
 
@@ -197,44 +204,81 @@ class GeminiPlannerClient(BasePlannerClient):
             audit_payload,
             extra_forbidden=extra_forbidden_pii,
         )
-        self.audit_log.record(session_id, self.config.model, preview_json)
 
-        gen_cfg = self._build_config(tool_declarations)
-        attempts = max(1, (self.config.max_retries + 1) * max(1, len(self._clients)))
+        models = self.config.model_chain
         last_exc: Exception | None = None
 
-        for attempt in range(attempts):
-            client = self._next_client()
-            try:
-                resp = client.models.generate_content(
-                    model=self.config.model,
-                    contents=contents,
-                    config=gen_cfg,
-                )
-                calls = [
-                    ToolCall(name=str(fc.name), args=dict(fc.args or {}))
-                    for fc in (resp.function_calls or [])
-                ]
-                raw_content = resp.candidates[0].content if resp.candidates else None
-                text_out = (resp.text or "").strip() if not calls else ""
-                return PlannerTurnResult(
-                    text=text_out,
-                    tool_calls=calls,
-                    raw_model_content=raw_content,
-                )
-            except (genai_errors.ServerError, genai_errors.ClientError) as exc:
-                last_exc = exc
-                status_code = getattr(exc, "code", None)
-                # Retry khi quá tải tạm thời (503) hoặc rate-limit (429)
-                if status_code in (429, 500, 503, 504) and attempt < attempts - 1:
-                    time.sleep(min(1.5, 0.5 * (attempt + 1)))
-                    continue
-                raise PlannerUnavailableError(f"Gemini API error ({status_code}): {exc}") from exc
-            except Exception as exc:
-                last_exc = exc
-                if attempt < attempts - 1:
-                    time.sleep(0.4)
-                    continue
-                raise PlannerUnavailableError(f"Gemini API failed: {exc}") from exc
+        for m_idx, model_name in enumerate(models):
+            is_last_model = m_idx == len(models) - 1
+            gen_cfg = self._build_config(tool_declarations, model_name)
 
-        raise PlannerUnavailableError(f"Gemini API unavailable: {last_exc}")
+            # Trên mỗi model: xoay hết các key nếu gặp 429; nếu gặp 503/504 và còn model dự phòng -> nhảy model ngay
+            max_key_tries = len(self._clients) if not is_last_model else max(len(self._clients), 2)
+            for attempt in range(max_key_tries):
+                client = self._next_client()
+                try:
+                    resp = client.models.generate_content(
+                        model=model_name,
+                        contents=contents,
+                        config=gen_cfg,
+                    )
+                    self.audit_log.record(session_id, model_name, preview_json)
+                    calls = [
+                        ToolCall(name=str(fc.name), args=dict(fc.args or {}))
+                        for fc in (resp.function_calls or [])
+                    ]
+                    raw_content = resp.candidates[0].content if resp.candidates else None
+                    text_out = (resp.text or "").strip() if not calls else ""
+                    return PlannerTurnResult(
+                        text=text_out,
+                        tool_calls=calls,
+                        raw_model_content=raw_content,
+                    )
+                except genai_errors.ClientError as exc:
+                    last_exc = exc
+                    status_code = getattr(exc, "code", None)
+                    if status_code == 429 and attempt < len(self._clients) - 1:
+                        logger.warning("Gemini 429 on %s; rotating API key.", model_name)
+                        continue
+                    if not is_last_model:
+                        logger.warning(
+                            "Gemini ClientError (%s) on %s; falling back to next model.",
+                            status_code,
+                            model_name,
+                        )
+                        break
+                    raise PlannerUnavailableError(
+                        f"Gemini API error ({status_code}) on {model_name}: {exc}"
+                    ) from exc
+                except genai_errors.ServerError as exc:
+                    last_exc = exc
+                    status_code = getattr(exc, "code", None)
+                    if status_code in (500, 503, 504):
+                        if not is_last_model:
+                            logger.warning(
+                                "Gemini %s on %s; falling back immediately to next model.",
+                                status_code,
+                                model_name,
+                            )
+                            break
+                        if attempt < max_key_tries - 1:
+                            time.sleep(0.4)
+                            continue
+                    raise PlannerUnavailableError(
+                        f"Gemini API server error ({status_code}) on {model_name}: {exc}"
+                    ) from exc
+                except Exception as exc:
+                    last_exc = exc
+                    if not is_last_model:
+                        logger.warning(
+                            "Gemini transport error (%s) on %s; falling back to next model.",
+                            type(exc).__name__,
+                            model_name,
+                        )
+                        break
+                    if attempt < max_key_tries - 1:
+                        time.sleep(0.4)
+                        continue
+                    raise PlannerUnavailableError(f"Gemini API failed on {model_name}: {exc}") from exc
+
+        raise PlannerUnavailableError(f"Gemini API unavailable across {models}: {last_exc}")
