@@ -2,136 +2,141 @@
   {
     "name": "Backend health",
     "status": "PASS",
-    "ms": 397
+    "ms": 336
   },
   {
     "name": "Giao diện Next.js",
     "status": "PASS",
-    "ms": 377
+    "ms": 230
   },
   {
     "name": "Reset ví về 10 triệu",
     "status": "PASS",
-    "ms": 1308
+    "ms": 232
   },
   {
     "name": "Chuyển nhanh tự duyệt cập nhật số dư thực và số dư trên UI",
     "status": "PASS",
-    "ms": 203
+    "ms": 188
   },
   {
     "name": "Tải lại trang vẫn hiển thị số dư từ backend",
     "status": "PASS",
-    "ms": 352
+    "ms": 273
   },
   {
     "name": "Tạo bản nháp bằng biệt danh",
     "status": "PASS",
-    "ms": 147
+    "ms": 132
   },
   {
     "name": "Số dư giữ nguyên khi chờ PIN",
     "status": "PASS",
-    "ms": 23
+    "ms": 9
   },
   {
     "name": "PIN sai bị từ chối",
     "status": "PASS",
-    "ms": 884
+    "ms": 544
   },
   {
     "name": "PIN sai không trừ tiền",
     "status": "PASS",
-    "ms": 24
+    "ms": 5
   },
   {
     "name": "PIN đúng cập nhật số dư",
     "status": "PASS",
-    "ms": 516
+    "ms": 328
   },
   {
     "name": "Confirm lặp lại không trừ lần hai",
     "status": "PASS",
-    "ms": 20
+    "ms": 19
   },
   {
     "name": "Hai người trùng tên trả về hai tùy chọn",
     "status": "PASS",
-    "ms": 280
+    "ms": 165
   },
   {
     "name": "Chọn đúng người nhận từ thẻ hỏi lại",
     "status": "PASS",
-    "ms": 161
+    "ms": 104
+  },
+  {
+    "name": "Chọn người nhận trùng tên chỉ đề xuất lưu biệt danh",
+    "status": "PASS",
+    "ms": 411
   },
   {
     "name": "Hủy bản nháp giữ nguyên số dư",
     "status": "PASS",
-    "ms": 469
+    "ms": 100
   },
   {
     "name": "Số tiền thiếu đơn vị hiển thị tùy chọn",
     "status": "PASS",
-    "ms": 172
+    "ms": 137
   },
   {
     "name": "Chọn đơn vị giữ đúng số tiền",
     "status": "PASS",
-    "ms": 407
+    "ms": 446
   },
   {
     "name": "Reset dọn lịch sử UI",
     "status": "PASS",
-    "ms": 3914
+    "ms": 4137
   },
   {
     "name": "Đính kèm hóa đơn",
     "status": "PASS",
-    "ms": 49
+    "ms": 22
   },
   {
     "name": "OCR thật đọc và tính 100.000 ₫",
     "status": "PASS",
-    "ms": 2571
+    "ms": 2581
   },
   {
     "name": "Xác nhận bản nháp OCR",
     "status": "PASS",
-    "ms": 380
+    "ms": 298
   },
   {
     "name": "Tài khoản giả lập trong blacklist bị chặn",
     "status": "PASS",
-    "ms": 166
+    "ms": 128
   },
   {
     "name": "Đề xuất biệt danh và mặc định chưa chọn lưu",
     "status": "PASS",
-    "ms": 600
+    "ms": 879
   },
   {
     "name": "PIN sai không lưu người nhận",
     "status": "PASS",
-    "ms": 164
+    "ms": 306
   },
   {
     "name": "PIN đúng với lựa chọn lưu ghi danh bạ và cập nhật số dư",
     "status": "PASS",
-    "ms": 204
+    "ms": 292
   },
   {
     "name": "Lượt mới không kế thừa tùy chọn lưu từ giao dịch trước",
     "status": "PASS",
-    "ms": 750
+    "ms": 1112
   },
   {
     "name": "Sinh trắc học mô phỏng không lưu thay cho xác nhận PIN",
     "status": "PASS",
-    "ms": 1807
+    "ms": 1866
   },
   {
     "name": "Mất backend hiển thị lỗi kết nối",
     "status": "PASS",
-    "ms": 88
+    "ms": 162
   }
 ]

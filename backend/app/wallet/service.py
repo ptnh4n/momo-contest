@@ -23,7 +23,6 @@ from argon2 import PasswordHasher
 from argon2.exceptions import InvalidHashError, VerificationError, VerifyMismatchError
 
 from app.db.connection import transaction
-from app.db.repo.aliases import upsert_alias
 from app.db.seed import reset_demo
 from app.wallet.currency_parser import format_vnd, parse_currency
 from app.wallet.guardrails import (
@@ -836,10 +835,9 @@ def handle_chat_message(
 
     if req.clarify_choice and req.clarify_choice.contact_id:
         contact_id = req.clarify_choice.contact_id
-        # Alias Expansion (tutorial mục 2): bổ sung cụm user vừa gọi (nếu không phải OCR)
-        if source_type != "OCR_RECEIPT" and prior_ctx and prior_ctx.recipient_query:
-            with transaction(conn):
-                upsert_alias(conn, contact_id, prior_ctx.recipient_query, from_ocr=False)
+        # Chọn người nhận chỉ đề xuất alias trên draft. Confirm PIN mới có thể ghi danh bạ.
+        if prior_ctx and prior_ctx.recipient_query:
+            suggested_alias = enforce_no_ocr_alias(source_type, prior_ctx.recipient_query)
     elif acct_token is not None:
         recipient_account = acct_token
     else:

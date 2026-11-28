@@ -361,11 +361,11 @@ class SafePayOrchestrator:
                     else prior_ctx.amount
                 )
                 resolved_cid = req.clarify_choice.contact_id
-                if resolved_cid and prior_ctx.source_type != "OCR_RECEIPT" and prior_ctx.recipient_query:
-                    with transaction(conn):
-                        upsert_alias(conn, resolved_cid, prior_ctx.recipient_query, from_ocr=False)
-
                 if resolved_amount is not None and (resolved_cid or prior_ctx.acct_token):
+                    suggested_alias = enforce_no_ocr_alias(
+                        prior_ctx.source_type,
+                        prior_ctx.recipient_query if resolved_cid else prior_ctx.suggested_alias,
+                    )
                     resp = create_draft_transfer(
                         conn,
                         intent_id=intent_str,
@@ -376,7 +376,7 @@ class SafePayOrchestrator:
                         recipient_account=prior_ctx.acct_token if resolved_cid is None else None,
                         contact_id=resolved_cid,
                         note=prior_ctx.masked_message,
-                        suggested_alias=prior_ctx.suggested_alias,
+                        suggested_alias=suggested_alias,
                         proxy=self.privacy_guard.proxy,
                         session_id=session_id,
                     )

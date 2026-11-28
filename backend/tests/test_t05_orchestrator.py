@@ -11,7 +11,7 @@ Kiểm thử toàn diện T05 (LLM Orchestrator & Privilege Separation):
 5. Chống Prompt Injection & Memory Poisoning từ ảnh OCR (chặn upsert_contact_alias, ép OCR_RECEIPT,
    strip suggested_alias, blacklist hard veto).
 6. Chặn số tiền mơ hồ ('500') trước khi gọi LLM -> CLARIFY CURRENCY_UNIT -> clarify_choice tạo Draft.
-7. Chặn LLM tự đoán người nhận khi lookup_contact trả >= 2 ('Minh') -> CLARIFY CONTACT -> clarify_choice + Alias Expansion.
+7. Chặn LLM tự đoán người nhận khi lookup_contact trả >= 2 ('Minh') -> CLARIFY CONTACT -> clarify_choice; alias chỉ ghi sau PIN.
 8. get_recent_transactions trả về lịch sử Zero-PII.
 9. upsert_contact_alias (Phương án B): danh bạ có sẵn lưu ngay (NO_SILENT_OVERWRITE),
    STK thô mới -> CLARIFY xác nhận 2 bước -> 'Đồng ý' mới tạo contact NEW + alias; 'Hủy' không ghi DB; blacklist bị chặn.
@@ -450,7 +450,7 @@ class TestEndToEndOrchestratorFlows:
             assert b2["draft"]["recipient_account"] == "9001234567"
             assert len(planner.calls) == 0
 
-    def test_ambiguous_contact_prevents_llm_guessing_and_expands_alias(self, db_file, db):
+    def test_ambiguous_contact_defers_alias_expansion_to_pin_confirm(self, db_file, db):
         turns = [
             PlannerTurnResult(tool_calls=[ToolCall("lookup_contact", {"query": "Minh"})]),
             # Giả lập LLM cố tình đoán C_003 dù lookup trả 2 người trùng tên Minh
@@ -492,7 +492,9 @@ class TestEndToEndOrchestratorFlows:
                 assert "9001112222" not in opt["label"]
                 assert "9003334444" not in opt["label"]
 
-            # User chọn C_003 -> tạo draft + tự động mở rộng alias "Minh" (hoặc query cũ)
+            aliases_before = db.execute(
+                "SELECT contact_id, alias_norm, usage_count FROM contact_aliases ORDER BY contact_id, alias_norm"
+            ).fetchall()
             r2 = client.post(
                 "/api/chat",
                 json={
@@ -507,6 +509,18 @@ class TestEndToEndOrchestratorFlows:
             assert b2["decision"] == "REQUIRE_HITL"
             assert b2["draft"]["recipient_account"] == "9001112222"
             assert b2["draft"]["amount"] == 300_000
+            suggested = b2["draft"]["suggested_alias"]
+            assert suggested is not None
+            assert db.execute(
+                "SELECT contact_id, alias_norm, usage_count FROM contact_aliases ORDER BY contact_id, alias_norm"
+            ).fetchall() == aliases_before
+
+            confirmed = client.post(
+                f"/api/drafts/{b2['draft']['tx_id']}/confirm",
+                json={"user_id": DEMO_USER_ID, "pin_code": DEMO_PIN, "save_alias": True},
+            )
+            assert confirmed.status_code == 200
+            assert confirmed.json()["alias_saved"] == suggested
 
     def test_get_recent_transactions_zero_pii(self, db_file):
         turns = [

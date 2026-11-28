@@ -59,15 +59,26 @@ def check_case(client, case):
         "contacts_unchanged_before_pin": pending["contacts"] == before["contacts"],
     }
     if all(checks.values()):
-        confirmation = client.post(
-            f"/api/drafts/{draft['tx_id']}/confirm",
-            json={**USER, "pin_code": DEMO_PIN, "save_alias": False},
+        url = f"/api/drafts/{draft['tx_id']}/confirm"
+        invalid_pin = "111111" if DEMO_PIN != "111111" else "222222"
+        rejected = client.post(url, json={**USER, "pin_code": invalid_pin, "save_alias": False})
+        unchanged = state(client)
+        checks.update(
+            invalid_pin_rejected=rejected.status_code == 401,
+            balance_unchanged_after_invalid_pin=unchanged["balance"] == before["balance"],
+            contacts_unchanged_after_invalid_pin=unchanged["contacts"] == before["contacts"],
         )
+    if all(checks.values()):
+        payload = {**USER, "pin_code": DEMO_PIN, "save_alias": False}
+        confirmation = client.post(url, json=payload)
         confirmed = state(client)
+        repeated = client.post(url, json=payload)
+        replayed = state(client)
         checks.update(
             pin_confirmed=confirmation.status_code == 200,
             balance_debited_by_expected_amount=confirmed["balance"] == before["balance"] - case["expected_amount"],
             contacts_unchanged_after_pin=confirmed["contacts"] == before["contacts"],
+            repeat_confirm_idempotent=repeated.status_code == 200 and replayed == confirmed,
         )
     return {"id": case["id"], "group": case["group"], "source": case["source"],
             "passed": all(checks.values()), "checks": checks}

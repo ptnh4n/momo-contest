@@ -47,9 +47,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -66,9 +70,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -85,9 +93,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -104,9 +116,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -123,9 +139,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -142,9 +162,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -161,9 +185,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -180,9 +208,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -199,9 +231,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -218,9 +254,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -237,9 +277,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -256,9 +300,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -275,9 +323,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -294,9 +346,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -313,9 +369,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -332,9 +392,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -351,9 +415,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -370,9 +438,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -389,9 +461,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -408,9 +484,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -427,9 +507,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -446,9 +530,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -465,9 +553,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -484,9 +576,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -503,9 +599,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -522,9 +622,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -541,9 +645,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -560,9 +668,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -579,9 +691,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -598,9 +714,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -617,9 +737,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     },
     {
@@ -636,9 +760,13 @@
         "alias_not_suggested": true,
         "balance_unchanged_before_pin": true,
         "contacts_unchanged_before_pin": true,
+        "invalid_pin_rejected": true,
+        "balance_unchanged_after_invalid_pin": true,
+        "contacts_unchanged_after_invalid_pin": true,
         "pin_confirmed": true,
         "balance_debited_by_expected_amount": true,
-        "contacts_unchanged_after_pin": true
+        "contacts_unchanged_after_pin": true,
+        "repeat_confirm_idempotent": true
       }
     }
   ]

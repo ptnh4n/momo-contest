@@ -545,6 +545,39 @@ class TestMemoryPoisoningDefense:
         ).fetchone()[0]
         assert cnt == 0
 
+    def test_selecting_contact_only_proposes_alias_until_pin(self, client, db):
+        original_intent = str(uuid4())
+        response = client.post("/api/chat", json={
+            "user_id": DEMO_USER_ID,
+            "intent_id": original_intent,
+            "message": "Chuyển 300k cho Minh",
+        })
+        assert response.json()["decision"] == "CLARIFY"
+
+        def aliases():
+            return db.execute(
+                "SELECT contact_id, alias_norm, usage_count FROM contact_aliases ORDER BY contact_id, alias_norm"
+            ).fetchall()
+
+        before = aliases()
+        choice = client.post("/api/chat", json={
+            "user_id": DEMO_USER_ID,
+            "intent_id": str(uuid4()),
+            "message": "Chọn Minh",
+            "clarify_choice": {"ref_intent_id": original_intent, "contact_id": "C_003"},
+        })
+        assert choice.status_code == 200
+        draft = choice.json()["draft"]
+        assert draft["suggested_alias"] == "Minh"
+        assert aliases() == before
+
+        confirmation = client.post(f"/api/drafts/{draft['tx_id']}/confirm", json={
+            "user_id": DEMO_USER_ID, "pin_code": DEMO_PIN, "save_alias": True,
+        })
+        assert confirmation.status_code == 200
+        assert confirmation.json()["alias_saved"] == "Minh"
+        assert aliases() != before
+
     def test_no_silent_overwrite_duplicate_alias_triggers_clarify(self, client, db):
         """
         NO_SILENT_OVERWRITE:
