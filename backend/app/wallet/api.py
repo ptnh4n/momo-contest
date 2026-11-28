@@ -14,6 +14,7 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 import os
+import re
 
 from fastapi import FastAPI, Query, Request
 from fastapi.exceptions import RequestValidationError
@@ -24,6 +25,7 @@ from app.db.connection import get_conn, get_db_path, init_db
 from app.db.seed import DEMO_USER_ID, seed_demo
 from app.orchestrator.config import OrchestratorConfig, load_backend_env
 from app.orchestrator.graph import SafePayOrchestrator
+from app.orchestrator.ocr import OcrReceiptService
 from app.orchestrator.privacy_guard import PrivacyGuard
 from app.wallet.privacy_proxy import PrivacyProxy
 from app.wallet.schemas import (
@@ -31,6 +33,7 @@ from app.wallet.schemas import (
     CancelResponse,
     ChatRequest,
     ChatResponse,
+    ClarifyChoice,
     ConfirmRequest,
     ConfirmResponse,
     HealthResponse,
@@ -49,6 +52,40 @@ from app.wallet.service import (
 )
 
 
+_LOCAL_SPLIT = re.compile(
+    r"chia hóa đơn cho ([1-9][0-9]?) người rồi chuyển cho ([^\r\n]{1,80})", re.IGNORECASE
+)
+
+
+def _read_local_split(req: ChatRequest, ocr: OcrReceiptService) -> ChatRequest:
+    """Use local OCR for the explicit sandbox split command when Gemini is inactive."""
+    match = _LOCAL_SPLIT.fullmatch(req.message.strip())
+    if match is None or not req.image_base64 or req.clarify_choice is not None:
+        return req
+    if len(req.image_base64) > 7 * 1024 * 1024:
+        raise WalletError(422, "VALIDATION_ERROR", "Ảnh hóa đơn vượt quá giới hạn 5 MB.")
+    try:
+        image_id = ocr.stage_image(req.user_id, req.image_base64)
+    except ValueError as exc:
+        raise WalletError(422, "VALIDATION_ERROR", "Ảnh hóa đơn không hợp lệ.") from exc
+
+    receipt = ocr.parse_receipt(
+        req.user_id, f"{req.user_id}:{req.intent_id}", image_id, require_total_label=True
+    )
+    total = receipt.get("detected_total_vnd")
+    people = int(match[1])
+    if not total or total % people:
+        raise WalletError(
+            422, "VALIDATION_ERROR",
+            "Cần một tổng tiền đọc được từ ảnh và chia hết cho số người.",
+        )
+
+    return req.model_copy(update={
+        "message": f"Chuyển cho {match[2].strip()}",
+        "clarify_choice": ClarifyChoice(amount=total // people),
+    })
+
+
 def create_app(
     db_path: str | None = None,
     *,
@@ -61,9 +98,11 @@ def create_app(
     resolved_db_path = db_path or get_db_path()
     privacy_proxy = PrivacyProxy()
     clarify_store = ClarifyContextStore()
+    privacy_guard = PrivacyGuard(privacy_proxy)
+    local_ocr = OcrReceiptService(privacy_guard)
     active_orchestrator = orchestrator or SafePayOrchestrator(
         config=OrchestratorConfig.from_env(mode_override=orchestrator_mode),
-        privacy_guard=PrivacyGuard(privacy_proxy),
+        privacy_guard=privacy_guard,
         clarify_store=clarify_store,
     )
 
@@ -124,7 +163,7 @@ def create_app(
                 return active_orchestrator.handle_chat(conn, req)
             return handle_chat_message(
                 conn,
-                req,
+                _read_local_split(req, local_ocr),
                 proxy=privacy_proxy,
                 clarify_store=clarify_store,
             )

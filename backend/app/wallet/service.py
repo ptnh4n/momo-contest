@@ -4,7 +4,7 @@ service.py — Sandbox Wallet Service (API ví giả lập) tích hợp:
 (2) Deterministic Currency Parser
 (3) Hard Veto Blacklist
 (4) OCR-Always-HITL
-(5) Ngưỡng sinh trắc học/PIN NHNN (>=10tr/lần, >=20tr/ngày)
+(5) Ngưỡng sinh trắc học/PIN NHNN (>10tr/lần, >20tr/ngày)
 (6) Privacy Proxy (RAM TTL) + Zero-PII lookup_contact
 (7) Chống Memory Poisoning (NO_OCR_ALIAS, NO_SILENT_OVERWRITE + Post-PIN Commit)
 """
@@ -23,7 +23,6 @@ from argon2 import PasswordHasher
 from argon2.exceptions import InvalidHashError, VerificationError, VerifyMismatchError
 
 from app.db.connection import transaction
-from app.db.repo.aliases import upsert_alias
 from app.db.seed import reset_demo
 from app.wallet.currency_parser import format_vnd, parse_currency
 from app.wallet.guardrails import (
@@ -53,6 +52,7 @@ _ph = PasswordHasher()
 
 _KNOWN_BANKS = ("VCB", "TCB", "ACB", "BIDV", "VTB", "TPB", "VPB", "STB", "VIB", "MB", "MOMO")
 _BANK_RE = re.compile(r"\b(" + "|".join(_KNOWN_BANKS) + r")\b", re.IGNORECASE)
+_ACCOUNT_FIELD_RE = re.compile(r"(?:stk|số\s+tài\s+khoản|tài\s+khoản)", re.IGNORECASE)
 _RECIPIENT_PHRASE_RE = re.compile(
     r"(?i)(?:cho|tới|toi|đến|den|trả|tra|gửi|gui)\s+([^\d,<]+?)(?=\s*(?:stk|số\s*tài\s*khoản|tài\s*khoản|<|ngân\s*hàng|bank|\b(?:"
     + "|".join(_KNOWN_BANKS)
@@ -155,7 +155,7 @@ def _extract_recipient_query(masked_text: str) -> str | None:
     phrase = m.group(1).strip(" ,.;:-")
     # Loại bỏ từ nối thừa ở cuối như "tiền", "nhé", "nha", "đi"
     phrase = re.sub(r"(?i)\s+(?:nhé|nhe|nha|đi|di|giúp|giup|với|voi)$", "", phrase).strip()
-    return phrase if phrase else None
+    return phrase if phrase and not _ACCOUNT_FIELD_RE.fullmatch(phrase) else None
 
 
 def _build_response_from_existing_draft(
@@ -236,7 +236,7 @@ def create_draft_transfer(
     - De-mask token (<ACCT_1>) cục bộ trong RAM nếu truyền qua Privacy Proxy.
     - (3) Hard Veto Blacklist -> BLOCK_ANOMALY (status='BLOCKED').
     - (4) OCR_ALWAYS_HITL -> nguồn OCR không bao giờ PASS_AUTO.
-    - (5) Ngưỡng NHNN (>=10tr/lần, >=20tr/ngày) -> bắt buộc REQUIRE_HITL.
+    - (5) Ngưỡng NHNN (>10tr/lần, >20tr/ngày) -> bắt buộc REQUIRE_HITL.
     - NO_OCR_ALIAS -> ép suggested_alias=None khi source_type='OCR_RECEIPT'.
     - Nếu PASS_AUTO: thực thi ngay trong 1 transaction SQLite (không commit alias).
     """
@@ -835,10 +835,9 @@ def handle_chat_message(
 
     if req.clarify_choice and req.clarify_choice.contact_id:
         contact_id = req.clarify_choice.contact_id
-        # Alias Expansion (tutorial mục 2): bổ sung cụm user vừa gọi (nếu không phải OCR)
-        if source_type != "OCR_RECEIPT" and prior_ctx and prior_ctx.recipient_query:
-            with transaction(conn):
-                upsert_alias(conn, contact_id, prior_ctx.recipient_query, from_ocr=False)
+        # Chọn người nhận chỉ đề xuất alias trên draft. Confirm PIN mới có thể ghi danh bạ.
+        if prior_ctx and prior_ctx.recipient_query:
+            suggested_alias = enforce_no_ocr_alias(source_type, prior_ctx.recipient_query)
     elif acct_token is not None:
         recipient_account = acct_token
     else:

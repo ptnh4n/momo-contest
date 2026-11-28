@@ -131,7 +131,7 @@ def run_rapidocr_bytes(image_bytes: bytes) -> tuple[str, list[str], float]:
     return "\n".join(lines), lines, elapsed_ms
 
 
-def parse_receipt_hints(masked_text: str) -> dict[str, Any]:
+def parse_receipt_hints(masked_text: str, *, require_total_label: bool = False) -> dict[str, Any]:
     """Trích gợi ý có cấu trúc từ văn bản hóa đơn ĐÃ ĐƯỢC MASK PII."""
     account_tokens = list(dict.fromkeys(_ACCT_TOKEN_RE.findall(masked_text)))
 
@@ -148,7 +148,7 @@ def parse_receipt_hints(masked_text: str) -> dict[str, Any]:
                 detected_total_vnd = cur.amount
                 break
 
-    if detected_total_vnd is None:
+    if detected_total_vnd is None and not require_total_label:
         # Fallback: lấy số tiền hợp lệ lớn nhất tìm được trong hóa đơn
         candidates: list[int] = []
         for line in masked_text.splitlines():
@@ -185,7 +185,9 @@ class OcrReceiptService:
         image_bytes = decode_base64_image(image_base64)
         return self.image_store.put(user_id, image_bytes)
 
-    def parse_receipt(self, user_id: str, session_id: str, image_id: str) -> dict[str, Any]:
+    def parse_receipt(
+        self, user_id: str, session_id: str, image_id: str, *, require_total_label: bool = False
+    ) -> dict[str, Any]:
         image_bytes = self.image_store.get(image_id, user_id)
         if image_bytes is None:
             return {
@@ -212,7 +214,7 @@ class OcrReceiptService:
             }
 
         mask_res = self.privacy_guard.mask_text(session_id, raw_text)
-        hints = parse_receipt_hints(mask_res.masked_text)
+        hints = parse_receipt_hints(mask_res.masked_text, require_total_label=require_total_label)
         return {
             "image_id": image_id,
             "source_type": "OCR_RECEIPT",

@@ -187,7 +187,7 @@ def _sanitize_alias_no_pii(alias: str) -> str:
 
 def lookup_contact(conn: sqlite3.Connection, owner_id: str, query: str) -> dict:
     """
-    Tool Zero-PII dành cho LLM Orchestrator.
+    Tra cứu danh bạ nội bộ. Tool sẽ lọc các trường trước khi trả cho LLM.
 
     Khóa cứng đầu ra theo chuẩn Zero-PII:
     - Chỉ giữ đúng whitelist key: contact_id, alias, bank_code, masked_acct, trust_level.

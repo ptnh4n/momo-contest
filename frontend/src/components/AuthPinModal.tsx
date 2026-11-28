@@ -40,6 +40,8 @@ export function AuthPinModal({
   onConfirmSuccess,
 }: AuthPinModalProps) {
   const [pin, setPin] = React.useState("");
+  const [saveAlias, setSaveAlias] = React.useState(false);
+  const suggestedAlias = draft?.source_type === "OCR_RECEIPT" ? null : draft?.suggested_alias;
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isScanning, setIsScanning] = React.useState(false);
 
@@ -47,22 +49,25 @@ export function AuthPinModal({
     if (isScanning || isSubmitting) return;
     if (!next) {
       setPin("");
+      setSaveAlias(false);
       setIsSubmitting(false);
       setIsScanning(false);
     }
     onOpenChange(next);
   };
 
-  const executeConfirm = async (pinCode: string) => {
-    if (!draft) return;
+  const executeConfirm = async (pinCode: string, persistAlias = false) => {
+    if (!draft || isSubmitting) return;
     setIsSubmitting(true);
     try {
-      const res = await confirmDraftTransaction(draft.tx_id, pinCode);
+      const res = await confirmDraftTransaction(draft.tx_id, pinCode, persistAlias);
       toast.success(
         `Chuyển ${formatVnd(draft.amount)} thành công. Số dư mới: ${formatVnd(res.new_balance)}`
       );
+      if (res.alias_saved) toast.success(`Đã lưu biệt danh “${res.alias_saved}”.`);
       onConfirmSuccess(res);
       setPin("");
+      setSaveAlias(false);
       onOpenChange(false);
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Xác thực giao dịch thất bại";
@@ -79,7 +84,7 @@ export function AuthPinModal({
       toast.error("Vui lòng nhập đủ 6 chữ số mã PIN");
       return;
     }
-    await executeConfirm(pin);
+    await executeConfirm(pin, Boolean(suggestedAlias && saveAlias));
   };
 
   const handleBiometricScan = async () => {
@@ -160,6 +165,17 @@ export function AuthPinModal({
                 />
               </div>
 
+              {suggestedAlias && (
+                <label className="flex items-center gap-2 text-sm text-zinc-700">
+                  <input
+                    type="checkbox"
+                    checked={saveAlias}
+                    onChange={(event) => setSaveAlias(event.target.checked)}
+                    disabled={isSubmitting}
+                  />
+                  <span>Lưu người nhận với biệt danh “{suggestedAlias}” khi xác nhận PIN</span>
+                </label>
+              )}
               <Button
                 type="submit"
                 className="w-full"

@@ -11,7 +11,7 @@
 **Lý do:** Tại Việt Nam nhiều ngân hàng cho dùng chính SĐT làm STK (VD: `"STK 0987654321 MB"`). Kiểm tra ngữ cảnh trước tránh mask nhầm STK thành `<PHONE_1>`, đồng thời vẫn đảm bảo 0% số 8–16 chữ số hoặc SĐT lọt ra ngoài.
 
 ## 3. Khóa đầu ra Zero-PII cho tool `lookup_contact`
-**Quyết định:** `app/wallet/privacy_proxy.py::lookup_contact` bao bọc `app/db/repo/contacts.py::lookup_contact_zero_pii`, khóa cứng đúng whitelist 5 trường (`contact_id`, `alias`, `bank_code`, `masked_acct`, `trust_level`) khớp `CONTEXT.md` mục 3.2 và `tutorial.md` mục 2; ép định dạng `masked_acct` dạng `****xxx` (3 số cuối) và lọc/ẩn mọi chuỗi số PII nếu vô tình xuất hiện trong `alias`.
+**Quyết định:** `app/wallet/privacy_proxy.py::lookup_contact` bao bọc `app/db/repo/contacts.py::lookup_contact_zero_pii`, lọc dữ liệu nội bộ theo 5 trường (`contact_id`, `alias`, `bank_code`, `masked_acct`, `trust_level`) để phân giải danh bạ; tool trả cho LLM chỉ gồm `contact_id`, `alias` và `masked_acct` theo dòng T04 của bảng phân công. Hàm ép định dạng `masked_acct` dạng `****xxx` (3 số cuối) và lọc/ẩn mọi chuỗi số PII nếu vô tình xuất hiện trong `alias`.
 **Lý do:** Đảm bảo 0% rò rỉ STK/SĐT/CCCD/họ tên đầy đủ sang LLM mà vẫn tương thích nguyên vẹn với hợp đồng dữ liệu đã chốt.
 
 ## 4. Ngưỡng nhận diện số tiền mơ hồ trong Deterministic Currency Parser
@@ -27,7 +27,7 @@
 1. **Hard Veto Blacklist** → `BLOCK_ANOMALY` (lưu draft `status='BLOCKED'`, phủ quyết tất cả, kể cả `PASS_AUTO` hay giao dịch nhỏ).
 2. **Kiểm tra số dư** (`amount > balance`) → trả HTTP 422 `INSUFFICIENT_BALANCE` (không tạo draft).
 3. **Luật cứng `OCR_ALWAYS_HITL`** (`source_type == 'OCR_RECEIPT'`) → tối thiểu `REQUIRE_HITL`, không bao giờ `PASS_AUTO`.
-4. **Ngưỡng NHNN** (`amount >= 10_000_000` VNĐ/lần HOẶC `daily_transferred + amount >= 20_000_000` VNĐ/ngày) → bắt buộc `REQUIRE_HITL` (kể cả khi user nâng `auto_approve_limit` cao hơn và người nhận là `TRUSTED`).
+4. **Ngưỡng theo bảng phân công T04** (`amount > 10_000_000` VNĐ/lần HOẶC `daily_transferred + amount > 20_000_000` VNĐ/ngày) → bắt buộc `REQUIRE_HITL` (kể cả khi user nâng `auto_approve_limit` cao hơn và người nhận là `TRUSTED`).
 5. **Hạn mức tự duyệt** (`trust_level == 'TRUSTED'` và `amount <= auto_approve_limit`) → `PASS_AUTO`, thực thi trừ tiền và ghi `transactions` ngay trong cùng 1 transaction SQLite; các trường hợp còn lại → `REQUIRE_HITL`.
 
 ## 6. Idempotency & Chống trừ tiền đúp

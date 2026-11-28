@@ -6,7 +6,7 @@ Kiểm thử toàn bộ API ví giả lập + lớp bảo vệ cứng + Privacy 
   (2) Deterministic Currency Parser (gặp '500' mơ hồ -> CLARIFY, không để LLM đoán)
   (3) Hard Veto Blacklist (lúc tạo draft & lúc confirm)
   (4) Luật cứng OCR_ALWAYS_HITL (nguồn OCR bắt buộc qua HITL, không bao giờ PASS_AUTO)
-  (5) Ngưỡng sinh trắc học/PIN NHNN (>=10tr/lần, >=20tr/ngày)
+  (5) Ngưỡng sinh trắc học/PIN NHNN (>10tr/lần, >20tr/ngày)
   (6) Privacy Proxy (Regex Masking/De-masking tạm trong RAM có TTL) & Zero-PII lookup_contact
   (7) 2 luật cứng chống Memory Poisoning: NO_OCR_ALIAS & NO_SILENT_OVERWRITE + Post-PIN Commit
 """
@@ -343,50 +343,39 @@ class TestOcrAlwaysHitl:
 
 
 # ===========================================================================
-# (5) NGƯỠNG SINH TRẮC HỌC / PIN NHNN (>=10TR/LẦN, >=20TR/NGÀY)
+# (5) NGƯỠNG SINH TRẮC HỌC / PIN NHNN (>10TR/LẦN, >20TR/NGÀY)
 # ===========================================================================
 class TestNhnnThreshold:
-    def test_single_tx_10m_forces_hitl_even_with_high_auto_limit(self, db):
-        """>= 10.000.000 VNĐ/lần bắt buộc REQUIRE_HITL kể cả khi auto_approve_limit cao và TRUSTED."""
-        with transaction(db):
-            db.execute(
-                "UPDATE users SET balance = 50000000, auto_approve_limit = 30000000 WHERE user_id = ?",
-                (DEMO_USER_ID,),
-            )
-
-        resp = create_draft_transfer(
-            db,
-            intent_id=str(uuid4()),
-            sender_id=DEMO_USER_ID,
-            amount=NHNN_SINGLE_TX_LIMIT,
-            source_type="CHAT_CONTACT",
-            contact_id="C_001",
-        )
-        assert resp.decision == "REQUIRE_HITL"
-        assert resp.draft is not None and resp.draft.status == "DRAFT"
-        assert any("NHNN_SINGLE_TX_LIMIT" in r for r in resp.xai_reasons)
-
-    def test_daily_total_20m_forces_hitl_even_when_single_tx_under_10m(self, db):
-        """Tổng trong ngày >= 20.000.000 VNĐ bắt buộc REQUIRE_HITL dù giao dịch lẻ < 10tr."""
+    @pytest.mark.parametrize(("daily_total", "amount", "expected", "reason"), [
+        (0, NHNN_SINGLE_TX_LIMIT - 1, "PASS_AUTO", None),
+        (0, NHNN_SINGLE_TX_LIMIT, "PASS_AUTO", None),
+        (0, NHNN_SINGLE_TX_LIMIT + 1, "REQUIRE_HITL", "NHNN_SINGLE_TX_LIMIT"),
+        (15_000_000, NHNN_DAILY_TX_LIMIT - 15_000_001, "PASS_AUTO", None),
+        (15_000_000, NHNN_DAILY_TX_LIMIT - 15_000_000, "PASS_AUTO", None),
+        (15_000_000, NHNN_DAILY_TX_LIMIT - 14_999_999, "REQUIRE_HITL", "NHNN_DAILY_TX_LIMIT"),
+    ])
+    def test_excel_threshold_boundaries(self, db, daily_total, amount, expected, reason):
         with transaction(db):
             db.execute(
                 """UPDATE users
-                   SET balance = 50000000, auto_approve_limit = 30000000, daily_transferred = 15000000
+                   SET balance = 50000000, auto_approve_limit = 30000000, daily_transferred = ?
                    WHERE user_id = ?""",
-                (DEMO_USER_ID,),
+                (daily_total, DEMO_USER_ID),
             )
 
         resp = create_draft_transfer(
             db,
             intent_id=str(uuid4()),
             sender_id=DEMO_USER_ID,
-            amount=NHNN_DAILY_TX_LIMIT - 15_000_000,  # 5_000_000 -> daily + amount = 20_000_000
+            amount=amount,
             source_type="CHAT_CONTACT",
             contact_id="C_001",
         )
-        assert resp.decision == "REQUIRE_HITL"
-        assert resp.draft is not None and resp.draft.status == "DRAFT"
-        assert any("NHNN_DAILY_TX_LIMIT" in r for r in resp.xai_reasons)
+        assert resp.decision == expected
+        assert resp.draft is not None
+        assert resp.draft.status == ("DRAFT" if reason else "COMPLETED")
+        if reason:
+            assert any(reason in item for item in resp.xai_reasons)
 
     def test_below_all_limits_trusted_contact_is_pass_auto(self, db):
         resp = create_draft_transfer(
@@ -555,6 +544,39 @@ class TestMemoryPoisoningDefense:
             "SELECT COUNT(*) FROM contact_aliases WHERE alias_norm = 'auto alias'"
         ).fetchone()[0]
         assert cnt == 0
+
+    def test_selecting_contact_only_proposes_alias_until_pin(self, client, db):
+        original_intent = str(uuid4())
+        response = client.post("/api/chat", json={
+            "user_id": DEMO_USER_ID,
+            "intent_id": original_intent,
+            "message": "Chuyển 300k cho Minh",
+        })
+        assert response.json()["decision"] == "CLARIFY"
+
+        def aliases():
+            return db.execute(
+                "SELECT contact_id, alias_norm, usage_count FROM contact_aliases ORDER BY contact_id, alias_norm"
+            ).fetchall()
+
+        before = aliases()
+        choice = client.post("/api/chat", json={
+            "user_id": DEMO_USER_ID,
+            "intent_id": str(uuid4()),
+            "message": "Chọn Minh",
+            "clarify_choice": {"ref_intent_id": original_intent, "contact_id": "C_003"},
+        })
+        assert choice.status_code == 200
+        draft = choice.json()["draft"]
+        assert draft["suggested_alias"] == "Minh"
+        assert aliases() == before
+
+        confirmation = client.post(f"/api/drafts/{draft['tx_id']}/confirm", json={
+            "user_id": DEMO_USER_ID, "pin_code": DEMO_PIN, "save_alias": True,
+        })
+        assert confirmation.status_code == 200
+        assert confirmation.json()["alias_saved"] == "Minh"
+        assert aliases() != before
 
     def test_no_silent_overwrite_duplicate_alias_triggers_clarify(self, client, db):
         """
