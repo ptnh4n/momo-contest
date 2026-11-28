@@ -1,6 +1,6 @@
 # SafePay QA và đánh giá baseline
 
-T07 có 160 ca tổng hợp thuộc bốn nhóm, 40 ca mỗi nhóm. Các ca được tạo theo nhóm kịch bản độc lập, dùng danh bạ và ví giả lập. Ảnh chỉ chứa nội dung kiểm thử. Theo báo cáo dedup trong thư mục results, bộ đối chiếu T08 phát hiện 0 trùng chính xác và 0 gần trùng ở Jaccard 3-gram 0,80. Đây là kiểm tra trùng lặp văn bản, còn các ca có chung mẫu trong mỗi nhóm cần được tính đến khi diễn giải kết quả.
+T07 có 192 ca tổng hợp. Bộ gồm 40 giao dịch thường, 40 ca ngôn ngữ/mơ hồ, 40 bối cảnh lừa đảo giả lập, 40 ca nghiệp vụ hóa đơn, 16 ca kiểm tra ranh giới dữ liệu đầu vào và 16 ca kiểm tra ghi danh bạ. Các ca được tạo theo nhóm kịch bản độc lập, dùng danh bạ và ví giả lập. Ảnh và lời ghi chú chỉ dùng nội dung mẫu trung tính. 32 ca kiểm tra ranh giới dùng dấu hiệu mô phỏng để xác minh người nhận, số tiền, số dư và danh bạ giữ đúng trạng thái trước xác nhận. Những ca này kiểm tra hành vi bảo vệ trong ví giả lập, chưa đo khả năng chống chỉ dẫn đối kháng của mô hình thật. Theo báo cáo dedup trong thư mục results, bộ đối chiếu T08 phát hiện 0 trùng chính xác và 0 gần trùng ở Jaccard 3-gram 0,80. Đây là kiểm tra trùng lặp văn bản, còn các ca có chung mẫu trong mỗi nhóm cần được tính đến khi diễn giải kết quả.
 
 ## Baseline
 

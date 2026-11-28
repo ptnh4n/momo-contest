@@ -60,7 +60,7 @@ def build_gemini_tool_declarations() -> types.Tool:
                 name="lookup_contact",
                 description=(
                     "Tra cứu danh bạ theo tên hoặc biệt danh tiếng Việt (hỗ trợ không dấu và xưng hô như 'thằng Nam', 'sếp'). "
-                    "Trả về dữ liệu đã ẩn danh Zero-PII (contact_id, alias, bank_code, masked_acct, trust_level)."
+                    "Trả về dữ liệu đã ẩn danh Zero-PII (contact_id, alias, masked_acct)."
                 ),
                 parameters=types.Schema(
                     type=types.Type.OBJECT,
@@ -292,7 +292,10 @@ class ToolRegistry:
         ctx.last_matched_count = len(matches)
         if len(matches) == 1:
             ctx.last_contact_id = matches[0]["contact_id"]
-        return res
+        return {"matches": [
+            {key: match[key] for key in ("contact_id", "alias", "masked_acct")}
+            for match in matches
+        ]}
 
     def _exec_get_recent_transactions(self, ctx: ToolExecutionContext, args: dict[str, Any]) -> dict[str, Any]:
         contact_id = args.get("contact_id")

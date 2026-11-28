@@ -178,6 +178,21 @@ class TestPrivilegeSeparationAndPrivacy:
         res = ToolRegistry().execute(ctx, "confirm_draft", {"tx_id": "tx_1", "pin_code": "123456"})
         assert res["error"] == "FORBIDDEN_TOOL"
 
+    def test_llm_lookup_returns_only_excel_whitelist(self, db):
+        guard = PrivacyGuard(PrivacyProxy())
+        ctx = ToolExecutionContext(
+            conn=db, user_id=DEMO_USER_ID, intent_id=str(uuid4()),
+            session_id="lookup-test", masked_user_message="Chuyển 500k cho thằng Nam",
+            has_image=False, image_id=None, privacy_guard=guard,
+            clarify_store=ClarifyContextStore(), pending_alias_store=PendingAliasStore(),
+            ocr_service=OcrReceiptService(guard),
+        )
+        result = ToolRegistry().execute(ctx, "lookup_contact", {"query": "thằng Nam"})
+        assert result == {"matches": [{
+            "contact_id": "C_001", "alias": "thằng Nam", "masked_acct": "****567",
+        }]}
+        assert ctx.last_lookup_matches[0]["bank_code"] == "MB"
+
     def test_privacy_guard_masks_separated_pii_and_preserves_formatted_money(self):
         guard = PrivacyGuard(PrivacyProxy())
         raw = "Chuyển 10.000.000 cho anh Tuấn STK 1903 1234 5678 90 SĐT 0987.654.321"

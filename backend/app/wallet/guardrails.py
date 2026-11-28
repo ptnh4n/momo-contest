@@ -4,7 +4,7 @@ guardrails.py — Lớp bảo vệ cứng (Hard Guardrails) & 2 luật chống M
 Bao gồm:
 (3) Hard Veto Blacklist: khớp scam_blacklist -> lập tức BLOCK_ANOMALY.
 (4) Luật cứng OCR_ALWAYS_HITL: nguồn OCR_RECEIPT không bao giờ PASS_AUTO, tối thiểu REQUIRE_HITL.
-(5) Ngưỡng sinh trắc học/PIN NHNN: >= 10.000.000 VNĐ/lần HOẶC tổng trong ngày >= 20.000.000 VNĐ -> REQUIRE_HITL.
+(5) Ngưỡng sinh trắc học/PIN NHNN: > 10.000.000 VNĐ/lần HOẶC tổng trong ngày > 20.000.000 VNĐ -> REQUIRE_HITL.
 (6) Chống Memory Poisoning:
     - NO_OCR_ALIAS: cấm học alias từ nguồn OCR_RECEIPT (ép suggested_alias=None, từ chối ghi DB).
     - NO_SILENT_OVERWRITE + Post-PIN Commit: không ghi đè ngầm alias trùng, chỉ commit vào contact_aliases
@@ -19,8 +19,8 @@ from typing import Literal
 
 from app.db.repo.aliases import upsert_alias
 
-NHNN_SINGLE_TX_LIMIT = 10_000_000   # >= 10 triệu VNĐ/lần bắt buộc HITL
-NHNN_DAILY_TX_LIMIT = 20_000_000    # >= 20 triệu VNĐ/ngày bắt buộc HITL
+NHNN_SINGLE_TX_LIMIT = 10_000_000   # > 10 triệu VNĐ/lần bắt buộc HITL
+NHNN_DAILY_TX_LIMIT = 20_000_000    # > 20 triệu VNĐ/ngày bắt buộc HITL
 
 Decision = Literal["PASS_AUTO", "REQUIRE_HITL", "CLARIFY", "BLOCK_ANOMALY"]
 SourceType = Literal["CHAT_CONTACT", "CHAT_RAW_ACCT", "OCR_RECEIPT"]
@@ -144,7 +144,7 @@ def evaluate_hard_guardrails(
     1. Hard Veto Blacklist -> BLOCK_ANOMALY (phủ quyết mọi luật khác).
     2. Kiểm tra số dư (amount > balance -> đánh dấu insufficient_balance).
     3. Luật OCR_ALWAYS_HITL -> tối thiểu REQUIRE_HITL.
-    4. Ngưỡng NHNN (>= 10tr/lần hoặc daily + amount >= 20tr/ngày) -> bắt buộc REQUIRE_HITL.
+    4. Ngưỡng NHNN (> 10tr/lần hoặc daily + amount > 20tr/ngày) -> bắt buộc REQUIRE_HITL.
     5. Hạn mức ủy quyền tự động (<= auto_approve_limit & TRUSTED & non-OCR) -> PASS_AUTO,
        ngược lại -> REQUIRE_HITL.
     """
@@ -183,16 +183,16 @@ def evaluate_hard_guardrails(
         )
 
     # (5) Ngưỡng sinh trắc học/PIN NHNN
-    if amount >= NHNN_SINGLE_TX_LIMIT:
+    if amount > NHNN_SINGLE_TX_LIMIT:
         must_hitl = True
         reasons.append(
-            "NHNN_SINGLE_TX_LIMIT: Giao dịch >= 10.000.000 VNĐ/lần bắt buộc xác thực PIN/sinh trắc học."
+            "NHNN_SINGLE_TX_LIMIT: Giao dịch > 10.000.000 VNĐ/lần bắt buộc xác thực PIN/sinh trắc học."
         )
 
-    if daily_transferred + amount >= NHNN_DAILY_TX_LIMIT:
+    if daily_transferred + amount > NHNN_DAILY_TX_LIMIT:
         must_hitl = True
         reasons.append(
-            "NHNN_DAILY_TX_LIMIT: Tổng giao dịch trong ngày >= 20.000.000 VNĐ bắt buộc xác thực PIN/sinh trắc học."
+            "NHNN_DAILY_TX_LIMIT: Tổng giao dịch trong ngày > 20.000.000 VNĐ bắt buộc xác thực PIN/sinh trắc học."
         )
 
     if must_hitl:

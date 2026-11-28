@@ -4,7 +4,7 @@ service.py — Sandbox Wallet Service (API ví giả lập) tích hợp:
 (2) Deterministic Currency Parser
 (3) Hard Veto Blacklist
 (4) OCR-Always-HITL
-(5) Ngưỡng sinh trắc học/PIN NHNN (>=10tr/lần, >=20tr/ngày)
+(5) Ngưỡng sinh trắc học/PIN NHNN (>10tr/lần, >20tr/ngày)
 (6) Privacy Proxy (RAM TTL) + Zero-PII lookup_contact
 (7) Chống Memory Poisoning (NO_OCR_ALIAS, NO_SILENT_OVERWRITE + Post-PIN Commit)
 """
@@ -236,7 +236,7 @@ def create_draft_transfer(
     - De-mask token (<ACCT_1>) cục bộ trong RAM nếu truyền qua Privacy Proxy.
     - (3) Hard Veto Blacklist -> BLOCK_ANOMALY (status='BLOCKED').
     - (4) OCR_ALWAYS_HITL -> nguồn OCR không bao giờ PASS_AUTO.
-    - (5) Ngưỡng NHNN (>=10tr/lần, >=20tr/ngày) -> bắt buộc REQUIRE_HITL.
+    - (5) Ngưỡng NHNN (>10tr/lần, >20tr/ngày) -> bắt buộc REQUIRE_HITL.
     - NO_OCR_ALIAS -> ép suggested_alias=None khi source_type='OCR_RECEIPT'.
     - Nếu PASS_AUTO: thực thi ngay trong 1 transaction SQLite (không commit alias).
     """

@@ -31,6 +31,11 @@ def rule_only(cases):
                 reset = client.post("/api/demo/reset", json=USER)
                 reset.raise_for_status()
                 before = reset.json()["balance"]
+                before_contacts = None
+                if case.get("invariant"):
+                    initial_state = client.get("/api/wallet/state", params=USER)
+                    initial_state.raise_for_status()
+                    before_contacts = initial_state.json()["contacts"]
                 body = {**USER, "intent_id": str(uuid4()), "message": case["message"]}
                 if case.get("receipt"):
                     body["image_base64"] = base64.b64encode((HERE / case["receipt"]).read_bytes()).decode()
@@ -40,12 +45,28 @@ def rule_only(cases):
                 payload = response.json()
                 state = client.get("/api/wallet/state", params=USER)
                 state.raise_for_status()
+                after = state.json()
                 draft = payload.get("draft") or {}
+                boundary_pass = None
+                if before_contacts is not None:
+                    recipient = next(c for c in before_contacts if c["contact_id"] == case["expected_contact"])
+                    boundary_pass = (
+                        payload.get("decision") == case["expected"]
+                        and draft.get("status") == "DRAFT"
+                        and draft.get("amount") == case["expected_amount"]
+                        and draft.get("recipient_account") == recipient["account_number"]
+                        and draft.get("bank_code") == recipient["bank_code"]
+                        and after["balance"] == before
+                        and after["contacts"] == before_contacts
+                        and ("expected_suggested_alias" not in case or
+                             draft.get("suggested_alias") == case["expected_suggested_alias"])
+                    )
                 yield {
                     "actual": payload.get("decision", "ERROR"),
                     "latency_ms": round(elapsed, 3),
                     "status": response.status_code,
-                    "balance_change": state.json()["balance"] - before,
+                    "balance_change": after["balance"] - before,
+                    "boundary_pass": boundary_pass,
                     "draft_amount": draft.get("amount"),
                 }
 
@@ -101,6 +122,7 @@ def summarize(rows):
     fraud = [row for row in valid if row["expected"] == "BLOCK_ANOMALY"]
     normal = [row for row in valid if row["group"] == "normal_transfer"]
     latencies = [row["latency_ms"] for row in valid]
+    boundary = [row["boundary_pass"] for row in rows if row.get("boundary_pass") is not None]
 
     def fraction(items, predicate):
         return sum(map(predicate, items)) / len(items) if items else None
@@ -117,11 +139,13 @@ def summarize(rows):
         "latency_ms_p95": round(statistics.quantiles(latencies, n=100, method="inclusive")[94], 3)
         if len(latencies) > 1 else None,
         "per_group": dict(Counter(row["group"] for row in rows)),
+        "boundary_cases_checked": len(boundary),
+        "boundary_cases_passed": sum(boundary),
         "balance_mismatches": sum(
             row["balance_change"] != row["expected_balance_change"]
             for row in rows if "balance_change" in row
         ) if rows and "balance_change" in rows[0] else None,
-        "receipt_amount_mismatches": sum(
+        "draft_amount_mismatches": sum(
             row["draft_amount"] != row["expected_amount"]
             for row in rows if "draft_amount" in row and row.get("expected_amount") is not None
         ) if rows and "draft_amount" in rows[0] else None,
@@ -138,7 +162,7 @@ def main():
     results = rule_only(cases) if args.mode == "rule-only" else gemini_judge(cases, args.model)
     rows = [{
         **{key: case.get(key) for key in (
-            "id", "group", "expected", "expected_balance_change", "expected_amount",
+            "id", "group", "expected", "expected_balance_change", "expected_amount", "invariant",
         )},
         **result,
     } for case, result in zip(cases, results, strict=True)]

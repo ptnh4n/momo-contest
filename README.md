@@ -42,6 +42,8 @@ Muốn bật Gemini cho luồng hội thoại mở rộng, đặt `GEMINI_API_KE
 2. **Chia hóa đơn.** Reset, đính kèm `qa/receipts/ocr-006.png`. Gửi **Chia hóa đơn cho 4 người rồi chuyển cho thằng Nam**. OCR local đọc 400.000 ₫ và tạo bản nháp 100.000 ₫. Số dư chỉ đổi sau khi xác nhận. Cú pháp này hoạt động ở chế độ deterministic.
 3. **Danh sách chặn.** Gửi **Chuyển 50k tới STK 0000000001 MB**. Đây là tài khoản giả lập có trong seed blacklist. Hệ thống chặn và giữ nguyên số dư.
 
+**Lưu người nhận:** Gửi lệnh có biệt danh và số tài khoản thử, ví dụ “Chuyển 120k cho Bạn QA STK 9007778899 MB”. Bật tùy chọn lưu trong hộp PIN. Sau PIN hợp lệ, API trả lại biệt danh đã lưu.
+
 ## Đánh giá và QA
 
 Cài dependencies backend trước, rồi chạy từ thư mục gốc:
@@ -60,6 +62,6 @@ Lệnh Gemini cần biến môi trường `GEMINI_API_KEY`. Bộ ca chỉ dùng 
 - `frontend/` chứa Chat UI, trình tải ảnh, thẻ giao dịch và modal PIN.
 - `backend/` chứa API, orchestrator, SQLite, bộ luật bảo vệ và OCR local RapidOCR.
 - `ml/` chứa scripts tokenizer, sinh dữ liệu, tokenizer đã train và bộ T08 của nhóm. Commit cơ sở chưa chứa script train/export ONNX của mô hình Gatekeeper.
-- `qa/` chứa 160 tình huống độc lập, ảnh mẫu, baseline và báo cáo.
+- `qa/` chứa 192 tình huống độc lập, ảnh mẫu, baseline và báo cáo.
 
 Dự án sử dụng Next.js, React, Tailwind, FastAPI, SQLite, Argon2, LangGraph, Gemini SDK, RapidOCR, ONNX Runtime, Pillow và SentencePiece. Gemini được thiết kế cho lập kế hoạch hội thoại tùy cấu hình. Phần mã tích hợp, tài liệu bàn giao và dữ liệu QA của đợt này có hỗ trợ từ ChatGPT/Codex.

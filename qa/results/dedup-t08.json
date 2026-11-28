@@ -2,7 +2,7 @@
   "passed": true,
   "train_count": 13600,
   "val_count": 2400,
-  "external_count": 160,
+  "external_count": 192,
   "group_overlap_count": 0,
   "group_overlap_samples": [],
   "exact_train_val_message_overlap_count": 0,
