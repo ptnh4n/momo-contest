@@ -53,6 +53,7 @@ _ph = PasswordHasher()
 
 _KNOWN_BANKS = ("VCB", "TCB", "ACB", "BIDV", "VTB", "TPB", "VPB", "STB", "VIB", "MB", "MOMO")
 _BANK_RE = re.compile(r"\b(" + "|".join(_KNOWN_BANKS) + r")\b", re.IGNORECASE)
+_ACCOUNT_FIELD_RE = re.compile(r"(?:stk|số\s+tài\s+khoản|tài\s+khoản)", re.IGNORECASE)
 _RECIPIENT_PHRASE_RE = re.compile(
     r"(?i)(?:cho|tới|toi|đến|den|trả|tra|gửi|gui)\s+([^\d,<]+?)(?=\s*(?:stk|số\s*tài\s*khoản|tài\s*khoản|<|ngân\s*hàng|bank|\b(?:"
     + "|".join(_KNOWN_BANKS)
@@ -155,7 +156,7 @@ def _extract_recipient_query(masked_text: str) -> str | None:
     phrase = m.group(1).strip(" ,.;:-")
     # Loại bỏ từ nối thừa ở cuối như "tiền", "nhé", "nha", "đi"
     phrase = re.sub(r"(?i)\s+(?:nhé|nhe|nha|đi|di|giúp|giup|với|voi)$", "", phrase).strip()
-    return phrase if phrase else None
+    return phrase if phrase and not _ACCOUNT_FIELD_RE.fullmatch(phrase) else None
 
 
 def _build_response_from_existing_draft(
