@@ -1,0 +1,544 @@
+{
+    "samples": [
+        {
+            "sub_group": "an_uong",
+            "user_message": "Chuyển 35k tiền trà sữa cho bé Lan nha",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền trà sữa",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "chuyen 50k tien com trua ban 4 cho Nam giup toi",
+            "tool_name": "create_draft_transfer",
+            "note": "com trua ban 4",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "ck 45k tien bun bo cho Huong nha app",
+            "tool_name": "create_draft_transfer",
+            "note": "bun bo",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "Gửi Thảo 80 nghìn tiền lẩu hôm qua chia theo nhóm 5 người nhé",
+            "tool_name": "create_draft_transfer",
+            "note": "chia tien lau nhom 5",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "share tien nuoc 25k cho Tuan giup mik voi",
+            "tool_name": "create_draft_transfer",
+            "note": "share tien nuoc",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "chia bill cafe sang nay 30.000d cho Minh",
+            "tool_name": "create_draft_transfer",
+            "note": "cafe sang",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "Trả nợ anh Hùng 60k tiền gửi xe tháng 11",
+            "tool_name": "create_draft_transfer",
+            "note": "gui xe thang 11",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "tra no 20k tien banh mi sang nay cho Huong",
+            "tool_name": "create_draft_transfer",
+            "note": "tra tien banh mi",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "ck tra 15k hom qua muon mua ve so cho Long",
+            "tool_name": "create_draft_transfer",
+            "note": "tra tien ve so",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "Chuyển trả chị Mai 95k tiền mua hộ vỉ thuốc ho và khẩu trang",
+            "tool_name": "create_draft_transfer",
+            "note": "tien thuoc ho",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "gui Trang 40k tien mua giup 2 ly tra tac nha",
+            "tool_name": "create_draft_transfer",
+            "note": "2 ly tra tac",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "ck 70k tra tien mua ho cuon sach cho Linh nha",
+            "tool_name": "create_draft_transfer",
+            "note": "tien mua ho sach",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "Gửi mẹ 100k mua thức ăn sáng",
+            "tool_name": "create_draft_transfer",
+            "note": "mua do an sang",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "chuyen cho em gai 50k tien nap the dien thoai",
+            "tool_name": "create_draft_transfer",
+            "note": "nap the dien thoai",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "ck 90k cho vo iu mua kem chong nang",
+            "tool_name": "create_draft_transfer",
+            "note": "vo iu mua kem",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "Xem lại thông tin liên hệ của quán cơm chị Ba giúp mình",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "kiem tra danh ba xem co luu so cua Thao khong",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "check lich su xem mik da ck 50k cho Tuan chua vay",
+            "tool_name": "get_recent_transactions",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "Tra cứu các giao dịch gần đây đã chuyển cho mẹ",
+            "tool_name": "get_recent_transactions",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "Gửi cho anh shipper 25.000đ tiền nước mía nhé",
+            "tool_name": "create_draft_transfer",
+            "note": "tien nuoc mia",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "chuyen 65k tra tien 3 coc tra sua cho Mai",
+            "tool_name": "create_draft_transfer",
+            "note": "3 coc tra sua",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "ck 30k tien banh trang tron cho Ngoc",
+            "tool_name": "create_draft_transfer",
+            "note": "banh trang tron",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "Chuyển 85k phần tiền ăn trưa phòng 302 cho Nam",
+            "tool_name": "create_draft_transfer",
+            "note": "an trua phong 302",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "share 55k tien ve xem phim rap so 2 cho Dat",
+            "tool_name": "create_draft_transfer",
+            "note": "ve xem phim",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "chia bill an kem 35k cho Tram nha",
+            "tool_name": "create_draft_transfer",
+            "note": "tien an kem",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "Chuyển trả chị Thảo 50k góp quỹ lớp 12A tuần này",
+            "tool_name": "create_draft_transfer",
+            "note": "quy lop 12A",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "tra Hoang 10k tien gui xe may hom qua",
+            "tool_name": "create_draft_transfer",
+            "note": "gui xe may",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "ck tra 75k hom trc di cho mua ca cho co Hanh",
+            "tool_name": "create_draft_transfer",
+            "note": "tien mua ca",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "Gửi bác bảo vệ 20k tiền mua giùm bao thuốc",
+            "tool_name": "create_draft_transfer",
+            "note": "tien thuoc la",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "chuyen 45k cho Lan vi nho mua 2 goi mi tom",
+            "tool_name": "create_draft_transfer",
+            "note": "mua mi tom",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "ck tra 60k tien ship do ho cho anh shipper",
+            "tool_name": "create_draft_transfer",
+            "note": "tien ship hang",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "Chuyển cho bố 150k nạp thẻ điện thoại Viettel",
+            "tool_name": "create_draft_transfer",
+            "note": "nap the dien thoai",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "gui em trai 80 nghin an chieu",
+            "tool_name": "create_draft_transfer",
+            "note": "an vat buoi chieu",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "ck 50k cho chi hai mua do an sang",
+            "tool_name": "create_draft_transfer",
+            "note": "an sang",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "Tìm thông tin liên hệ của bạn Tuấn trong máy",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "xem lai cac giao dich chuyen tien hom nay",
+            "tool_name": "get_recent_transactions",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "check xem gan day co ck cho quan banh cuon ko",
+            "tool_name": "get_recent_transactions",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "Gửi sếp 40k tiền ly cà phê muối sáng nay",
+            "tool_name": "create_draft_transfer",
+            "note": "ca phe muoi",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "chuyen 90k tien 2 to pho cho Huy",
+            "tool_name": "create_draft_transfer",
+            "note": "2 to pho bo",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "ck 30k tra tien nuoc mia cho ban 1",
+            "tool_name": "create_draft_transfer",
+            "note": "nuoc mia ban 1",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "Gửi Lan 70.000đ chia tiền ăn ốc tối qua nhé",
+            "tool_name": "create_draft_transfer",
+            "note": "chia tien oc",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "share tien taxi 45k cho bac chu tro",
+            "tool_name": "create_draft_transfer",
+            "note": "share taxi",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "ck chia bill pizza 85k cho Thang nha",
+            "tool_name": "create_draft_transfer",
+            "note": "bill pizza",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "Chuyển trả Minh 15k mượn mua nước suối",
+            "tool_name": "create_draft_transfer",
+            "note": "tien nuoc suoi",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "tra no tien in tai lieu 25k cho Dung",
+            "tool_name": "create_draft_transfer",
+            "note": "in tai lieu",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "ck tra 50k muon mua do tap hoa cho Huong",
+            "tool_name": "create_draft_transfer",
+            "note": "tra tien tap hoa",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "Chuyển 60k tiền mua giúp 5 cái bánh mì cho Trang",
+            "tool_name": "create_draft_transfer",
+            "note": "5 cai banh mi",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "gui 35k tien nho mua vo but cho em Linh",
+            "tool_name": "create_draft_transfer",
+            "note": "mua vo but",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "ck 40k tra tien mua ho cuon so tay cho Lan",
+            "tool_name": "create_draft_transfer",
+            "note": "so tay",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "Chuyển cho vợ 120k đi chợ chiều",
+            "tool_name": "create_draft_transfer",
+            "note": "tien di cho",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "chuyen 60k cho me mua hoa qua",
+            "tool_name": "create_draft_transfer",
+            "note": "mua hoa qua",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "ck 30k cho be Ut an kem",
+            "tool_name": "create_draft_transfer",
+            "note": "an kem",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "Tra cứu biệt danh của chị Thảo xem nào",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "tim lien he ban Nam lop truong giup toi",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "xem gan day mik co ck cho shipper ko",
+            "tool_name": "get_recent_transactions",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "an_uong",
+            "user_message": "Chuyển 55k tiền cơm gà trưa nay cho Tuấn",
+            "tool_name": "create_draft_transfer",
+            "note": "com ga trua",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "chia_bill",
+            "user_message": "chia tien phong hat karaoke 95k cho Minh",
+            "tool_name": "create_draft_transfer",
+            "note": "tien karaoke",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "tra_no_nho",
+            "user_message": "ck 20k tra tien nuoc loc cho phong 4",
+            "tool_name": "create_draft_transfer",
+            "note": "tien nuoc loc",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "mua_do_ho",
+            "user_message": "Chuyển 30.000đ tiền mua hộ cốc sinh tố bơ cho bé Lan",
+            "tool_name": "create_draft_transfer",
+            "note": "sinh to bo",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "accented"
+        },
+        {
+            "sub_group": "gui_nguoi_than",
+            "user_message": "ck 100k cho me mua thuoc bo",
+            "tool_name": "create_draft_transfer",
+            "note": "mua thuoc bo",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "PASS_AUTO",
+            "style": "teencode"
+        }
+    ]
+}

@@ -120,6 +120,10 @@ class TestFeatureSchemaContract(unittest.TestCase):
         self.assertTrue(detect_ambiguous_amount("Gửi 200 cho Minh nhé"))
         self.assertTrue(detect_ambiguous_amount("bắn 150 cho anh Minh"))
         self.assertTrue(detect_ambiguous_amount("ck 1000 cho sếp"))
+        self.assertTrue(detect_ambiguous_amount("ban 350 cho a Tuan"))
+        self.assertTrue(detect_ambiguous_amount("Gửi ngay 1500 cho mẹ"))
+        self.assertTrue(detect_ambiguous_amount("Bắn ngay 120 cho Thảo"))
+        self.assertTrue(detect_ambiguous_amount("chuyen ngay 25 cho Nam"))
 
         self.assertFalse(detect_ambiguous_amount("chuyển 500k cho Nam"))
         self.assertFalse(detect_ambiguous_amount("chuyển 500.000đ cho Nam"))
@@ -127,6 +131,8 @@ class TestFeatureSchemaContract(unittest.TestCase):
         self.assertFalse(detect_ambiguous_amount("chuyển 500 nghìn cho Nam"))
         self.assertFalse(detect_ambiguous_amount("chia bill 600k cho 3 người"))
         self.assertFalse(detect_ambiguous_amount("thanh toán cước tháng 11 hết 265k"))
+        self.assertFalse(detect_ambiguous_amount("chuyen 50k tien com trua ban 12 cho Nam"))
+        self.assertFalse(detect_ambiguous_amount("chuyen 50k ngay 20 cho Nam"))
         self.assertFalse(detect_ambiguous_amount("lưu <ACCT_1> MB là Nam"))
         self.assertFalse(detect_ambiguous_amount("chuyển 100k vào 9001234567"))
 

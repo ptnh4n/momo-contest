@@ -41,9 +41,15 @@ _DELIMITER_SPOOF_RE = re.compile(r"\[(CLS|SEP|PAD|MASK|UNK)\]", re.IGNORECASE)
 _AMBIGUOUS_AMOUNT_NUM_RE = re.compile(
     r"(?<![A-Za-z0-9_<.,])(\d{2,4})(?![A-Za-z0-9_>.,])"
 )
-_PRE_NON_MONEY_RE = re.compile(
-    r"(?:tháng|thang|ngày|ngay|năm|nam|bàn|ban|lần|lan|mức|muc|quận|quan|phòng|phong|"
+_PRE_NON_MONEY_STRICT_RE = re.compile(
+    r"\b(?:tháng|thang|năm|nam|bàn|ngày|lần|lan|mức|muc|quận|quan|phòng|phong|"
     r"tầng|tang|lớp|lop|nhóm|nhom|chia|gồm|gom|top|mã|ma|số|so|stk|tk|id|ver|v)\s*$",
+    re.IGNORECASE,
+)
+_PRE_NGAY_RE = re.compile(r"\bngay\s*$", re.IGNORECASE)
+_PRE_BAN_RE = re.compile(r"\bban\s*$", re.IGNORECASE)
+_TRAILING_TRANSFER_VERB_RE = re.compile(
+    r"\b(?:chuyển|chuyen|ck|gửi|gui|bắn|ban|trả|tra|nộp|nop|đóng|dong)\s+$",
     re.IGNORECASE,
 )
 _POST_UNIT_RE = re.compile(
@@ -104,8 +110,18 @@ def detect_ambiguous_amount(message: str | None) -> bool:
             continue
         prefix = cleaned[: match.start()]
         suffix = cleaned[match.end() :]
-        if _PRE_NON_MONEY_RE.search(prefix):
+        if _PRE_NON_MONEY_STRICT_RE.search(prefix):
             continue
+        ngay_match = _PRE_NGAY_RE.search(prefix)
+        if ngay_match and 1 <= val <= 31:
+            prefix_before_ngay = prefix[: ngay_match.start()]
+            if not _TRAILING_TRANSFER_VERB_RE.search(prefix_before_ngay):
+                continue
+        ban_match = _PRE_BAN_RE.search(prefix)
+        if ban_match:
+            prefix_before_ban = prefix[: ban_match.start()]
+            if _TRANSFER_INTENT_HINT_RE.search(prefix_before_ban) is not None:
+                continue
         if _POST_UNIT_RE.search(suffix):
             continue
         return True

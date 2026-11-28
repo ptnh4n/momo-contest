@@ -1,0 +1,544 @@
+{
+    "samples": [
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "chuyển 500 cho Nam tiền trà sữa hôm qua nha",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền trà sữa",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "ck 200 cho Lan tien com trua nhe",
+            "tool_name": "create_draft_transfer",
+            "note": "tien com trua",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "ban 350 cho a Tuan tien cafe sang nay",
+            "tool_name": "create_draft_transfer",
+            "note": "tien cafe",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "Gửi ngay 1500 cho mẹ trả tiền điện giùm con",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền điện",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "chuyen khoan 450 cho chu tro tien nuoc sinh hoat",
+            "tool_name": "create_draft_transfer",
+            "note": "tien nuoc sinh hoat",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "ck 120 cho c Trang tien xoai lac",
+            "tool_name": "create_draft_transfer",
+            "note": "xoai lac",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "Bắn 250 qua anh shipper ứng tiền lấy bánh kem",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền bánh kem",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "gui 800 cho Thao chia tien khach san du lich",
+            "tool_name": "create_draft_transfer",
+            "note": "tien khach san",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "chuyen 50 cho thg Hung mua goi thuoc la coi",
+            "tool_name": "create_draft_transfer",
+            "note": "mua thuoc la",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "Chuyển gấp 3000 cho sếp để cọc phòng họp",
+            "tool_name": "create_draft_transfer",
+            "note": "cọc phòng họp",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "ck 650 cho vo di cho cuoi tuan",
+            "tool_name": "create_draft_transfer",
+            "note": "di cho cuoi tuan",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "gui 90 cho be Quynh tien banh trang cuon",
+            "tool_name": "create_draft_transfer",
+            "note": "banh trang cuon",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "Gửi ngay 100 cho bác bảo vệ gửi xe qua đêm",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền gửi xe",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "ban 220 cho Duy gop tien an toi lau de",
+            "tool_name": "create_draft_transfer",
+            "note": "tien lau de",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "ck 400 cho Mai tien ship do taobao ve",
+            "tool_name": "create_draft_transfer",
+            "note": "ship taobao",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "Chuyển liền 2000 cho bố mua phân bón cây cảnh",
+            "tool_name": "create_draft_transfer",
+            "note": "mua phân bón",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "chuyen 180 cho Khoa tien ve xem phim rap",
+            "tool_name": "create_draft_transfer",
+            "note": "ve xem phim",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "gui 30 cho Linh coc tra tac",
+            "tool_name": "create_draft_transfer",
+            "note": "tra tac",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "Chuyển giúp 550 cho chị bán rau đầu ngõ",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền rau củ",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "ck 700 cho Hoang tra tien sua xe may",
+            "tool_name": "create_draft_transfer",
+            "note": "tien sua xe",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "ban 85 cho Phuong tien xoi sang",
+            "tool_name": "create_draft_transfer",
+            "note": "xoi sang",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "Chuyển 1200 cho em gái đóng học phí tiếng Anh",
+            "tool_name": "create_draft_transfer",
+            "note": "học phí tiếng Anh",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "gui 330 cho Tien gop tien sinh nhat sep",
+            "tool_name": "create_draft_transfer",
+            "note": "sinh nhat sep",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "chuyen 15 cho thag e mua keo cao su",
+            "tool_name": "create_draft_transfer",
+            "note": "keo cao su",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_currency",
+            "user_message": "Bắn 420 cho Cường tiền mua phụ kiện bàn phím",
+            "tool_name": "create_draft_transfer",
+            "note": "phụ kiện bàn phím",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "Tìm thông tin liên hệ của Nam để gửi tiền cơm trưa",
+            "tool_name": "lookup_contact",
+            "note": "tìm danh bạ",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "tim so tai khoan cua Minh coi",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "search danh ba a Tuan ho tui zoi",
+            "tool_name": "lookup_contact",
+            "note": "search danh ba",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "Chuyển 50.000 đồng cho Trang mua trà sữa matcha",
+            "tool_name": "create_draft_transfer",
+            "note": "trà sữa matcha",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "ck 200k cho chi Huong tra tien trai cay",
+            "tool_name": "create_draft_transfer",
+            "note": "tien trai cay",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "ban 100k cho Hung tra tien ve xe buyt",
+            "tool_name": "create_draft_transfer",
+            "note": "tien xe buyt",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "Tìm tài khoản của anh Tuấn xem đã lưu chưa",
+            "tool_name": "lookup_contact",
+            "note": "kiểm tra danh bạ",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "gui 300k cho Duc tra tien dien thoai",
+            "tool_name": "create_draft_transfer",
+            "note": "tien dien thoai",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "check tk cua Thao jup mik voi",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "Chuyển 150.000đ cho Phương chia tiền lẩu thái",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền lẩu thái",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "tra cuu sdt cua Huy trong danh ba",
+            "tool_name": "lookup_contact",
+            "note": "tra cuu danh ba",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "ck 500k cho a Hoang tien sua ong nuoc",
+            "tool_name": "create_draft_transfer",
+            "note": "sua ong nuoc",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "Gửi 80k cho Lan tiền bánh mì chảo",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền bánh mì chảo",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "tim stk chi Mai trong vi ho",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "ban 250k cho c Lan tien ship do ve que",
+            "tool_name": "create_draft_transfer",
+            "note": "ship ve que",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "Kiểm tra danh bạ xem có ai tên Linh không",
+            "tool_name": "lookup_contact",
+            "note": "tìm Linh",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "chuyen 1 trieu cho anh Nam tra no cu",
+            "tool_name": "create_draft_transfer",
+            "note": "tra no cu",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "tim xem co tk thg Long k",
+            "tool_name": "lookup_contact",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "Chuyển 40k cho Vy lấy lại tiền gửi xe ô tô",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền gửi xe ô tô",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_recipient",
+            "user_message": "tim lien he cua Hai de chuyen tien banh mi",
+            "tool_name": "lookup_contact",
+            "note": "lien he Hai",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "chuyển 500 cho Minh nhé bạn",
+            "tool_name": "create_draft_transfer",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "ck 200 cho Nam tien nuoc",
+            "tool_name": "create_draft_transfer",
+            "note": "tien nuoc",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "ban 150 cho a Tuan nhe",
+            "tool_name": "create_draft_transfer",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "Gửi 300 cho Trang giùm tao với",
+            "tool_name": "create_draft_transfer",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "chuyen 100 cho Hung tien banh",
+            "tool_name": "create_draft_transfer",
+            "note": "tien banh",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "ck 450 cho chi Huong gap",
+            "tool_name": "create_draft_transfer",
+            "note": "gap",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "Chuyển khoản 250 cho Lan mua đồ dùng cá nhân",
+            "tool_name": "create_draft_transfer",
+            "note": "đồ dùng cá nhân",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "gui 80 cho Duc tra tien bua sang",
+            "tool_name": "create_draft_transfer",
+            "note": "tra tien bua sang",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "ban 600 cho c Mai nhe b",
+            "tool_name": "create_draft_transfer",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "Bắn ngay 120 cho Thảo tiền sinh tố dưa hấu",
+            "tool_name": "create_draft_transfer",
+            "note": "tiền sinh tố",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "ck 350 cho Phuong di cho",
+            "tool_name": "create_draft_transfer",
+            "note": "di cho",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "chuyen 50 cho Vy tien giu xe",
+            "tool_name": "create_draft_transfer",
+            "note": "tien giu xe",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "Gửi liền 1000 cho anh Hải đặt cọc đơn",
+            "tool_name": "create_draft_transfer",
+            "note": "đặt cọc đơn",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "accented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "ban 70 cho Linh tien bun cha",
+            "tool_name": "create_draft_transfer",
+            "note": "bun cha",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "unaccented"
+        },
+        {
+            "sub_group": "ambiguous_both",
+            "user_message": "ck 900 cho Huy nha ths",
+            "tool_name": "create_draft_transfer",
+            "note": "",
+            "source_type": "CHAT_CONTACT",
+            "expected_label": "CLARIFY",
+            "style": "teencode"
+        }
+    ]
+}

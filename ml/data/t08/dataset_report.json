@@ -1,0 +1,346 @@
+{
+  "schema_version": "1.0.0",
+  "seed": 42,
+  "elapsed_seconds": 11.81,
+  "total_samples": 16000,
+  "train_samples": 13600,
+  "val_samples": 2400,
+  "label_distribution": {
+    "train": {
+      "PASS_AUTO": 5440,
+      "CLARIFY": 2040,
+      "REQUIRE_HITL": 3400,
+      "BLOCK_ANOMALY": 2720
+    },
+    "val": {
+      "REQUIRE_HITL": 600,
+      "PASS_AUTO": 960,
+      "CLARIFY": 360,
+      "BLOCK_ANOMALY": 480
+    }
+  },
+  "source_origin_distribution": {
+    "seed_aug": 9600,
+    "template": 6400
+  },
+  "tool_name_distribution": {
+    "create_draft_transfer": 13902,
+    "lookup_contact": 587,
+    "parse_receipt_image": 715,
+    "upsert_contact_alias": 430,
+    "check_scam_database": 101,
+    "get_recent_transactions": 265
+  },
+  "source_type_distribution": {
+    "CHAT_CONTACT": 10132,
+    "OCR_RECEIPT": 1935,
+    "CHAT_RAW_ACCT": 3933
+  },
+  "style_distribution": {
+    "accented": 4974,
+    "teencode": 5335,
+    "unaccented": 5143,
+    "all_caps_urgent": 548
+  },
+  "sub_group_distribution": {
+    "chia_bill": 821,
+    "ambiguous_recipient": 737,
+    "high_value_contact": 1285,
+    "ocr_receipt_legit": 1208,
+    "social_eng_urgent": 1240,
+    "ocr_prompt_injection": 446,
+    "raw_acct_legit": 1295,
+    "non_money_number_hard_neg": 532,
+    "social_eng_authority": 1091,
+    "memory_poisoning": 423,
+    "ambiguous_currency": 1070,
+    "ambiguous_both": 593,
+    "tra_no_nho": 828,
+    "gui_nguoi_than": 627,
+    "normal_transfer": 1249,
+    "legit_upsert_alias": 212,
+    "check_scam_and_lookup": 241,
+    "mua_do_ho": 777,
+    "casual_urgent_legit": 538,
+    "an_uong": 787
+  },
+  "curated_seed_indices": [
+    47,
+    49,
+    50,
+    54,
+    56
+  ],
+  "tokenizer_audit": {
+    "total_tokens": 452074,
+    "unk_tokens": 0,
+    "unk_rate": 0.0,
+    "p50_seq_len": 25,
+    "p95_seq_len": 45,
+    "max_seq_len": 60,
+    "at_max_length_count": 0,
+    "at_max_length_rate": 0.0
+  },
+  "anti_shortcut_audit": {
+    "block_anomaly_daytime_low_drain_rate": 0.5478,
+    "block_anomaly_chat_contact_rate": 0.0322,
+    "require_hitl_late_night_rate": 0.2072,
+    "pass_auto_late_night_rate": 0.1497,
+    "pass_auto_rapid_tx_rate": 0.1514,
+    "require_hitl_rapid_tx_rate": 0.1477,
+    "clarify_late_night_rate": 0.0963,
+    "cold_start_user_avg_rate": 0.1444,
+    "cold_start_no_prev_tx_rate": 0.0876
+  },
+  "tabular_stats_by_label": {
+    "PASS_AUTO": {
+      "ratio_avg_amount": {
+        "mean": 0.0253,
+        "std": 0.0231
+      },
+      "amount_log": {
+        "mean": 0.4805,
+        "std": 0.1661
+      },
+      "is_new_recipient": {
+        "mean": 0.0088,
+        "std": 0.0931
+      },
+      "transfer_count_log": {
+        "mean": 0.2581,
+        "std": 0.1135
+      },
+      "matched_contact_count": {
+        "mean": 0.2,
+        "std": 0.0
+      },
+      "exceeds_auto_limit": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "exceeds_sbv_limit": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "is_ocr_source": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "is_late_night": {
+        "mean": 0.1497,
+        "std": 0.3568
+      },
+      "time_since_last_tx_log": {
+        "mean": 0.7617,
+        "std": 0.198
+      },
+      "daily_total_ratio": {
+        "mean": 0.0633,
+        "std": 0.036
+      },
+      "balance_drain_ratio": {
+        "mean": 0.0066,
+        "std": 0.013
+      },
+      "is_raw_account": {
+        "mean": 0.0088,
+        "std": 0.0931
+      },
+      "has_ambiguous_amount": {
+        "mean": 0.0,
+        "std": 0.0
+      }
+    },
+    "REQUIRE_HITL": {
+      "ratio_avg_amount": {
+        "mean": 0.1982,
+        "std": 0.1648
+      },
+      "amount_log": {
+        "mean": 0.6922,
+        "std": 0.1791
+      },
+      "is_new_recipient": {
+        "mean": 0.7147,
+        "std": 0.4515
+      },
+      "transfer_count_log": {
+        "mean": 0.0757,
+        "std": 0.1173
+      },
+      "matched_contact_count": {
+        "mean": 0.074,
+        "std": 0.0966
+      },
+      "exceeds_auto_limit": {
+        "mean": 0.9308,
+        "std": 0.2539
+      },
+      "exceeds_sbv_limit": {
+        "mean": 0.2652,
+        "std": 0.4415
+      },
+      "is_ocr_source": {
+        "mean": 0.302,
+        "std": 0.4591
+      },
+      "is_late_night": {
+        "mean": 0.2072,
+        "std": 0.4053
+      },
+      "time_since_last_tx_log": {
+        "mean": 0.7974,
+        "std": 0.2064
+      },
+      "daily_total_ratio": {
+        "mean": 0.2267,
+        "std": 0.209
+      },
+      "balance_drain_ratio": {
+        "mean": 0.3333,
+        "std": 0.2354
+      },
+      "is_raw_account": {
+        "mean": 0.3767,
+        "std": 0.4846
+      },
+      "has_ambiguous_amount": {
+        "mean": 0.0,
+        "std": 0.0
+      }
+    },
+    "CLARIFY": {
+      "ratio_avg_amount": {
+        "mean": 0.0436,
+        "std": 0.0701
+      },
+      "amount_log": {
+        "mean": 0.422,
+        "std": 0.2245
+      },
+      "is_new_recipient": {
+        "mean": 0.5221,
+        "std": 0.4995
+      },
+      "transfer_count_log": {
+        "mean": 0.1229,
+        "std": 0.0915
+      },
+      "matched_contact_count": {
+        "mean": 0.4548,
+        "std": 0.2754
+      },
+      "exceeds_auto_limit": {
+        "mean": 0.3462,
+        "std": 0.4758
+      },
+      "exceeds_sbv_limit": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "is_ocr_source": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "is_late_night": {
+        "mean": 0.0962,
+        "std": 0.2949
+      },
+      "time_since_last_tx_log": {
+        "mean": 0.8133,
+        "std": 0.1677
+      },
+      "daily_total_ratio": {
+        "mean": 0.0305,
+        "std": 0.0178
+      },
+      "balance_drain_ratio": {
+        "mean": 0.0261,
+        "std": 0.0595
+      },
+      "is_raw_account": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "has_ambiguous_amount": {
+        "mean": 0.6929,
+        "std": 0.4613
+      }
+    },
+    "BLOCK_ANOMALY": {
+      "ratio_avg_amount": {
+        "mean": 0.3841,
+        "std": 0.1896
+      },
+      "amount_log": {
+        "mean": 0.762,
+        "std": 0.145
+      },
+      "is_new_recipient": {
+        "mean": 0.985,
+        "std": 0.1216
+      },
+      "transfer_count_log": {
+        "mean": 0.0041,
+        "std": 0.0261
+      },
+      "matched_contact_count": {
+        "mean": 0.0064,
+        "std": 0.0353
+      },
+      "exceeds_auto_limit": {
+        "mean": 0.9694,
+        "std": 0.1723
+      },
+      "exceeds_sbv_limit": {
+        "mean": 0.4538,
+        "std": 0.4979
+      },
+      "is_ocr_source": {
+        "mean": 0.2272,
+        "std": 0.419
+      },
+      "is_late_night": {
+        "mean": 0.32,
+        "std": 0.4665
+      },
+      "time_since_last_tx_log": {
+        "mean": 0.6003,
+        "std": 0.2672
+      },
+      "daily_total_ratio": {
+        "mean": 0.4352,
+        "std": 0.3542
+      },
+      "balance_drain_ratio": {
+        "mean": 0.6212,
+        "std": 0.413
+      },
+      "is_raw_account": {
+        "mean": 0.7406,
+        "std": 0.4383
+      },
+      "has_ambiguous_amount": {
+        "mean": 0.0,
+        "std": 0.0
+      }
+    }
+  },
+  "leakage_check": {
+    "passed": true,
+    "train_count": 13600,
+    "val_count": 2400,
+    "external_count": 0,
+    "group_overlap_count": 0,
+    "group_overlap_samples": [],
+    "exact_train_val_message_overlap_count": 0,
+    "exact_train_val_message_overlap_samples": [],
+    "train_internal_duplicates": 0,
+    "val_internal_duplicates": 0,
+    "external_exact_match_count": 0,
+    "external_near_match_count": 0,
+    "leaked_ids": [],
+    "external_exact_matches": [],
+    "external_near_matches": []
+  }
+}
