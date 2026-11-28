@@ -19,6 +19,7 @@ export interface DraftTransactionCardProps {
   onConfirmClick: (draft: DraftObject) => void;
   onCancelClick?: (draft: DraftObject) => void;
   isCancelling?: boolean;
+  actionsDisabled?: boolean;
 }
 
 export function formatVnd(amount: number): string {
@@ -54,6 +55,7 @@ export function DraftTransactionCard({
   onConfirmClick,
   onCancelClick,
   isCancelling = false,
+  actionsDisabled = false,
 }: DraftTransactionCardProps) {
   const { label, variant, Icon } = getStatusMeta(draft.status);
   const isPending = draft.status === "DRAFT" || draft.status === "PENDING";
@@ -113,7 +115,7 @@ export function DraftTransactionCard({
                 variant="outline"
                 size="sm"
                 className="h-9 px-3 text-xs"
-                disabled={isCancelling}
+                disabled={isCancelling || actionsDisabled}
                 onClick={() => onCancelClick(draft)}
               >
                 Hủy
@@ -123,7 +125,7 @@ export function DraftTransactionCard({
               type="button"
               size="sm"
               className="h-9 flex-1 text-xs font-semibold"
-              disabled={isCancelling}
+              disabled={isCancelling || actionsDisabled}
               onClick={() => onConfirmClick(draft)}
             >
               Xác nhận chuyển

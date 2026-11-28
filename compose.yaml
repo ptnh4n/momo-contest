@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: .
+      target: backend
+    environment:
+      SAFEPAY_CORS_ORIGINS: ${SAFEPAY_CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
+      SAFEPAY_ORCHESTRATOR_MODE: ${SAFEPAY_ORCHESTRATOR_MODE:-deterministic}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["wallet:/data"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; assert urlopen('http://127.0.0.1:8000/health', timeout=3).status == 200"]
+      timeout: 5s
+      interval: 15s
+      retries: 4
+  frontend:
+    build:
+      context: .
+      target: frontend
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      backend: {condition: service_healthy}
+volumes:
+  wallet:

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "train_count": 13600,
+  "val_count": 2400,
+  "external_count": 160,
+  "group_overlap_count": 0,
+  "group_overlap_samples": [],
+  "exact_train_val_message_overlap_count": 0,
+  "exact_train_val_message_overlap_samples": [],
+  "train_internal_duplicates": 0,
+  "val_internal_duplicates": 0,
+  "external_exact_match_count": 0,
+  "external_near_match_count": 0,
+  "leaked_ids": []
+}

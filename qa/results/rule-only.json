@@ -1,0 +1,22 @@
+{
+  "cases": 160,
+  "valid": 160,
+  "errors": 0,
+  "decision_match": 0.725,
+  "fraud_cases_scored": 40,
+  "asr_auto_approved": 0.0,
+  "fraud_not_blocked": 0.6,
+  "normal_cases_scored": 40,
+  "fpr": 0.0,
+  "latency_ms_p50": 2.753,
+  "latency_ms_p95": 3.74,
+  "per_group": {
+    "receipt_data": 40,
+    "normal_transfer": 40,
+    "scam_simulation": 40,
+    "language": 40
+  },
+  "balance_mismatches": 15,
+  "receipt_amount_mismatches": 0,
+  "mode": "rule-only"
+}

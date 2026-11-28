@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Backend health",
+    "status": "PASS",
+    "ms": 318
+  },
+  {
+    "name": "Giao diện Next.js",
+    "status": "PASS",
+    "ms": 211
+  },
+  {
+    "name": "Reset ví về 10 triệu",
+    "status": "PASS",
+    "ms": 180
+  },
+  {
+    "name": "Tạo bản nháp bằng biệt danh",
+    "status": "PASS",
+    "ms": 142
+  },
+  {
+    "name": "Số dư giữ nguyên khi chờ PIN",
+    "status": "PASS",
+    "ms": 6
+  },
+  {
+    "name": "PIN sai bị từ chối",
+    "status": "PASS",
+    "ms": 499
+  },
+  {
+    "name": "PIN sai không trừ tiền",
+    "status": "PASS",
+    "ms": 4
+  },
+  {
+    "name": "PIN đúng cập nhật số dư",
+    "status": "PASS",
+    "ms": 231
+  },
+  {
+    "name": "Confirm lặp lại không trừ lần hai",
+    "status": "PASS",
+    "ms": 11
+  },
+  {
+    "name": "Hai người trùng tên trả về hai tùy chọn",
+    "status": "PASS",
+    "ms": 60
+  },
+  {
+    "name": "Chọn đúng người nhận từ thẻ hỏi lại",
+    "status": "PASS",
+    "ms": 55
+  },
+  {
+    "name": "Hủy bản nháp giữ nguyên số dư",
+    "status": "PASS",
+    "ms": 269
+  },
+  {
+    "name": "Số tiền thiếu đơn vị hiển thị tùy chọn",
+    "status": "PASS",
+    "ms": 65
+  },
+  {
+    "name": "Chọn đơn vị giữ đúng số tiền",
+    "status": "PASS",
+    "ms": 277
+  },
+  {
+    "name": "Reset dọn lịch sử UI",
+    "status": "PASS",
+    "ms": 4108
+  },
+  {
+    "name": "Đính kèm hóa đơn",
+    "status": "PASS",
+    "ms": 18
+  },
+  {
+    "name": "OCR thật đọc và tính 100.000 ₫",
+    "status": "PASS",
+    "ms": 1715
+  },
+  {
+    "name": "Xác nhận bản nháp OCR",
+    "status": "PASS",
+    "ms": 261
+  },
+  {
+    "name": "Tài khoản giả lập trong blacklist bị chặn",
+    "status": "PASS",
+    "ms": 65
+  },
+  {
+    "name": "Mất backend hiển thị lỗi kết nối",
+    "status": "PASS",
+    "ms": 76
+  }
+]
